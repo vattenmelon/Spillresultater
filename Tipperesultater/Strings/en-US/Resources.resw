@@ -123,6 +123,9 @@
   <data name="Header.Text" xml:space="preserve">
     <value>MY APPLICATION</value>
   </data>
+  <data name="LottoPremierLabel.Text" xml:space="preserve">
+    <value>premieprognose</value>
+  </data>
   <data name="LottoTilleggstallLabel.Text" xml:space="preserve">
     <value>tilleggstall</value>
   </data>
@@ -152,5 +155,14 @@
   </data>
   <data name="SecondaryButton2.Label" xml:space="preserve">
     <value>secondary command 2</value>
+  </data>
+  <data name="VikingLottoPremierLabel.Text" xml:space="preserve">
+    <value>premieprognose</value>
+  </data>
+  <data name="VikingLottoTilleggstallLabel.Text" xml:space="preserve">
+    <value>tilleggstall</value>
+  </data>
+  <data name="VikingLottoVinnertallLabel.Text" xml:space="preserve">
+    <value>vinnertall</value>
   </data>
 </root>

@@ -53,13 +53,14 @@ namespace Tipperesultater.Data
     /// </summary>
     public class SampleDataGroup
     {
-        public SampleDataGroup(String uniqueId, String title, String subtitle, String imagePath, String description)
+        public SampleDataGroup(String uniqueId, String title, String subtitle, String imagePath, String description, String premier)
         {
             this.UniqueId = uniqueId;
             this.Title = title;
             this.Subtitle = subtitle;
             this.Description = description;
             this.ImagePath = imagePath;
+            this.Premier = premier;
             this.Items = new ObservableCollection<SampleDataItem>();
         }
 
@@ -68,6 +69,7 @@ namespace Tipperesultater.Data
         public string Subtitle { get; private set; }
         public string Description { get; private set; }
         public string ImagePath { get; private set; }
+        public string Premier { get; private set; }
         public ObservableCollection<SampleDataItem> Items { get; private set; }
 
         public override string ToString()
@@ -91,14 +93,14 @@ namespace Tipperesultater.Data
         {
             get { return this._groups; }
         }
-
+        /*
         public static async Task<IEnumerable<SampleDataGroup>> GetGroupsAsync()
         {
             await _sampleDataSource.GetSampleDataAsync();
 
             return _sampleDataSource.Groups;
         }
-
+        */
         public static async Task<SampleDataGroup> GetGroupAsync(string uniqueId)
         {
             await _sampleDataSource.GetSampleDataAsync();
@@ -107,7 +109,7 @@ namespace Tipperesultater.Data
             if (matches.Count() == 1) return matches.First();
             return null;
         }
-
+        
         public static async Task<SampleDataItem> GetItemAsync(string uniqueId)
         {
             await _sampleDataSource.GetSampleDataAsync();
@@ -116,7 +118,7 @@ namespace Tipperesultater.Data
             if (matches.Count() == 1) return matches.First();
             return null;
         }
-
+        
         private async Task GetSampleDataAsync()
         {
             if (this._groups.Count != 0)
@@ -130,7 +132,16 @@ namespace Tipperesultater.Data
             JsonArray jsonArray = jsonObject["Groups"].GetArray();
             */
 
-            Uri dataUri2 = new Uri("https://www.norsk-tipping.no/api-lotto/getResultInfo.json");
+            SampleDataGroup sd = await lagLottoGruppe("https://www.norsk-tipping.no/api-lotto/getResultInfo.json", "Group-1");
+            this.Groups.Add(sd);
+            SampleDataGroup sd2 = await lagLottoGruppe("https://www.norsk-tipping.no/api-vikinglotto/getResultInfo.json", "Group-2");
+            this.Groups.Add(sd2);
+
+        }
+
+        private static async Task<SampleDataGroup> lagLottoGruppe(String url, String gruppenavn)
+        {
+            Uri dataUri2 = new Uri(url);
             var client = new HttpClient();
             var response = await client.GetAsync(dataUri2);
             var result = await response.Content.ReadAsStringAsync();
@@ -145,10 +156,17 @@ namespace Tipperesultater.Data
             var a = jsonObjectLotto["drawDate"].GetString();
             DateTime trekningspunkt = DateTime.ParseExact(a, "yyyy,MM,dd,HH,mm,ss", CultureInfo.InvariantCulture);
             string trekningspunktAsString = trekningspunkt.ToString("dddd dd. MMMM");
+            JsonArray premier = jsonObjectLotto["prizeTable"].GetArray();
+            JsonArray premierTitles = jsonObjectLotto["prizeCaptionTable"].GetArray();
+            string desc = String.Join("\r\n", premierTitles.Select(x => x.GetString()).ToList());
+            string prem = String.Join("\r\n", premier.Select(x =>
+                x.GetString().Equals("Jackpot!") ? "Jackpot!" : 
+                int.Parse(x.GetString()).ToString("### ### ### kr")
+             ).ToList());
 
-            SampleDataGroup sd = new SampleDataGroup("Group-1", vinnertallStr, tilleggstallStr, trekningspunktAsString, "afaf");
-            this.Groups.Add(sd);
 
+            SampleDataGroup sd = new SampleDataGroup(gruppenavn, vinnertallStr, tilleggstallStr, trekningspunktAsString, desc, prem);
+            return sd;
         }
     }
 }

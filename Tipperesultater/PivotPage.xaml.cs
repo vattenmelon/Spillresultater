@@ -76,6 +76,8 @@ namespace Tipperesultater
             // TODO: Create an appropriate data model for your problem domain to replace the sample data
             var sampleDataGroup = await SampleDataSource.GetGroupAsync("Group-1");
             this.DefaultViewModel[FirstGroupName] = sampleDataGroup;
+            var sampleDataGroup2 = await SampleDataSource.GetGroupAsync("Group-2");
+            this.DefaultViewModel[SecondGroupName] = sampleDataGroup2;
         }
 
         /// <summary>
@@ -134,8 +136,14 @@ namespace Tipperesultater
         /// </summary>
         private async void SecondPivot_Loaded(object sender, RoutedEventArgs e)
         {
-            var sampleDataGroup = await SampleDataSource.GetGroupAsync("Group-2");
-            this.DefaultViewModel[SecondGroupName] = sampleDataGroup;
+            //var sampleDataGroup = await SampleDataSource.GetGroupAsync("Group-2");
+            //this.DefaultViewModel[SecondGroupName] = sampleDataGroup;
+        }
+
+        private async void FirstPivot_Loaded(object sender, RoutedEventArgs e)
+        {
+            //var sampleDataGroup = await SampleDataSource.GetGroupAsync("Group-1");
+            //this.DefaultViewModel[FirstGroupName] = sampleDataGroup;
         }
 
         #region NavigationHelper registration
