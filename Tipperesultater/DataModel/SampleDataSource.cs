@@ -20,39 +20,19 @@ using Windows.UI.Xaml.Media.Imaging;
 
 namespace Tipperesultater.Data
 {
-    /// <summary>
-    /// Generic item data model.
-    /// </summary>
-    public class SampleDataItem
-    {
-        public SampleDataItem(String uniqueId, String title, String subtitle, String imagePath, String description, String content)
-        {
-            this.UniqueId = uniqueId;
-            this.Title = title;
-            this.Subtitle = subtitle;
-            this.Description = description;
-            this.ImagePath = imagePath;
-            this.Content = content;
-        }
-
-        public string UniqueId { get; private set; }
-        public string Title { get; private set; }
-        public string Subtitle { get; private set; }
-        public string Description { get; private set; }
-        public string ImagePath { get; private set; }
-        public string Content { get; private set; }
-
-        public override string ToString()
-        {
-            return this.Title;
-        }
-    }
-
+  
     /// <summary>
     /// Generic group data model.
     /// </summary>
     public class SampleDataGroup
     {
+
+        public static Dictionary<string, string> spill = new Dictionary<string, string>()
+        {
+                { "lotto", "https://www.norsk-tipping.no/api-lotto/getResultInfo.json"},
+                { "vikinglotto", "https://www.norsk-tipping.no/api-vikinglotto/getResultInfo.json"}
+        };
+
         public SampleDataGroup(String uniqueId, String title, String subtitle, String imagePath, String description, String premier)
         {
             this.UniqueId = uniqueId;
@@ -61,7 +41,7 @@ namespace Tipperesultater.Data
             this.Description = description;
             this.ImagePath = imagePath;
             this.Premier = premier;
-            this.Items = new ObservableCollection<SampleDataItem>();
+ 
         }
 
         public string UniqueId { get; private set; }
@@ -70,7 +50,6 @@ namespace Tipperesultater.Data
         public string Description { get; private set; }
         public string ImagePath { get; private set; }
         public string Premier { get; private set; }
-        public ObservableCollection<SampleDataItem> Items { get; private set; }
 
         public override string ToString()
         {
@@ -93,51 +72,28 @@ namespace Tipperesultater.Data
         {
             get { return this._groups; }
         }
-        /*
-        public static async Task<IEnumerable<SampleDataGroup>> GetGroupsAsync()
-        {
-            await _sampleDataSource.GetSampleDataAsync();
 
-            return _sampleDataSource.Groups;
-        }
-        */
-        public static async Task<SampleDataGroup> GetGroupAsync(string uniqueId)
+        public static async Task<SampleDataGroup> GetGroupAsync(string uniqueId, Boolean forceRefresh)
         {
-            await _sampleDataSource.GetSampleDataAsync();
-            // Simple linear search is acceptable for small data sets
             var matches = _sampleDataSource.Groups.Where((group) => group.UniqueId.Equals(uniqueId));
-            if (matches.Count() == 1) return matches.First();
-            return null;
+            if (matches.Count() == 1)
+            {
+                System.Diagnostics.Debug.WriteLine(String.Format("Found data for {0} in cache", uniqueId));
+                if (forceRefresh)
+                {
+                    System.Diagnostics.Debug.WriteLine(String.Format("Forcing refresh for {0} in cache", uniqueId));
+                    _sampleDataSource.Groups.Remove(matches.First());
+                    var sd = await lagLottoGruppe(SampleDataGroup.spill[uniqueId], uniqueId);
+                    _sampleDataSource.Groups.Add(sd);
+                    return sd;
+                }
+                return matches.First();
+            }
+            var sd2 = await lagLottoGruppe(SampleDataGroup.spill[uniqueId], uniqueId);
+            _sampleDataSource.Groups.Add(sd2);
+            return sd2;
         }
-        
-        public static async Task<SampleDataItem> GetItemAsync(string uniqueId)
-        {
-            await _sampleDataSource.GetSampleDataAsync();
-            // Simple linear search is acceptable for small data sets
-            var matches = _sampleDataSource.Groups.SelectMany(group => group.Items).Where((item) => item.UniqueId.Equals(uniqueId));
-            if (matches.Count() == 1) return matches.First();
-            return null;
-        }
-        
-        private async Task GetSampleDataAsync()
-        {
-            if (this._groups.Count != 0)
-                return;
-            /*
-            Uri dataUri = new Uri("ms-appx:///DataModel/SampleData.json");
-
-            StorageFile file = await StorageFile.GetFileFromApplicationUriAsync(dataUri);
-            string jsonText = await FileIO.ReadTextAsync(file);
-            JsonObject jsonObject = JsonObject.Parse(jsonText);
-            JsonArray jsonArray = jsonObject["Groups"].GetArray();
-            */
-
-            SampleDataGroup sd = await lagLottoGruppe("https://www.norsk-tipping.no/api-lotto/getResultInfo.json", "Group-1");
-            this.Groups.Add(sd);
-            SampleDataGroup sd2 = await lagLottoGruppe("https://www.norsk-tipping.no/api-vikinglotto/getResultInfo.json", "Group-2");
-            this.Groups.Add(sd2);
-
-        }
+                
 
         private static async Task<SampleDataGroup> lagLottoGruppe(String url, String gruppenavn)
         {
@@ -148,14 +104,18 @@ namespace Tipperesultater.Data
             result = result.Replace("while(true);/* 0;", "");
             result = result.Replace("/* */", "");
             JsonObject jsonObjectLotto = JsonObject.Parse(result);
-            int drawId = (int)jsonObjectLotto["drawID"].GetNumber();
+            //int drawId = (int)jsonObjectLotto["drawID"].GetNumber();
             JsonArray vinnertallArray = jsonObjectLotto["mainTable"].GetArray();
             var vinnertallStr = String.Join(", ", vinnertallArray.Select(x => x.GetNumber()).ToList());
-            JsonArray tilleggstallArray = jsonObjectLotto["addTable"].GetArray();
-            var tilleggstallStr = String.Join(", ", tilleggstallArray.Select(x => x.GetNumber()).ToList());
+            String tilleggstallStr = null;
+            if (!gruppenavn.Equals("joker"))
+            { 
+               JsonArray tilleggstallArray = jsonObjectLotto["addTable"].GetArray();
+               tilleggstallStr = String.Join(", ", tilleggstallArray.Select(x => x.GetNumber()).ToList());
+            }
             var a = jsonObjectLotto["drawDate"].GetString();
-            DateTime trekningspunkt = DateTime.ParseExact(a, "yyyy,MM,dd,HH,mm,ss", CultureInfo.InvariantCulture);
-            string trekningspunktAsString = trekningspunkt.ToString("dddd dd. MMMM");
+            DateTime trekningspunkt = DateTime.ParseExact(a, "yyyy,MM,dd,HH,mm,ss", new CultureInfo("nb-NO"));
+            string trekningspunktAsString = trekningspunkt.ToString("dddd dd. MMMM", new CultureInfo("nb-NO"));
             JsonArray premier = jsonObjectLotto["prizeTable"].GetArray();
             JsonArray premierTitles = jsonObjectLotto["prizeCaptionTable"].GetArray();
             string desc = String.Join("\r\n", premierTitles.Select(x => x.GetString()).ToList());
@@ -165,8 +125,8 @@ namespace Tipperesultater.Data
              ).ToList());
 
 
-            SampleDataGroup sd = new SampleDataGroup(gruppenavn, vinnertallStr, tilleggstallStr, trekningspunktAsString, desc, prem);
-            return sd;
+            return new SampleDataGroup(gruppenavn, vinnertallStr, tilleggstallStr, trekningspunktAsString, desc, prem);
+            
         }
     }
 }
