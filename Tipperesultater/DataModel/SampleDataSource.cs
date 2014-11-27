@@ -31,7 +31,8 @@ namespace Tipperesultater.Data
         {
                 { "lotto", "https://www.norsk-tipping.no/api-lotto/getResultInfo.json"},
                 { "vikinglotto", "https://www.norsk-tipping.no/api-vikinglotto/getResultInfo.json"},
-                { "joker", "https://www.norsk-tipping.no/api-joker/getResultInfo.json"}
+                { "joker", "https://www.norsk-tipping.no/api-joker/getResultInfo.json"},
+                { "eurojackpot", "https://www.norsk-tipping.no/api-eurojackpot/getResultInfo.json"}
         };
 
         public SampleDataGroup(String uniqueId, String title, String subtitle, String imagePath, String description, String premier)
@@ -105,11 +106,13 @@ namespace Tipperesultater.Data
             result = result.Replace("while(true);/* 0;", "");
             result = result.Replace("/* */", "");
             JsonObject jsonObjectLotto = JsonObject.Parse(result);
-            //int drawId = (int)jsonObjectLotto["drawID"].GetNumber();
+            var a = jsonObjectLotto["drawDate"].GetString();
+            DateTime trekningspunkt = DateTime.ParseExact(a, "yyyy,MM,dd,HH,mm,ss", new CultureInfo("nb-NO"));
+            string trekningspunktAsString = trekningspunkt.ToString("dddd dd. MMMM", new CultureInfo("nb-NO"));
 
             String vinnertallStr = null;
             String tilleggstallStr = null;
-            if (!gruppenavn.Equals("joker"))
+            if (gruppenavn.Equals("lotto") || gruppenavn.Equals("vikinglotto"))
             {
                System.Diagnostics.Debug.WriteLine("Ikke joker");
                JsonArray vinnertallArray = jsonObjectLotto["mainTable"].GetArray();
@@ -117,9 +120,9 @@ namespace Tipperesultater.Data
                JsonArray tilleggstallArray = jsonObjectLotto["addTable"].GetArray();
                tilleggstallStr = String.Join(", ", tilleggstallArray.Select(x => x.GetNumber()).ToList());
             }
-            else
+            else if (gruppenavn.Equals("joker"))
             {
-                System.Diagnostics.Debug.WriteLine("Er joker");
+                System.Diagnostics.Debug.WriteLine("joker");
                 JsonArray vinnertallArray = jsonObjectLotto["digits"].GetArray();
                 vinnertallStr = String.Join(", ", vinnertallArray.Select(x => x.GetNumber()).ToList());
                 tilleggstallStr = jsonObjectLotto["winnerNr"].GetNumber().ToString("### ### ###");
@@ -128,9 +131,32 @@ namespace Tipperesultater.Data
                 var gender = genderKode.Equals("K") ? "Kvinne" : "Mann";
                 tilleggstallStr = tilleggstallStr + " (" + gender + " " + personalia["age"].GetNumber() + ", " + personalia["borough"].GetString() + ")";
             }
-            var a = jsonObjectLotto["drawDate"].GetString();
-            DateTime trekningspunkt = DateTime.ParseExact(a, "yyyy,MM,dd,HH,mm,ss", new CultureInfo("nb-NO"));
-            string trekningspunktAsString = trekningspunkt.ToString("dddd dd. MMMM", new CultureInfo("nb-NO"));
+            else if (gruppenavn.Equals("eurojackpot"))
+            {
+                System.Diagnostics.Debug.WriteLine("Eurojackpot");
+                JsonArray vinnertallArray = jsonObjectLotto["mainTable"].GetArray();
+                vinnertallStr = String.Join(", ", vinnertallArray.Select(x => x.GetNumber()).ToList());
+                JsonArray tilleggstallArray = jsonObjectLotto["starTable"].GetArray();
+                tilleggstallStr = String.Join(", ", tilleggstallArray.Select(x => x.GetNumber()).ToList());
+                JsonArray prizes = jsonObjectLotto["prizes"].GetArray();
+                String desce = "";
+                System.Diagnostics.Debug.WriteLine("lol");
+                foreach (IJsonValue arra in prizes)
+                {
+                    System.Diagnostics.Debug.WriteLine("lols");
+                    System.Diagnostics.Debug.WriteLine(arra.GetType());
+                    System.Diagnostics.Debug.WriteLine(arra.ValueType);
+                    foreach (JsonValue valu in arra.GetArray())
+                    {
+                        System.Diagnostics.Debug.WriteLine("hahaha");
+                        desce += valu.GetString();
+                    }
+                    
+                }
+                
+                return new SampleDataGroup(gruppenavn, vinnertallStr, tilleggstallStr, trekningspunktAsString, desce, "");
+            }
+            
             JsonArray premier = jsonObjectLotto["prizeTable"].GetArray();
             JsonArray premierTitles = jsonObjectLotto["prizeCaptionTable"].GetArray();
             string desc = String.Join("\r\n", premierTitles.Select(x => x.GetString()).ToList());
