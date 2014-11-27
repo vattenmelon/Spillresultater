@@ -28,6 +28,7 @@ namespace Tipperesultater
     {
         private const string FirstGroupName = "FirstGroup";
         private const string SecondGroupName = "SecondGroup";
+        private const string ThirdGroupName = "ThirdGroup";
 
         private readonly NavigationHelper navigationHelper;
         private readonly ObservableDictionary defaultViewModel = new ObservableDictionary();
@@ -225,6 +226,11 @@ namespace Tipperesultater
                     System.Diagnostics.Debug.WriteLine("Getting data for second pivot");
                     var sampleDataGroup2 = await SampleDataSource.GetGroupAsync("vikinglotto", forceRefresh);
                     this.DefaultViewModel[SecondGroupName] = sampleDataGroup2;
+                    break;
+                case 2:
+                    System.Diagnostics.Debug.WriteLine("Getting data for second pivot");
+                    var sampleDataGroup3 = await SampleDataSource.GetGroupAsync("joker", forceRefresh);
+                    this.DefaultViewModel[ThirdGroupName] = sampleDataGroup3;
                     break;
                 default:
                     System.Diagnostics.Debug.WriteLine("Unknown index selected");

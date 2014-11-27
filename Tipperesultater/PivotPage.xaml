@@ -64,6 +64,27 @@
                     </StackPanel>
                 </StackPanel>
             </PivotItem>
+            <!--Pivot item three-->
+            <PivotItem
+                x:Uid="PivotItem3"
+                Margin="19,14.5,0,0"
+                Header="third"
+                DataContext="{Binding ThirdGroup}" >
+                <!--Double line list no text wrapping-->
+                <StackPanel HorizontalAlignment="Left" Height="433" Margin="0,0,0,0" VerticalAlignment="Top" Width="361">
+                    <TextBlock x:Uid="JokerTrekningsdatoLabel" x:Name="JokerTrekningsdatoLabel" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="{Binding ImagePath}" VerticalAlignment="Top" Height="22" Width="341" FontSize="18"/>
+                    <TextBlock x:Uid="JokerVinnertallLabel" x:Name="JokerVinnertallLabel" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="189" FontSize="36"/>
+                    <TextBlock x:Name="JokerVinnertallValues" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="{Binding Title}" VerticalAlignment="Top" Height="36" Width="328" FontSize="18" RenderTransformOrigin="0.322,0.395"/>
+                    <TextBlock x:Uid="JokerSpillerkortLabel" x:Name="JokerSpillerkortLabel" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="189" FontSize="36"/>
+                    <TextBlock x:Name="JokerSpillerkortValues" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="{Binding Subtitle}" VerticalAlignment="Top" Height="36" Width="328" FontSize="18" RenderTransformOrigin="0.322,0.395"/>
+                    <TextBlock x:Uid="JokerPremierLabel" x:Name="JokerPremierLabel" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="312" FontSize="36"/>
+                    <StackPanel HorizontalAlignment="Left" Height="433" Margin="0,0,0,0" VerticalAlignment="Top" Width="361" Orientation="Horizontal">
+                        <TextBlock x:Name="JokerPremierValuesTittel" Margin="10,10,0,0" TextWrapping="Wrap" Text="{Binding Description}" VerticalAlignment="Top" Height="253" Width="144" FontSize="18" RenderTransformOrigin="0.322,0.395" HorizontalAlignment="Left"/>
+                        <TextBlock x:Name="JokerPremierValues" Margin="10,10,0,0" TextWrapping="Wrap" Text="{Binding Premier}"  Height="253" Width="144" FontSize="18" RenderTransformOrigin="0.322,0.395" VerticalAlignment="Top" HorizontalAlignment="Right" TextAlignment="Right"/>
+                    </StackPanel>
+                </StackPanel>
+            </PivotItem>
+
         </Pivot>
     </Grid>
 

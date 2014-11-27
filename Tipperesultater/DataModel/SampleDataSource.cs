@@ -30,7 +30,8 @@ namespace Tipperesultater.Data
         public static Dictionary<string, string> spill = new Dictionary<string, string>()
         {
                 { "lotto", "https://www.norsk-tipping.no/api-lotto/getResultInfo.json"},
-                { "vikinglotto", "https://www.norsk-tipping.no/api-vikinglotto/getResultInfo.json"}
+                { "vikinglotto", "https://www.norsk-tipping.no/api-vikinglotto/getResultInfo.json"},
+                { "joker", "https://www.norsk-tipping.no/api-joker/getResultInfo.json"}
         };
 
         public SampleDataGroup(String uniqueId, String title, String subtitle, String imagePath, String description, String premier)
@@ -105,13 +106,27 @@ namespace Tipperesultater.Data
             result = result.Replace("/* */", "");
             JsonObject jsonObjectLotto = JsonObject.Parse(result);
             //int drawId = (int)jsonObjectLotto["drawID"].GetNumber();
-            JsonArray vinnertallArray = jsonObjectLotto["mainTable"].GetArray();
-            var vinnertallStr = String.Join(", ", vinnertallArray.Select(x => x.GetNumber()).ToList());
+
+            String vinnertallStr = null;
             String tilleggstallStr = null;
             if (!gruppenavn.Equals("joker"))
-            { 
+            {
+               System.Diagnostics.Debug.WriteLine("Ikke joker");
+               JsonArray vinnertallArray = jsonObjectLotto["mainTable"].GetArray();
+               vinnertallStr = String.Join(", ", vinnertallArray.Select(x => x.GetNumber()).ToList());
                JsonArray tilleggstallArray = jsonObjectLotto["addTable"].GetArray();
                tilleggstallStr = String.Join(", ", tilleggstallArray.Select(x => x.GetNumber()).ToList());
+            }
+            else
+            {
+                System.Diagnostics.Debug.WriteLine("Er joker");
+                JsonArray vinnertallArray = jsonObjectLotto["digits"].GetArray();
+                vinnertallStr = String.Join(", ", vinnertallArray.Select(x => x.GetNumber()).ToList());
+                tilleggstallStr = jsonObjectLotto["winnerNr"].GetNumber().ToString("### ### ###");
+                JsonObject personalia = jsonObjectLotto["winnerPersonalia"].GetObject();
+                String genderKode = personalia["gender"].GetString();
+                var gender = genderKode.Equals("K") ? "Kvinne" : "Mann";
+                tilleggstallStr = tilleggstallStr + " (" + gender + " " + personalia["age"].GetNumber() + ", " + personalia["borough"].GetString() + ")";
             }
             var a = jsonObjectLotto["drawDate"].GetString();
             DateTime trekningspunkt = DateTime.ParseExact(a, "yyyy,MM,dd,HH,mm,ss", new CultureInfo("nb-NO"));
