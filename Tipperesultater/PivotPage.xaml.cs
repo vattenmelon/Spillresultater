@@ -100,53 +100,13 @@ namespace Tipperesultater
         /// <summary>
         /// Adds an item to the list when the app bar button is clicked.
         /// </summary>
-        private void AddAppBarButton_Click(object sender, RoutedEventArgs e)
+        private async void AddAppBarButton_Click(object sender, RoutedEventArgs e)
         {
-            /*
-            string groupName = this.pivot.SelectedIndex == 0 ? FirstGroupName : SecondGroupName;
-            var group = this.DefaultViewModel[groupName] as SampleDataGroup;
-            var nextItemId = group.Items.Count + 1;
-            var newItem = new SampleDataItem(
-                string.Format(CultureInfo.InvariantCulture, "Group-{0}-Item-{1}", this.pivot.SelectedIndex + 1, nextItemId),
-                string.Format(CultureInfo.CurrentCulture, this.resourceLoader.GetString("NewItemTitle"), nextItemId),
-                string.Empty,
-                string.Empty,
-                this.resourceLoader.GetString("NewItemDescription"),
-                string.Empty);
-
-            group.Items.Add(newItem);
-
-            // Scroll the new item into view.
-            var container = this.pivot.ContainerFromIndex(this.pivot.SelectedIndex) as ContentControl;
-            var listView = container.ContentTemplateRoot as ListView;
-            listView.ScrollIntoView(newItem, ScrollIntoViewAlignment.Leading);
-             * */
-        }
-
-        /// <summary>
-        /// Invoked when an item within a section is clicked.
-        /// </summary>
-        private void ItemView_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            System.Diagnostics.Debug.WriteLine("ItemView ItemClick");
-        }
-
-        /// <summary>
-        /// Loads the content for the second pivot item when it is scrolled into view.
-        /// </summary>
-        private async void SecondPivot_Loaded(object sender, RoutedEventArgs e)
-        {
-            System.Diagnostics.Debug.WriteLine("Second Loaded");
-        //    var sampleDataGroup = await SampleDataSource.GetGroupAsync("Group-2");
-        //    this.DefaultViewModel[SecondGroupName] = sampleDataGroup;
-        }
-
-        private async void FirstPivot_Loaded(object sender, RoutedEventArgs e)
-        {
-            System.Diagnostics.Debug.WriteLine("FirstPivot Loaded");
-        //    var sampleDataGroup = await SampleDataSource.GetGroupAsync("Group-1");
-        //    this.DefaultViewModel[FirstGroupName] = sampleDataGroup;
-            
+            System.Diagnostics.Debug.WriteLine("AddAppBarButton_Click");
+            var statusBar = StatusBar.GetForCurrentView();
+            await statusBar.ProgressIndicator.ShowAsync();
+            await LoadData(true);
+            await statusBar.ProgressIndicator.HideAsync();
         }
 
         #region NavigationHelper registration
@@ -176,31 +136,6 @@ namespace Tipperesultater
 
         #endregion
 
-        private  void SecondPivot_GotFocus(object sender, RoutedEventArgs e)
-        {
-            System.Diagnostics.Debug.WriteLine("Second GotFocus");
-            //var sampleDataGroup = await SampleDataSource.GetGroupAsync("Group-2");
-            //this.DefaultViewModel[SecondGroupName] = sampleDataGroup;
-        }
-
-        private void FirstPivot_GotFocus(object sender, RoutedEventArgs e)
-        {
-            System.Diagnostics.Debug.WriteLine("First GotFocus");
-            //var sampleDataGroup = await SampleDataSource.GetGroupAsync("Group-1");
-            //this.DefaultViewModel[SecondGroupName] = sampleDataGroup;
-        }
-
-        private async void FirstPivotDoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
-        {
-            /*
-            System.Diagnostics.Debug.WriteLine("Doubletapped");
-            var statusBar = StatusBar.GetForCurrentView();
-            await statusBar.ProgressIndicator.ShowAsync();
-            await LoadData(true);
-            await statusBar.ProgressIndicator.HideAsync();
-             */
-        }
-
         private async void PivotSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var statusBar = StatusBar.GetForCurrentView();
@@ -220,22 +155,22 @@ namespace Tipperesultater
             {
                 case 0:
                     System.Diagnostics.Debug.WriteLine("Getting data for first pivot");
-                    var sampleDataGroup1 = await SampleDataSource.GetGroupAsync("lotto", forceRefresh);
+                    var sampleDataGroup1 = await WebDataSource.GetGroupAsync("lotto", forceRefresh);
                     this.DefaultViewModel[FirstGroupName] = sampleDataGroup1;
                     break;
                 case 1:
                     System.Diagnostics.Debug.WriteLine("Getting data for second pivot");
-                    var sampleDataGroup2 = await SampleDataSource.GetGroupAsync("vikinglotto", forceRefresh);
+                    var sampleDataGroup2 = await WebDataSource.GetGroupAsync("vikinglotto", forceRefresh);
                     this.DefaultViewModel[SecondGroupName] = sampleDataGroup2;
                     break;
                 case 2:
                     System.Diagnostics.Debug.WriteLine("Getting data for third pivot");
-                    var sampleDataGroup3 = await SampleDataSource.GetGroupAsync("joker", forceRefresh);
+                    var sampleDataGroup3 = await WebDataSource.GetGroupAsync("joker", forceRefresh);
                     this.DefaultViewModel[ThirdGroupName] = sampleDataGroup3;
                     break;
                 case 3:
                     System.Diagnostics.Debug.WriteLine("Getting data for fourth pivot");
-                    var sampleDataGroup4 = await SampleDataSource.GetGroupAsync("eurojackpot", forceRefresh);
+                    var sampleDataGroup4 = await WebDataSource.GetGroupAsync("eurojackpot", forceRefresh);
                     this.DefaultViewModel[FourthGroupName] = sampleDataGroup4;
                     break;
                 default:
@@ -278,6 +213,9 @@ namespace Tipperesultater
             await LoadData(true);
             await statusBar.ProgressIndicator.HideAsync();
         }
+
+ 
+
 
 
 

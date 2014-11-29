@@ -10,7 +10,7 @@ namespace UnitTests
         [TestMethod]
         public void TestMethod1()
         {
-            var sampleDataGroup = SampleDataSource.GetGroupAsync("Group-1");
+            var sampleDataGroup = WebDataSource.GetGroupAsync("Group-1", false);
             Assert.IsNotNull(sampleDataGroup);
         }
     }
