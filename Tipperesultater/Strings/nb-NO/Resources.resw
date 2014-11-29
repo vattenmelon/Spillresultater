@@ -118,19 +118,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AddAppBarButton.Label" xml:space="preserve">
-    <value>refresh</value>
+    <value>oppfrisk</value>
   </data>
   <data name="EuroPremierLabel.Text" xml:space="preserve">
-    <value>prizes</value>
+    <value>premieprognose</value>
   </data>
   <data name="EuroTilleggPremierLabel.Text" xml:space="preserve">
-    <value>additional prizes</value>
+    <value>tilleggspremier</value>
   </data>
   <data name="EuroTilleggstallLabel.Text" xml:space="preserve">
-    <value>star numbers</value>
+    <value>stjernetall</value>
   </data>
   <data name="EuroVinnertallLabel.Text" xml:space="preserve">
-    <value>main numbers</value>
+    <value>hovedtall</value>
   </data>
   <data name="Header.Text" xml:space="preserve">
     <value>MY APPLICATION</value>
@@ -139,19 +139,19 @@
     <value>premieprognose</value>
   </data>
   <data name="JokerSpillerkortLabel.Text" xml:space="preserve">
-    <value>player card number</value>
+    <value>spillerkort</value>
   </data>
   <data name="JokerVinnertallLabel.Text" xml:space="preserve">
-    <value>winning numbers</value>
+    <value>vinnertall</value>
   </data>
   <data name="LottoPremierLabel.Text" xml:space="preserve">
-    <value>prizes</value>
+    <value>premieprognose</value>
   </data>
   <data name="LottoTilleggstallLabel.Text" xml:space="preserve">
-    <value>additional numbers</value>
+    <value>tilleggstall</value>
   </data>
   <data name="LottoVinnertallLabel.Text" xml:space="preserve">
-    <value>winning numbers</value>
+    <value>vinnertall</value>
   </data>
   <data name="NavigationFailedExceptionMessage" xml:space="preserve">
     <value>Navigation failed.</value>
@@ -184,12 +184,12 @@
     <value>secondary command 2</value>
   </data>
   <data name="VikingLottoPremierLabel.Text" xml:space="preserve">
-    <value>prizes</value>
+    <value>premieprognose</value>
   </data>
   <data name="VikingLottoTilleggstallLabel.Text" xml:space="preserve">
-    <value>additional numbers</value>
+    <value>tilleggstall</value>
   </data>
   <data name="VikingLottoVinnertallLabel.Text" xml:space="preserve">
-    <value>winning numbers</value>
+    <value>vinnertall</value>
   </data>
 </root>
