@@ -28,6 +28,7 @@
                 Header="first" 
                 DataContext="{Binding FirstGroup}"
                 CommonNavigationTransitionInfo.IsStaggerElement="True" >
+                <ScrollViewer>
                     <StackPanel HorizontalAlignment="Left" Height="433" Margin="0,0,0,0" VerticalAlignment="Top" Width="361">
                     <TextBlock x:Uid="LottoTrekningsdatoLabel" x:Name="LottoTrekningsdatoLabel" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="{Binding Trekningsdato}" VerticalAlignment="Top" Height="22" Width="341" FontSize="18"/>
                     <TextBlock x:Uid="LottoVinnertallLabel" x:Name="LottoVinnertallLabel" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="189" FontSize="36"/>
@@ -40,8 +41,7 @@
                         <TextBlock x:Name="LottoPremierValues" Margin="10,10,0,0" TextWrapping="Wrap" Text="{Binding Premietall}"  Height="253" Width="144" FontSize="18" RenderTransformOrigin="0.322,0.395" VerticalAlignment="Top" HorizontalAlignment="Right" TextAlignment="Right"/>
                     </StackPanel>
                 </StackPanel>
-         
-                <!--Double line list with text wrapping-->
+                </ScrollViewer>
             </PivotItem>
 
             <!--Pivot item two-->
@@ -50,7 +50,7 @@
                 Margin="19,14.5,0,0"
                 Header="second"
                 DataContext="{Binding SecondGroup}">
-                <!--Double line list no text wrapping-->
+                <ScrollViewer>
                 <StackPanel HorizontalAlignment="Left" Height="433" Margin="0,0,0,0" VerticalAlignment="Top" Width="361">
                     <TextBlock x:Uid="VikingLottoTrekningsdatoLabel" x:Name="VikingLottoTrekningsdatoLabel" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="{Binding Trekningsdato}" VerticalAlignment="Top" Height="22" Width="341" FontSize="18"/>
                     <TextBlock x:Uid="VikingLottoVinnertallLabel" x:Name="VikingLottoVinnertallLabel" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="189" FontSize="36"/>
@@ -63,6 +63,7 @@
                         <TextBlock x:Name="VikingLottoPremierValues" Margin="10,10,0,0" TextWrapping="Wrap" Text="{Binding Premietall}"  Height="253" Width="144" FontSize="18" RenderTransformOrigin="0.322,0.395" VerticalAlignment="Top" HorizontalAlignment="Right" TextAlignment="Right"/>
                     </StackPanel>
                 </StackPanel>
+                    </ScrollViewer>
             </PivotItem>
             <!--Pivot item three-->
             <PivotItem
@@ -70,7 +71,7 @@
                 Margin="19,14.5,0,0"
                 Header="third"
                 DataContext="{Binding ThirdGroup}" >
-                <!--Double line list no text wrapping-->
+                <ScrollViewer>
                 <StackPanel HorizontalAlignment="Left" Height="433" Margin="0,0,0,0" VerticalAlignment="Top" Width="361">
                     <TextBlock x:Uid="JokerTrekningsdatoLabel" x:Name="JokerTrekningsdatoLabel" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="{Binding Trekningsdato}" VerticalAlignment="Top" Height="22" Width="341" FontSize="18"/>
                     <TextBlock x:Uid="JokerVinnertallLabel" x:Name="JokerVinnertallLabel" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="189" FontSize="36"/>
@@ -82,7 +83,8 @@
                         <TextBlock x:Name="JokerPremierValuesTittel" Margin="10,10,0,0" TextWrapping="Wrap" Text="{Binding Premienavn}" VerticalAlignment="Top" Height="253" Width="144" FontSize="18" RenderTransformOrigin="0.322,0.395" HorizontalAlignment="Left"/>
                         <TextBlock x:Name="JokerPremierValues" Margin="10,10,0,0" TextWrapping="Wrap" Text="{Binding Premietall}"  Height="253" Width="144" FontSize="18" RenderTransformOrigin="0.322,0.395" VerticalAlignment="Top" HorizontalAlignment="Right" TextAlignment="Right"/>
                     </StackPanel>
-                </StackPanel>
+                    </StackPanel>
+                </ScrollViewer>
             </PivotItem>
             <!--Pivot item four-->
             <PivotItem
