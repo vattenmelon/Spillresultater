@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 using Tipperesultater.Data;
+using System.Threading.Tasks;
 
 namespace UnitTests
 {
@@ -8,10 +9,21 @@ namespace UnitTests
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public async Task skal_hente_ned_lotto_resultater()
         {
-            var sampleDataGroup = WebDataSource.GetGroupAsync("Group-1", false);
-            Assert.IsNotNull(sampleDataGroup);
+            var resultatdata = await WebDataSource.GetGroupAsync("lotto", false);
+            Assert.IsNotNull(resultatdata);
+            string[] vinnertallArray = resultatdata.Vinnertall.Split(',');
+            Assert.AreEqual(7, vinnertallArray.Length);
+        }
+
+        [TestMethod]
+        public async Task skal_hente_ned_vikinglotto_resultater()
+        {
+            var resultatdata = await WebDataSource.GetGroupAsync("vikinglotto", false);
+            Assert.IsNotNull(resultatdata);
+            string[] vinnertallArray = resultatdata.Vinnertall.Split(',');
+            Assert.AreEqual(6, vinnertallArray.Length);
         }
     }
 }
