@@ -25,5 +25,14 @@ namespace UnitTests
             string[] vinnertallArray = resultatdata.Vinnertall.Split(',');
             Assert.AreEqual(6, vinnertallArray.Length);
         }
+
+        [TestMethod]
+        public async Task skal_hente_ned_joker_resultater()
+        {
+            var resultatdata = await WebDataSource.GetGroupAsync("joker", false);
+            Assert.IsNotNull(resultatdata);
+            string[] vinnertallArray = resultatdata.Vinnertall.Split(',');
+            Assert.AreEqual(5, vinnertallArray.Length);
+        }
     }
 }
