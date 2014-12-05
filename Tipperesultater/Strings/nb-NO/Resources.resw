@@ -132,6 +132,15 @@
   <data name="EuroVinnertallLabel.Text" xml:space="preserve">
     <value>hovedtall</value>
   </data>
+  <data name="FotballtippingFulltimeLabel.Text" xml:space="preserve">
+    <value>FULLTID</value>
+  </data>
+  <data name="FotballtippingHalftimeLabel.Text" xml:space="preserve">
+    <value>HALVTID</value>
+  </data>
+  <data name="FotballtippingMatchesLabel.Text" xml:space="preserve">
+    <value>KAMPER</value>
+  </data>
   <data name="FotballtippingVinnertallLabel.Text" xml:space="preserve">
     <value>tippekupong</value>
   </data>

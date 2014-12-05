@@ -132,6 +132,18 @@
   <data name="EuroVinnertallLabel.Text" xml:space="preserve">
     <value>main numbers</value>
   </data>
+  <data name="FotballtippingFulltimeLabel.Text" xml:space="preserve">
+    <value>FULLTIME</value>
+  </data>
+  <data name="FotballtippingHalftimeLabel.Text" xml:space="preserve">
+    <value>HALFTIME</value>
+  </data>
+  <data name="FotballtippingMatchesLabel.Text" xml:space="preserve">
+    <value>MATCHES</value>
+  </data>
+  <data name="FotballtippingVinnertallLabel.Text" xml:space="preserve">
+    <value>pools coupon</value>
+  </data>
   <data name="Header.Text" xml:space="preserve">
     <value>MY APPLICATION</value>
   </data>
@@ -176,6 +188,9 @@
   </data>
   <data name="PivotItem4.Header" xml:space="preserve">
     <value>eurojackpot</value>
+  </data>
+  <data name="PivotItem5.Header" xml:space="preserve">
+    <value>soccer</value>
   </data>
   <data name="SecondaryButton1.Label" xml:space="preserve">
     <value>secondary command 1</value>

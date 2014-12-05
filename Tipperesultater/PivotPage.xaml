@@ -121,10 +121,15 @@
                     <StackPanel HorizontalAlignment="Left" Height="858" Margin="0,0,0,0" VerticalAlignment="Top" Width="361">
                         <TextBlock x:Uid="FotballtippingTrekningsdatoLabel" x:Name="FotballtippingTrekningsdatoLabel" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="{Binding Trekningsdato}" VerticalAlignment="Top" Height="22" Width="341" FontSize="18"/>
                         <TextBlock x:Uid="FotballtippingVinnertallLabel" x:Name="FotballtippingVinnertallLabel" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="312" FontSize="36"/>
+                        <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" VerticalAlignment="Top" Width="351">
+                            <TextBlock Width="219" FontSize="12" Margin="10,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"  x:Uid="FotballtippingMatchesLabel" />
+                            <TextBlock Width="50" FontSize="12" VerticalAlignment="Top" HorizontalAlignment="Center"  Margin="10,10,0,0" TextAlignment="Center"  x:Uid="FotballtippingHalftimeLabel" />
+                            <TextBlock Width="50" FontSize="12" VerticalAlignment="Top" HorizontalAlignment="Center"  Margin="10,10,0,0" TextAlignment="Center"  x:Uid="FotballtippingFulltimeLabel" />
+                        </StackPanel>
                         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Width="351">
-                            <TextBlock x:Name="FotballtippingVinnertallValues"  Margin="10,10,0,0" TextWrapping="Wrap" Text="{Binding Vinnertall}" VerticalAlignment="Top" Height="439" Width="219" FontSize="12" RenderTransformOrigin="0.322,0.395"/>
-                            <TextBlock x:Name="FotballtippingTilleggstallValues"  Margin="10,10,0,0" TextWrapping="Wrap" Text="{Binding Tilleggstall}" VerticalAlignment="Top" Height="439" Width="50" FontSize="12" RenderTransformOrigin="0.322,0.395"/>
-                            <TextBlock x:Name="FotballtippingHeltidstallValues"  Margin="10,10,0,0" TextWrapping="Wrap" Text="{Binding Spillnavn}" VerticalAlignment="Top" Height="439" Width="50" FontSize="12" RenderTransformOrigin="0.322,0.395"/>
+                            <TextBlock x:Name="FotballtippingVinnertallValues"  Margin="10,10,0,0" TextWrapping="Wrap" Text="{Binding Vinnertall}" VerticalAlignment="Top" Height="432" Width="219" FontSize="12" RenderTransformOrigin="0.322,0.395"/>
+                            <TextBlock x:Name="FotballtippingTilleggstallValues"  Margin="10,10,0,0" TextWrapping="Wrap" HorizontalAlignment="Center" Text="{Binding Tilleggstall}" VerticalAlignment="Top" Height="439" Width="50" FontSize="12" RenderTransformOrigin="0.322,0.395" TextAlignment="Center"/>
+                            <TextBlock x:Name="FotballtippingHeltidstallValues"  Margin="10,10,0,0" TextWrapping="Wrap" HorizontalAlignment="Center" Text="{Binding Spillnavn}" VerticalAlignment="Top" Height="439" Width="50" FontSize="12" RenderTransformOrigin="0.322,0.395" TextAlignment="Center"/>
                         </StackPanel>
 
                     </StackPanel>
