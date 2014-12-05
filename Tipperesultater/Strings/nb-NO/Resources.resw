@@ -132,6 +132,9 @@
   <data name="EuroVinnertallLabel.Text" xml:space="preserve">
     <value>hovedtall</value>
   </data>
+  <data name="FotballtippingVinnertallLabel.Text" xml:space="preserve">
+    <value>tippekupong</value>
+  </data>
   <data name="Header.Text" xml:space="preserve">
     <value>MY APPLICATION</value>
   </data>
@@ -176,6 +179,9 @@
   </data>
   <data name="PivotItem4.Header" xml:space="preserve">
     <value>eurojackpot</value>
+  </data>
+  <data name="PivotItem5.Header" xml:space="preserve">
+    <value>fotballtipping</value>
   </data>
   <data name="SecondaryButton1.Label" xml:space="preserve">
     <value>secondary command 1</value>

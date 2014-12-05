@@ -33,7 +33,9 @@ namespace Tipperesultater.Data
                 { "lotto", "https://www.norsk-tipping.no/api-lotto/getResultInfo.json"},
                 { "vikinglotto", "https://www.norsk-tipping.no/api-vikinglotto/getResultInfo.json"},
                 { "joker", "https://www.norsk-tipping.no/api-joker/getResultInfo.json"},
-                { "eurojackpot", "https://www.norsk-tipping.no/api-eurojackpot/getResultInfo.json"}
+                { "eurojackpot", "https://www.norsk-tipping.no/api-eurojackpot/getResultInfo.json"},
+                { "fotballtipping", "https://www.norsk-tipping.no/api-tipping/getResultInfo.json?latestResult=0"}
+
         };
 
         public ResultatData(String spillnavn, String vinnertall, String tilleggstall, String trekningsdato, String premienavn, String premietall)
@@ -117,11 +119,79 @@ namespace Tipperesultater.Data
             var result = await response.Content.ReadAsStringAsync();
             result = result.Replace("while(true);/* 0;", "");
             result = result.Replace("/* */", "");
-
             JsonObject jsonObjectLotto = JsonObject.Parse(result);
+            
+            if (gruppenavn.Equals("fotballtipping"))
+            {
+                System.Diagnostics.Debug.WriteLine("fotballtipping");
+                var b = jsonObjectLotto["gameDays"].GetArray();
+                foreach (JsonValue obj in b)
+                {
+                    {
+                        System.Diagnostics.Debug.WriteLine("----------------------");
+                        if (obj.ValueType != JsonValueType.Null)
+                        {
+                            JsonObject ob1 = obj.GetObject();
+
+                            string dd1 = ob1["drawDate"].GetString();
+                            System.Diagnostics.Debug.WriteLine(dd1);
+
+                            DateTime trekningspunkt2 = DateTime.ParseExact(dd1, "yyyy,MM,dd,HH,mm,ss", new CultureInfo("nb-NO"));
+                            string trekningspunktAsString2 = trekningspunkt2.ToString("dddd dd. MMMM", new CultureInfo("nb-NO"));
+
+                            JsonArray events = ob1["events"].GetArray();
+                            String kamper = "";
+                            foreach (JsonValue ev in events)
+                            {
+                                
+                                JsonArray arra = ev.GetArray();
+                                String lag1 = arra[1].GetString();
+                                String lag2 = arra[2].GetString();
+                                kamper += lag1 + " - " + lag2 + "\r\n";
+
+                            }
+
+
+                            String halvtid = "";
+                            String heltid = "";
+                            int teller = 0;
+                            JsonArray results = ob1["matchStages"].GetArray();
+                            foreach (JsonValue ev in results) 
+                            {
+                                System.Diagnostics.Debug.WriteLine(ev.ValueType);
+                                System.Diagnostics.Debug.WriteLine(ev.Stringify());
+                                JsonObject r2 = ev.GetObject();
+                                JsonArray res2 = r2["results"].GetArray();
+
+                                foreach (JsonValue r22 in res2)
+                                {
+                                    JsonArray j2 = r22.GetArray();
+                                    String text = String.Join("", j2.Select((x, i) => i == 0 ? x.GetString() : x.GetNumber() == 0 ? " H\r\n" : x.GetNumber() == 1 ? " U\r\n" : " B\r\n"));
+                                    if (teller == 0)
+                                    {
+                                        halvtid += text;
+                                    }
+                                    else 
+                                    {
+                                        heltid += text;
+                                    }
+                                    
+                                }
+                                teller++;
+
+                            }
+
+                            return new ResultatData(heltid, kamper, halvtid, trekningspunktAsString2, "", "", "");
+                        }
+                    }
+                }
+            }
+
+           
             var a = jsonObjectLotto["drawDate"].GetString();
             DateTime trekningspunkt = DateTime.ParseExact(a, "yyyy,MM,dd,HH,mm,ss", new CultureInfo("nb-NO"));
             string trekningspunktAsString = trekningspunkt.ToString("dddd dd. MMMM", new CultureInfo("nb-NO"));
+
 
             String vinnertallStr = null;
             String tilleggstallStr = null;
