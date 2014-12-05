@@ -167,30 +167,19 @@ namespace Tipperesultater.Data
                             JsonArray results = ob1["matchStages"].GetArray();
                             foreach (JsonValue ev in results) 
                             {
-                                
+
+                                String resultatText = null;
                                 JsonObject r2 = ev.GetObject();
                                 JsonArray res2 = r2["results"].GetArray();
-                                int pteller = 1;
-                                foreach (JsonValue r22 in res2)
+                                resultatText = GetFotballtippingResultater(res2);
+
+                                if (teller == 0)
                                 {
-                                    JsonArray j2 = r22.GetArray();
-                                    String text = String.Join("", j2.Select((x, i) => i == 0 ? x.GetString() : x.GetNumber() == 0 ? " H\r\n" : x.GetNumber() == 1 ? " U\r\n" : " B\r\n"));
-                                    
-                                    if (pteller % 3 == 0)
-                                    {
-                                        text += "\r\n";
-                                    }
-                                    pteller++;
-                                        
-                                    if (teller == 0)
-                                    {
-                                        halvtid += text;
-                                    }
-                                    else 
-                                    {
-                                        heltid += text;
-                                    }
-                                    
+                                    halvtid += resultatText;
+                                }
+                                else
+                                {
+                                    heltid += resultatText;
                                 }
                                
                                 teller++;
@@ -290,6 +279,27 @@ namespace Tipperesultater.Data
 
             return new ResultatData(gruppenavn, vinnertallStr, tilleggstallStr, trekningspunktAsString, desc, prem);
             
+        }
+
+        private static string GetFotballtippingResultater(JsonArray res2)
+        {
+            String text = null;
+            int pteller = 1;
+            foreach (JsonValue r22 in res2)
+            {
+                JsonArray j2 = r22.GetArray();
+                text += String.Join("", j2.Select((x, i) => i == 0 ? x.GetString() : x.GetNumber() == 0 ? " H\r\n" : x.GetNumber() == 1 ? " U\r\n" : " B\r\n"));
+                
+                if (pteller % 3 == 0)
+                {
+                    text += "\r\n";
+                }
+                pteller++;
+
+
+
+            }
+            return text;
         }
     }
 }
