@@ -141,6 +141,9 @@
   <data name="FotballtippingMatchesLabel.Text" xml:space="preserve">
     <value>MATCHES</value>
   </data>
+  <data name="FotballtippingPremieprognoseLabel.Text" xml:space="preserve">
+    <value>prizes</value>
+  </data>
   <data name="FotballtippingVinnertallLabel.Text" xml:space="preserve">
     <value>pools coupon</value>
   </data>

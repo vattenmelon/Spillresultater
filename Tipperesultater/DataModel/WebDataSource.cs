@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
@@ -34,7 +35,7 @@ namespace Tipperesultater.Data
                 { "vikinglotto", "https://www.norsk-tipping.no/api-vikinglotto/getResultInfo.json"},
                 { "joker", "https://www.norsk-tipping.no/api-joker/getResultInfo.json"},
                 { "eurojackpot", "https://www.norsk-tipping.no/api-eurojackpot/getResultInfo.json"},
-                { "fotballtipping", "https://www.norsk-tipping.no/api-tipping/getResultInfo.json?latestResult=0"}
+                { "fotballtipping", "https://www.norsk-tipping.no/api-tipping/getResultInfo.json?gameDay=100"} //100 = lørdag, 010 = søndag, 001 = onsdag/midtuke
 
         };
 
@@ -141,6 +142,7 @@ namespace Tipperesultater.Data
 
                             JsonArray events = ob1["events"].GetArray();
                             String kamper = "";
+                            int tellert = 1;
                             foreach (JsonValue ev in events)
                             {
                                 
@@ -148,25 +150,38 @@ namespace Tipperesultater.Data
                                 String lag1 = arra[1].GetString();
                                 String lag2 = arra[2].GetString();
                                 kamper += lag1 + " - " + lag2 + "\r\n";
+                                if (tellert % 3 == 0)
+                                {
+                                    kamper += "\r\n";
+                                }
+                                tellert++;
 
                             }
 
 
                             String halvtid = "";
                             String heltid = "";
+                            String premieTekst = "HALVTID\r\n";
+                            String premieVerdi = "\r\n";
                             int teller = 0;
                             JsonArray results = ob1["matchStages"].GetArray();
                             foreach (JsonValue ev in results) 
                             {
-                                System.Diagnostics.Debug.WriteLine(ev.ValueType);
-                                System.Diagnostics.Debug.WriteLine(ev.Stringify());
+                                
                                 JsonObject r2 = ev.GetObject();
                                 JsonArray res2 = r2["results"].GetArray();
-
+                                int pteller = 1;
                                 foreach (JsonValue r22 in res2)
                                 {
                                     JsonArray j2 = r22.GetArray();
                                     String text = String.Join("", j2.Select((x, i) => i == 0 ? x.GetString() : x.GetNumber() == 0 ? " H\r\n" : x.GetNumber() == 1 ? " U\r\n" : " B\r\n"));
+                                    
+                                    if (pteller % 3 == 0)
+                                    {
+                                        text += "\r\n";
+                                    }
+                                    pteller++;
+                                        
                                     if (teller == 0)
                                     {
                                         halvtid += text;
@@ -177,11 +192,32 @@ namespace Tipperesultater.Data
                                     }
                                     
                                 }
+                               
                                 teller++;
+
+                                res2 = r2["prizes"].GetArray();
+
+                                IList abba = res2.Reverse().ToList();
+                                
+                                foreach (JsonValue j2 in abba)
+                                {
+                                    JsonArray j22 = j2.GetArray();
+                                    String text = String.Join("", j22.Select((x, i) => i == 0 ? x.GetString() : i == 1 ? "" : "\r\n"));
+                                    premieTekst += text;
+                                    String text2 = String.Join("", j22.Select((x, i) => i == 1 ? 
+                                            x.ValueType == JsonValueType.String ? x.GetString() :
+                                            x.GetNumber().ToString("### ### ### kr") : i == 0 ? "" : "\r\n"));
+                                    premieVerdi += text2;
+                                }
+                                if (teller == 1)
+                                {
+                                    premieTekst += "\r\nFULLTID\r\n";
+                                    premieVerdi += "\r\n\r\n";
+                                }
 
                             }
 
-                            return new ResultatData(heltid, kamper, halvtid, trekningspunktAsString2, "", "", "");
+                            return new ResultatData(heltid, kamper, halvtid, trekningspunktAsString2, premieTekst, premieVerdi, "");
                         }
                     }
                 }
