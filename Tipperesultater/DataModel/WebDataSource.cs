@@ -143,6 +143,7 @@ namespace Tipperesultater.Data
                             JsonArray events = ob1["events"].GetArray();
                             String kamper = "";
                             int tellert = 1;
+                            int statusteller = 0;
                             foreach (JsonValue ev in events)
                             {
                                 
@@ -155,7 +156,20 @@ namespace Tipperesultater.Data
                                     kamper += "\r\n";
                                 }
                                 tellert++;
+                                String status = arra[4].GetString();
+                                if (status.Equals("Slutt"))
+                                {
+                                    statusteller++;
+                                }
 
+                            }
+                            if (statusteller == 12)
+                            {
+                                kamper += "Alle kamper er ferdig";
+                            }
+                            else
+                            {
+                                kamper += "Ikke alle kamper er ferdig";
                             }
 
 
@@ -288,8 +302,8 @@ namespace Tipperesultater.Data
             foreach (JsonValue r22 in res2)
             {
                 JsonArray j2 = r22.GetArray();
-                text += String.Join("", j2.Select((x, i) => i == 0 ? x.GetString() : x.GetNumber() == 0 ? " H\r\n" : x.GetNumber() == 1 ? " U\r\n" : " B\r\n"));
-                
+                //text += String.Join("", j2.Select((x, i) => i == 0 ? x.GetString() : x.GetNumber() == 0 ? " H\r\n" : x.GetNumber() == 1 ? " U\r\n" : " B\r\n"));
+                text += String.Join("", j2.Select((x, i) => i == 0 ? x.GetString() : decode(x.GetNumber())));
                 if (pteller % 3 == 0)
                 {
                     text += "\r\n";
@@ -300,6 +314,21 @@ namespace Tipperesultater.Data
 
             }
             return text;
+        }
+
+        private static string decode(double number)
+        {
+            switch((int)number)
+            {
+                case 0:
+                    return " H\r\n";
+                case 1:
+                    return " U\r\n";
+                case 2:
+                    return " B\r\n";
+                default:
+                    return "";
+            }
         }
     }
 }
