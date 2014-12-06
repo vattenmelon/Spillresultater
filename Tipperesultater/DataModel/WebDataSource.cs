@@ -300,11 +300,13 @@ namespace Tipperesultater.Data
         {
             String text = null;
             int pteller = 1;
+            
             foreach (JsonValue r22 in res2)
             {
                 JsonArray j2 = r22.GetArray();
                 //text += String.Join("", j2.Select((x, i) => i == 0 ? x.GetString() : x.GetNumber() == 0 ? " H\r\n" : x.GetNumber() == 1 ? " U\r\n" : " B\r\n"));
                 text += String.Join("", j2.Select((x, i) => i == 0 ? x.GetString() : decode(x.GetNumber())));
+                //System.Diagnostics.Debug.WriteLine(text);
                 if (pteller % 3 == 0)
                 {
                     text += "\r\n";
@@ -328,7 +330,7 @@ namespace Tipperesultater.Data
                 case 2:
                     return " B\r\n";
                 default:
-                    return "";
+                    return "\r\n";
             }
         }
     }
