@@ -142,6 +142,7 @@ namespace Tipperesultater.Data
 
                             JsonArray events = ob1["events"].GetArray();
                             String kamper = "";
+                            String kampstatus = "";
                             int tellert = 1;
                             int statusteller = 0;
                             foreach (JsonValue ev in events)
@@ -165,11 +166,11 @@ namespace Tipperesultater.Data
                             }
                             if (statusteller == 12)
                             {
-                                kamper += "Alle kamper er ferdig";
+                                kampstatus = "Alle kamper er ferdig";
                             }
                             else
                             {
-                                kamper += "Ikke alle kamper er ferdig";
+                                kampstatus = "Ikke alle kamper er ferdig";
                             }
 
 
@@ -220,7 +221,7 @@ namespace Tipperesultater.Data
 
                             }
 
-                            return new ResultatData(heltid, kamper, halvtid, trekningspunktAsString2, premieTekst, premieVerdi, "");
+                            return new ResultatData(heltid, kamper, halvtid, trekningspunktAsString2, premieTekst, premieVerdi, kampstatus);
                         }
                     }
                 }
