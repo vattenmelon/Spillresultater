@@ -205,8 +205,9 @@ namespace Tipperesultater.Data
                                 
                                 foreach (JsonValue j2 in abba)
                                 {
+                                    
                                     JsonArray j22 = j2.GetArray();
-                                    String text = String.Join("", j22.Select((x, i) => i == 0 ? x.GetString() : i == 1 ? "" : "\r\n"));
+                                    String text = String.Join("", j22.Select((x, i) => i == 0 ? x.GetString().Replace("av", CultureInfo.CurrentCulture.TwoLetterISOLanguageName.Equals("no") ? "av" : "of") : i == 1 ? "" : "\r\n"));
                                     premieTekst += text;
                                     String text2 = String.Join("", j22.Select((x, i) => i == 1 ? 
                                             x.ValueType == JsonValueType.String ? x.GetString() :
