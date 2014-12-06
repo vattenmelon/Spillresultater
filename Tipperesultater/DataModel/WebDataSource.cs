@@ -35,8 +35,8 @@ namespace Tipperesultater.Data
                 { "vikinglotto", "https://www.norsk-tipping.no/api-vikinglotto/getResultInfo.json"},
                 { "joker", "https://www.norsk-tipping.no/api-joker/getResultInfo.json"},
                 { "eurojackpot", "https://www.norsk-tipping.no/api-eurojackpot/getResultInfo.json"},
-                { "fotballtipping", "https://www.norsk-tipping.no/api-tipping/getResultInfo.json?gameDay=100"} //100 = lørdag, 010 = søndag, 001 = onsdag/midtuke
-
+                { "fotballtipping", "https://www.norsk-tipping.no/api-tipping/getResultInfo.json?gameDay=100"}, //100 = lørdag, 010 = søndag, 001 = onsdag/midtuke
+                { "fotballtippingSon", "https://www.norsk-tipping.no/api-tipping/getResultInfo.json?gameDay=010"}
         };
 
         public ResultatData(String spillnavn, String vinnertall, String tilleggstall, String trekningsdato, String premienavn, String premietall)
@@ -122,7 +122,7 @@ namespace Tipperesultater.Data
             result = result.Replace("/* */", "");
             JsonObject jsonObjectLotto = JsonObject.Parse(result);
             
-            if (gruppenavn.Equals("fotballtipping"))
+            if (gruppenavn.StartsWith("fotballtipping"))
             {
                 System.Diagnostics.Debug.WriteLine("fotballtipping");
                 var b = jsonObjectLotto["gameDays"].GetArray();
@@ -304,9 +304,7 @@ namespace Tipperesultater.Data
             foreach (JsonValue r22 in res2)
             {
                 JsonArray j2 = r22.GetArray();
-                //text += String.Join("", j2.Select((x, i) => i == 0 ? x.GetString() : x.GetNumber() == 0 ? " H\r\n" : x.GetNumber() == 1 ? " U\r\n" : " B\r\n"));
                 text += String.Join("", j2.Select((x, i) => i == 0 ? x.GetString() : decode(x.GetNumber())));
-                //System.Diagnostics.Debug.WriteLine(text);
                 if (pteller % 3 == 0)
                 {
                     text += "\r\n";

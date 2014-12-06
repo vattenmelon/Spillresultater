@@ -144,6 +144,21 @@
   <data name="FotballtippingPremieprognoseLabel.Text" xml:space="preserve">
     <value>prizes</value>
   </data>
+  <data name="FotballtippingSonFulltimeLabel.Text" xml:space="preserve">
+    <value>FULLTIME</value>
+  </data>
+  <data name="FotballtippingSonHalftimeLabel.Text" xml:space="preserve">
+    <value>HALFTIME</value>
+  </data>
+  <data name="FotballtippingSonMatchesLabel.Text" xml:space="preserve">
+    <value>MATCHES</value>
+  </data>
+  <data name="FotballtippingSonPremieprognoseLabel.Text" xml:space="preserve">
+    <value>prizes</value>
+  </data>
+  <data name="FotballtippingSonVinnertallLabel.Text" xml:space="preserve">
+    <value>pools coupon</value>
+  </data>
   <data name="FotballtippingVinnertallLabel.Text" xml:space="preserve">
     <value>pools coupon</value>
   </data>
@@ -193,7 +208,10 @@
     <value>eurojackpot</value>
   </data>
   <data name="PivotItem5.Header" xml:space="preserve">
-    <value>soccer</value>
+    <value>saturday's soccer</value>
+  </data>
+  <data name="PivotItem6.Header" xml:space="preserve">
+    <value>sunday's soccer</value>
   </data>
   <data name="SecondaryButton1.Label" xml:space="preserve">
     <value>secondary command 1</value>
