@@ -137,8 +137,8 @@ namespace Tipperesultater.Data
                             string dd1 = ob1["drawDate"].GetString();
                             System.Diagnostics.Debug.WriteLine(dd1);
 
-                            DateTime trekningspunkt2 = DateTime.ParseExact(dd1, "yyyy,MM,dd,HH,mm,ss", new CultureInfo("nb-NO"));
-                            string trekningspunktAsString2 = trekningspunkt2.ToString("dddd dd. MMMM", new CultureInfo("nb-NO"));
+                            DateTime trekningspunkt2 = DateTime.ParseExact(dd1, "yyyy,MM,dd,HH,mm,ss", CultureInfo.CurrentCulture);
+                            string trekningspunktAsString2 = trekningspunkt2.ToString("dddd d. MMMM", CultureInfo.CurrentCulture);
 
                             JsonArray events = ob1["events"].GetArray();
                             String kamper = "";
@@ -229,8 +229,8 @@ namespace Tipperesultater.Data
 
            
             var a = jsonObjectLotto["drawDate"].GetString();
-            DateTime trekningspunkt = DateTime.ParseExact(a, "yyyy,MM,dd,HH,mm,ss", new CultureInfo("nb-NO"));
-            string trekningspunktAsString = trekningspunkt.ToString("dddd dd. MMMM", new CultureInfo("nb-NO"));
+            DateTime trekningspunkt = DateTime.ParseExact(a, "yyyy,MM,dd,HH,mm,ss", CultureInfo.CurrentCulture);
+            string trekningspunktAsString = trekningspunkt.ToString("dddd d. MMMM", CultureInfo.CurrentCulture);
 
 
             String vinnertallStr = null;
