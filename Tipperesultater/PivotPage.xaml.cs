@@ -36,7 +36,7 @@ namespace Tipperesultater
 
         private readonly NavigationHelper navigationHelper;
         private readonly ObservableDictionary defaultViewModel = new ObservableDictionary();
-        private readonly ResourceLoader resourceLoader = ResourceLoader.GetForCurrentView("Resources");
+        private readonly ResourceLoader resourceLoader = ResourceLoader.GetForCurrentView("Resources"); //faar ikke dette til å virke..
 
         public PivotPage()
         {
