@@ -36,7 +36,8 @@ namespace Tipperesultater.Data
                 { "joker", "https://www.norsk-tipping.no/api-joker/getResultInfo.json"},
                 { "eurojackpot", "https://www.norsk-tipping.no/api-eurojackpot/getResultInfo.json"},
                 { "fotballtipping", "https://www.norsk-tipping.no/api-tipping/getResultInfo.json?gameDay=100"}, //100 = lørdag, 010 = søndag, 001 = onsdag/midtuke
-                { "fotballtippingSon", "https://www.norsk-tipping.no/api-tipping/getResultInfo.json?gameDay=010"}
+                { "fotballtippingSon", "https://www.norsk-tipping.no/api-tipping/getResultInfo.json?gameDay=010"},
+                { "fotballtippingMidt", "https://www.norsk-tipping.no/api-tipping/getResultInfo.json?gameDay=001"}
         };
 
         public ResultatData(String spillnavn, String vinnertall, String tilleggstall, String trekningsdato, String premienavn, String premietall)

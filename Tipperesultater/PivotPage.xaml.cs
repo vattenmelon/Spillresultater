@@ -32,6 +32,7 @@ namespace Tipperesultater
         private const string FourthGroupName = "FourthGroup";
         private const string FifthGroupName = "FifthGroup";
         private const string SixthGroupName = "SixthGroup";
+        private const string SeventhGroupName = "SeventhGroup";
 
         private readonly NavigationHelper navigationHelper;
         private readonly ObservableDictionary defaultViewModel = new ObservableDictionary();
@@ -184,6 +185,11 @@ namespace Tipperesultater
                     System.Diagnostics.Debug.WriteLine("Getting data for sixth pivot");
                     var sampleDataGroup6 = await WebDataSource.GetGroupAsync("fotballtippingSon", forceRefresh);
                     this.DefaultViewModel[SixthGroupName] = sampleDataGroup6;
+                    break;
+                case 6:
+                    System.Diagnostics.Debug.WriteLine("Getting data for seventh pivot");
+                    var sampleDataGroup7 = await WebDataSource.GetGroupAsync("fotballtippingMidt", forceRefresh);
+                    this.DefaultViewModel[SeventhGroupName] = sampleDataGroup7;
                     break;
                 default:
                     System.Diagnostics.Debug.WriteLine("Unknown index selected");
