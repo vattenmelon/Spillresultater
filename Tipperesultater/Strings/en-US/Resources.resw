@@ -213,6 +213,9 @@
   <data name="PivotItem6.Header" xml:space="preserve">
     <value>sunday's soccer</value>
   </data>
+  <data name="PivotItem7.Header" xml:space="preserve">
+    <value>midweek's soccer</value>
+  </data>
   <data name="SecondaryButton1.Label" xml:space="preserve">
     <value>secondary command 1</value>
   </data>

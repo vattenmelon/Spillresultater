@@ -122,6 +122,13 @@ namespace Tipperesultater.Data
             result = result.Replace("while(true);/* 0;", "");
             result = result.Replace("/* */", "");
             JsonObject jsonObjectLotto = JsonObject.Parse(result);
+            string halvTid = "HALFTIME";
+            string helTid = "FULLTIME";
+            if (CultureInfo.CurrentCulture.TwoLetterISOLanguageName.Equals("nb"))
+            {
+                halvTid = "HALVTID";
+                helTid = "HELTID";
+            }
             
             if (gruppenavn.StartsWith("fotballtipping"))
             {
@@ -167,17 +174,32 @@ namespace Tipperesultater.Data
                             }
                             if (statusteller == 12)
                             {
-                                kampstatus = "Alle kamper er ferdig";
+                                if (CultureInfo.CurrentCulture.TwoLetterISOLanguageName.Equals("nb"))
+                                {
+                                    kampstatus = "Alle kamper er ferdig";
+                                }
+                                else
+                                {
+                                    kampstatus = "All matches are finished";
+                                }
                             }
                             else
                             {
-                                kampstatus = "Ikke alle kamper er ferdig";
+                                if (CultureInfo.CurrentCulture.TwoLetterISOLanguageName.Equals("nb"))
+                                {
+                                    kampstatus = "Ikke alle kamper er ferdig";
+                                }
+                                else
+                                {
+                                    kampstatus = "Not all matches are finished";
+                                }
+                                
                             }
 
 
                             String halvtid = "";
                             String heltid = "";
-                            String premieTekst = "HALVTID\r\n";
+                            String premieTekst = halvTid + "\r\n";
                             String premieVerdi = "\r\n";
                             int teller = 0;
                             JsonArray results = ob1["matchStages"].GetArray();
@@ -217,7 +239,7 @@ namespace Tipperesultater.Data
                                 }
                                 if (teller == 1)
                                 {
-                                    premieTekst += "\r\nFULLTID\r\n";
+                                    premieTekst += "\r\n"+helTid+"\r\n";
                                     premieVerdi += "\r\n\r\n";
                                 }
 
