@@ -174,7 +174,7 @@
             <PivotItem
                 x:Uid="PivotItem7"
                 Margin="19,14,0,-290.5"
-                Header="sixth"
+                Header="seventh"
                 DataContext="{Binding SeventhGroup}" >
                 <!--Double line list no text wrapping-->
                 <ScrollViewer Margin="0,0,-0.167,295.167" Width="Auto">
