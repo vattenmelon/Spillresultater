@@ -133,10 +133,10 @@
     <value>hovedtall</value>
   </data>
   <data name="FotballtippingFulltimeLabel.Text" xml:space="preserve">
-    <value>FULLTID</value>
+    <value>FULL</value>
   </data>
   <data name="FotballtippingHalftimeLabel.Text" xml:space="preserve">
-    <value>HALVTID</value>
+    <value>HALV</value>
   </data>
   <data name="FotballtippingMatchesLabel.Text" xml:space="preserve">
     <value>KAMPER</value>
@@ -145,10 +145,10 @@
     <value>premieprognose</value>
   </data>
   <data name="FotballtippingSonFulltimeLabel.Text" xml:space="preserve">
-    <value>FULLTID</value>
+    <value>FULL</value>
   </data>
   <data name="FotballtippingSonHalftimeLabel.Text" xml:space="preserve">
-    <value>HALVTID</value>
+    <value>HALV</value>
   </data>
   <data name="FotballtippingSonMatchesLabel.Text" xml:space="preserve">
     <value>KAMPER</value>
