@@ -24,58 +24,6 @@ namespace Tipperesultater.Data
 {
   
     /// <summary>
-    /// Generic group data model.
-    /// </summary>
-    public class ResultatData
-    {
-
-        public static Dictionary<string, string> spill = new Dictionary<string, string>()
-        {
-                { "lotto", "https://www.norsk-tipping.no/api-lotto/getResultInfo.json"},
-                { "vikinglotto", "https://www.norsk-tipping.no/api-vikinglotto/getResultInfo.json"},
-                { "joker", "https://www.norsk-tipping.no/api-joker/getResultInfo.json"},
-                { "eurojackpot", "https://www.norsk-tipping.no/api-eurojackpot/getResultInfo.json"},
-                { "fotballtipping", "https://www.norsk-tipping.no/api-tipping/getResultInfo.json?gameDay=100"}, //100 = lørdag, 010 = søndag, 001 = onsdag/midtuke
-                { "fotballtippingSon", "https://www.norsk-tipping.no/api-tipping/getResultInfo.json?gameDay=010"},
-                { "fotballtippingMidt", "https://www.norsk-tipping.no/api-tipping/getResultInfo.json?gameDay=001"}
-        };
-
-        public ResultatData(String spillnavn, String vinnertall, String tilleggstall, String trekningsdato, String premienavn, String premietall)
-        {
-            this.Spillnavn = spillnavn;
-            this.Vinnertall = vinnertall;
-            this.Tilleggstall = tilleggstall;
-            this.Trekningsdato = trekningsdato;
-            this.Premienavn = premienavn;
-            this.Premietall = premietall;
-        }
-
-        public ResultatData(String spillnavn, String vinnertall, String tilleggstall, String trekningsdato, String premienavn, String premietall, String tilleggspremie)
-        {
-            this.Spillnavn = spillnavn;
-            this.Vinnertall = vinnertall;
-            this.Tilleggstall = tilleggstall;
-            this.Trekningsdato = trekningsdato;
-            this.Premienavn = premienavn;
-            this.Premietall = premietall;
-            this.Tilleggspremie = tilleggspremie;
-        }
-
-        public string Spillnavn { get; private set; }
-        public string Vinnertall { get; private set; }
-        public string Tilleggstall { get; private set; }
-        public string Trekningsdato { get; private set; }
-        public string Premienavn { get; private set; }
-        public string Premietall { get; private set; }
-        public string Tilleggspremie { get; private set; }
-
-        public override string ToString()
-        {
-            return this.Vinnertall;
-        }
-    }
-
-    /// <summary>
     /// Creates a collection of groups and items with content read from a static json file.
     /// 
     /// SampleDataSource initializes with data read from a static json file included in the 
@@ -101,19 +49,19 @@ namespace Tipperesultater.Data
                 {
                     System.Diagnostics.Debug.WriteLine(String.Format("Forcing refresh for {0} in cache", uniqueId));
                     _sampleDataSource.Groups.Remove(matches.First());
-                    var sd = await lagLottoGruppe(ResultatData.spill[uniqueId], uniqueId);
+                    var sd = await RetrieveData(ResultatData.spill[uniqueId], uniqueId);
                     _sampleDataSource.Groups.Add(sd);
                     return sd;
                 }
                 return matches.First();
             }
-            var sd2 = await lagLottoGruppe(ResultatData.spill[uniqueId], uniqueId);
+            var sd2 = await RetrieveData(ResultatData.spill[uniqueId], uniqueId);
             _sampleDataSource.Groups.Add(sd2);
             return sd2;
         }
                 
 
-        private static async Task<ResultatData> lagLottoGruppe(String url, String gruppenavn)
+        private static async Task<ResultatData> RetrieveData(String url, String gruppenavn)
         {
             Uri dataUri2 = new Uri(url);
             var client = new HttpClient();
