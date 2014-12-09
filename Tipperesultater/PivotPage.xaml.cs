@@ -166,6 +166,14 @@ namespace Tipperesultater
         private async void PivotSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var statusBar = StatusBar.GetForCurrentView();
+            if (isEnglish())
+            {
+                statusBar.ProgressIndicator.Text = "Retreiving results";
+            }
+            else
+            {
+                statusBar.ProgressIndicator.Text = "Henter resultater";
+            }
             
             await statusBar.ProgressIndicator.ShowAsync();
 
@@ -176,53 +184,27 @@ namespace Tipperesultater
             
         }
 
+        private bool isEnglish()
+        {
+            return !CultureInfo.CurrentCulture.TwoLetterISOLanguageName.Equals("nb");
+        }
+
         private async System.Threading.Tasks.Task LoadData(Boolean forceRefresh)
         {
             var sampleDataGroup = await WebDataSource.GetGroupAsync(Games[pivot.SelectedIndex].Name, forceRefresh);
             this.DefaultViewModel[Games[pivot.SelectedIndex].GroupName] = sampleDataGroup;
         }
 
-        private void MainPage_Loaded(object sender, RoutedEventArgs e)
-        {
-            /*
-            System.Diagnostics.Debug.WriteLine("Mainpage Loaded");
-            var progressIndicator = SystemTray.ProgressIndicator;
-            if (progressIndicator != null)
-            {
-                return;
-            }
-
-            progressIndicator = new ProgressIndicator();
-
-            SystemTray.SetProgressIndicator(this, progressIndicator);
-
-            Binding binding = new Binding("IsLoading") { Source = _viewModel };
-            BindingOperations.SetBinding(
-                progressIndicator, ProgressIndicator.IsVisibleProperty, binding);
-
-            binding = new Binding("IsLoading") { Source = _viewModel };
-            BindingOperations.SetBinding(
-                progressIndicator, ProgressIndicator.IsIndeterminateProperty, binding);
-
-            progressIndicator.Text = "Loading new tweets..."; 
-             * */
-        }
 
         private async void Pivot_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
         {
             System.Diagnostics.Debug.WriteLine("Pivot Doubletapped");
             var statusBar = StatusBar.GetForCurrentView();
             await statusBar.ProgressIndicator.ShowAsync();
+            
             await LoadData(true);
             await statusBar.ProgressIndicator.HideAsync();
         }
-
- 
-
-
-
-
-
 
 
     }

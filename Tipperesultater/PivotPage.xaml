@@ -8,7 +8,7 @@
     xmlns:data="using:Tipperesultater.Data"
     mc:Ignorable="d"
     DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Loaded="MainPage_Loaded">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.Transitions>
         <TransitionCollection>
             <NavigationThemeTransition>
