@@ -34,6 +34,30 @@ namespace Tipperesultater
         private const string SixthGroupName = "SixthGroup";
         private const string SeventhGroupName = "SeventhGroup";
 
+        public static Dictionary<int, GroupGameName> Games = new Dictionary<int, GroupGameName>()
+        {
+                { 0, new GroupGameName("lotto", FirstGroupName)},
+                { 1, new GroupGameName("vikinglotto", SecondGroupName)},
+                { 2, new GroupGameName("joker", ThirdGroupName)},
+                { 3, new GroupGameName("eurojackpot", FourthGroupName)},
+                { 4, new GroupGameName("fotballtipping", FifthGroupName)}, 
+                { 5, new GroupGameName("fotballtippingSon", SixthGroupName)},
+                { 6, new GroupGameName("fotballtippingMidt", SeventhGroupName)}
+        };
+
+        public struct GroupGameName
+        {
+            public string Name;
+            public string GroupName;
+  
+
+            public GroupGameName(string Name, string GroupName)
+            {
+                this.Name = Name;
+                this.GroupName = GroupName;
+            }
+        }
+
         private readonly NavigationHelper navigationHelper;
         private readonly ObservableDictionary defaultViewModel = new ObservableDictionary();
         private readonly ResourceLoader resourceLoader = ResourceLoader.GetForCurrentView("Resources"); //faar ikke dette til å virke..
@@ -154,47 +178,8 @@ namespace Tipperesultater
 
         private async System.Threading.Tasks.Task LoadData(Boolean forceRefresh)
         {
-            switch (pivot.SelectedIndex)
-            {
-                case 0:
-                    System.Diagnostics.Debug.WriteLine("Getting data for first pivot");
-                    var sampleDataGroup1 = await WebDataSource.GetGroupAsync("lotto", forceRefresh);
-                    this.DefaultViewModel[FirstGroupName] = sampleDataGroup1;
-                    break;
-                case 1:
-                    System.Diagnostics.Debug.WriteLine("Getting data for second pivot");
-                    var sampleDataGroup2 = await WebDataSource.GetGroupAsync("vikinglotto", forceRefresh);
-                    this.DefaultViewModel[SecondGroupName] = sampleDataGroup2;
-                    break;
-                case 2:
-                    System.Diagnostics.Debug.WriteLine("Getting data for third pivot");
-                    var sampleDataGroup3 = await WebDataSource.GetGroupAsync("joker", forceRefresh);
-                    this.DefaultViewModel[ThirdGroupName] = sampleDataGroup3;
-                    break;
-                case 3:
-                    System.Diagnostics.Debug.WriteLine("Getting data for fourth pivot");
-                    var sampleDataGroup4 = await WebDataSource.GetGroupAsync("eurojackpot", forceRefresh);
-                    this.DefaultViewModel[FourthGroupName] = sampleDataGroup4;
-                    break;
-                case 4:
-                    System.Diagnostics.Debug.WriteLine("Getting data for fifth pivot");
-                    var sampleDataGroup5 = await WebDataSource.GetGroupAsync("fotballtipping", forceRefresh);
-                    this.DefaultViewModel[FifthGroupName] = sampleDataGroup5;
-                    break;
-                case 5:
-                    System.Diagnostics.Debug.WriteLine("Getting data for sixth pivot");
-                    var sampleDataGroup6 = await WebDataSource.GetGroupAsync("fotballtippingSon", forceRefresh);
-                    this.DefaultViewModel[SixthGroupName] = sampleDataGroup6;
-                    break;
-                case 6:
-                    System.Diagnostics.Debug.WriteLine("Getting data for seventh pivot");
-                    var sampleDataGroup7 = await WebDataSource.GetGroupAsync("fotballtippingMidt", forceRefresh);
-                    this.DefaultViewModel[SeventhGroupName] = sampleDataGroup7;
-                    break;
-                default:
-                    System.Diagnostics.Debug.WriteLine("Unknown index selected");
-                    break;
-            }
+            var sampleDataGroup = await WebDataSource.GetGroupAsync(Games[pivot.SelectedIndex].Name, forceRefresh);
+            this.DefaultViewModel[Games[pivot.SelectedIndex].GroupName] = sampleDataGroup;
         }
 
         private void MainPage_Loaded(object sender, RoutedEventArgs e)
