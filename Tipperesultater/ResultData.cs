@@ -44,13 +44,18 @@ namespace Tipperesultater.Data
             this.Tilleggspremie = tilleggspremie;
         }
 
-        public string Spillnavn { get; private set; }
-        public string Vinnertall { get; private set; }
-        public string Tilleggstall { get; private set; }
-        public string Trekningsdato { get; private set; }
-        public string Premienavn { get; private set; }
-        public string Premietall { get; private set; }
-        public string Tilleggspremie { get; private set; }
+        public ResultatData(Windows.Data.Json.JsonObject jsonObjectLotto)
+        {
+
+        }
+        
+        public string Spillnavn { get; protected set; }
+        public string Vinnertall { get; protected set; }
+        public string Tilleggstall { get; protected set; }
+        public string Trekningsdato { get; protected set; }
+        public string Premienavn { get; protected set; }
+        public string Premietall { get; protected set; }
+        public string Tilleggspremie { get; protected set; }
 
         public override string ToString()
         {

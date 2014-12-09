@@ -96,6 +96,8 @@
     <Compile Include="Common\ObservableDictionary.cs" />
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Common\SuspensionManager.cs" />
+    <Compile Include="DataModel\EuroJackpot.cs" />
+    <Compile Include="DataModel\FotballTippingData.cs" />
     <Compile Include="DataModel\WebDataSource.cs" />
     <Compile Include="PivotPage.xaml.cs">
       <DependentUpon>PivotPage.xaml</DependentUpon>
