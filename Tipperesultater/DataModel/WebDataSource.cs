@@ -1,17 +1,9 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Globalization;
 using System.Linq;
 using System.Net.Http;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Windows.Data.Json;
-using Windows.Storage;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Imaging;
-using Tipperesultater.Data;
 
 // The data model defined by this file serves as a representative example of a strongly-typed
 // model.  The property names chosen coincide with data bindings in the standard item templates.
@@ -23,7 +15,7 @@ using Tipperesultater.Data;
 
 namespace Tipperesultater.Data
 {
-  
+
     /// <summary>
     /// Creates a collection of groups and items with content read from a static json file.
     /// 
@@ -60,11 +52,11 @@ namespace Tipperesultater.Data
             _sampleDataSource.Groups.Add(sd2);
             return sd2;
         }
-                
+
 
         private static async Task<ResultatData> RetrieveData(String url, String gruppenavn)
         {
-            
+
             Uri dataUri2 = new Uri(url);
             var client = new HttpClient();
             var response = await client.GetAsync(dataUri2);
@@ -72,55 +64,28 @@ namespace Tipperesultater.Data
             result = result.Replace("while(true);/* 0;", "");
             result = result.Replace("/* */", "");
             JsonObject jsonObjectLotto = JsonObject.Parse(result);
- 
 
             if (gruppenavn.StartsWith("fotballtipping"))
             {
                 return new FotballTippingData(jsonObjectLotto);
             }
-
-            
-            
-
-           
-            var a = jsonObjectLotto["drawDate"].GetString();
-            DateTime trekningspunkt = DateTime.ParseExact(a, "yyyy,MM,dd,HH,mm,ss", CultureInfo.CurrentCulture);
-            string trekningspunktAsString = trekningspunkt.ToString("dddd d. MMMM", CultureInfo.CurrentCulture);
-
-            String vinnertallStr = null;
-            String tilleggstallStr = null;
             if (gruppenavn.Equals("lotto") || gruppenavn.Equals("vikinglotto"))
             {
-               System.Diagnostics.Debug.WriteLine("Ikke joker");
-               JsonArray vinnertallArray = jsonObjectLotto["mainTable"].GetArray();
-               vinnertallStr = String.Join(", ", vinnertallArray.Select(x => x.GetNumber()).ToList());
-               JsonArray tilleggstallArray = jsonObjectLotto["addTable"].GetArray();
-               tilleggstallStr = String.Join(", ", tilleggstallArray.Select(x => x.GetNumber()).ToList());
+                return new LottoData(jsonObjectLotto);
             }
             else if (gruppenavn.Equals("joker"))
             {
-
                 return new JokerData(jsonObjectLotto);
             }
             else if (gruppenavn.Equals("eurojackpot"))
             {
                 return new EuroJackpot(jsonObjectLotto);
-  
+
             }
-            
-            JsonArray premier = jsonObjectLotto["prizeTable"].GetArray();
-            JsonArray premierTitles = jsonObjectLotto["prizeCaptionTable"].GetArray();
-            string desc = String.Join("\r\n", premierTitles.Select(x => x.GetString()).ToList());
-            string prem = String.Join("\r\n", premier.Select(x =>
-                            !Regex.IsMatch(x.GetString(), @"^\d+$") ? x.GetString() :
-                            int.Parse(x.GetString()).ToString("### ### ### kr")
-                         ).ToList());
+            return null;
 
-
-            return new ResultatData(gruppenavn, vinnertallStr, tilleggstallStr, trekningspunktAsString, desc, prem);
-            
         }
 
-       
+
     }
 }
