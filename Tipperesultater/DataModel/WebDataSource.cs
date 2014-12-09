@@ -79,7 +79,7 @@ namespace Tipperesultater.Data
             }
             else if (gruppenavn.Equals("eurojackpot"))
             {
-                return new EuroJackpot(jsonObjectLotto);
+                return new EuroJackpotData(jsonObjectLotto);
 
             }
             return null;

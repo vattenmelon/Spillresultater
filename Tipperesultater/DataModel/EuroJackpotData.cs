@@ -8,9 +8,9 @@ using Windows.Data.Json;
 
 namespace Tipperesultater.Data
 {
-    class EuroJackpot : ResultatData
+    class EuroJackpotData : ResultatData
     {
-       public EuroJackpot(JsonObject jsonObjectLotto) : base(jsonObjectLotto)
+       public EuroJackpotData(JsonObject jsonObjectLotto) : base(jsonObjectLotto)
        {
            System.Diagnostics.Debug.WriteLine("Eurojackpot");
            var a = jsonObjectLotto["drawDate"].GetString();
