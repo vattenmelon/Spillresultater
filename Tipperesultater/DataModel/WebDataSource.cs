@@ -99,14 +99,8 @@ namespace Tipperesultater.Data
             }
             else if (gruppenavn.Equals("joker"))
             {
-                System.Diagnostics.Debug.WriteLine("joker");
-                JsonArray vinnertallArray = jsonObjectLotto["digits"].GetArray();
-                vinnertallStr = String.Join(", ", vinnertallArray.Select(x => x.GetNumber()).ToList());
-                tilleggstallStr = jsonObjectLotto["winnerNr"].GetNumber().ToString("### ### ###");
-                JsonObject personalia = jsonObjectLotto["winnerPersonalia"].GetObject();
-                String genderKode = personalia["gender"].GetString();
-                var gender = genderKode.Equals("K") ? "kvinne" : "mann";
-                tilleggstallStr = tilleggstallStr + " (" + gender + " " + personalia["age"].GetNumber() + ", " + personalia["borough"].GetString() + ")";
+
+                return new JokerData(jsonObjectLotto);
             }
             else if (gruppenavn.Equals("eurojackpot"))
             {
