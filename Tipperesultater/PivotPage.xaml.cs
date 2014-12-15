@@ -103,12 +103,6 @@ namespace Tipperesultater
         /// session. The state will be null the first time a page is visited.</param>
         private void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine("LoadState");
-            // TODO: Create an appropriate data model for your problem domain to replace the sample data
-           // var sampleDataGroup = await SampleDataSource.GetGroupAsync("Group-1");
-           // this.DefaultViewModel[FirstGroupName] = sampleDataGroup;
-          //  var sampleDataGroup2 = await SampleDataSource.GetGroupAsync("Group-2");
-          //  this.DefaultViewModel[SecondGroupName] = sampleDataGroup2;
         }
 
         /// <summary>
