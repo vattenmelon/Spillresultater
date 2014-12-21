@@ -220,6 +220,9 @@ namespace Tipperesultater
                 FotballtippingMidtLiveResultatValues.Visibility = Visibility.Collapsed;
                 FotballtippingMidtLiveResultatStatusValues.Visibility = Visibility.Collapsed;
 
+                LottoAntallVinnereValues.Visibility = Visibility.Collapsed;
+                VikingLottoAntallVinnereValues.Visibility = Visibility.Collapsed;
+
             }
 
             if (CurrentViewState == "Landscape")
@@ -236,6 +239,9 @@ namespace Tipperesultater
                 FotballtippingMidtLiveResultsLabel.Visibility = Visibility.Visible;
                 FotballtippingMidtLiveResultatValues.Visibility = Visibility.Visible;
                 FotballtippingMidtLiveResultatStatusValues.Visibility = Visibility.Visible;
+
+                LottoAntallVinnereValues.Visibility = Visibility.Visible;
+                VikingLottoAntallVinnereValues.Visibility = Visibility.Visible;
             }  
         }
 

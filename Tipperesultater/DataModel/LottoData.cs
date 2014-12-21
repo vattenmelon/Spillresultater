@@ -31,6 +31,9 @@ namespace Tipperesultater.Data
                            int.Parse(x.GetString()).ToString("### ### ### kr")
                         ).ToList());
 
+           JsonArray antallVinnereArray = jsonObjectLotto["winnerCountTable"].GetArray();
+           this.AntallVinnere = String.Join("\r\n", antallVinnereArray.Select(x => String.Format("{0} vinnere", x.GetNumber().ToString("### ###"))).ToList());
+
            if (Spillnavn.Equals("lotto"))
            {
                try
@@ -59,6 +62,7 @@ namespace Tipperesultater.Data
        public string Trekningsdato { get; protected set; }
        public string Premienavn { get; protected set; }
        public string Premietall { get; protected set; }
+       public string AntallVinnere { get; protected set; }
        public string NesteSuperLottoTrekning { get; protected set; }
        public string AntallTrekningerTilNesteSuperLotto { get; protected set; }
     }
