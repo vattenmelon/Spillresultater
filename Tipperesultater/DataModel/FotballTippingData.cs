@@ -96,7 +96,7 @@ namespace Tipperesultater.Data
                             }
                             kamper += kamp + "\r\n";
                             liveResultat += arra[5].GetString() + "\r\n";
-                            liveResultatStatus +=  "("+ arra[4].GetString()+ ")" + "\r\n";
+                            liveResultatStatus += String.Format("({0})\r\n", arra[4].GetString());
                             if (tellert % 3 == 0)
                             {
                                 kamper += "\r\n";
