@@ -22,6 +22,7 @@ namespace Tipperesultater.Data
            JsonArray vinnertallArray = jsonObjectLotto["digits"].GetArray();
            string vinnertallStr = String.Join(", ", vinnertallArray.Select(x => x.GetNumber()).ToList());
            string spillerkortvinner = jsonObjectLotto["winnerNr"].GetNumber().ToString("### ### ###");
+           this.AntallVinnere = jsonObjectLotto["nrOfWinners"].GetNumber().ToString("### ### ###");
            JsonObject personalia = jsonObjectLotto["winnerPersonalia"].GetObject();
            String genderKode = personalia["gender"].GetString();
            var gender = genderKode.Equals("K") ? "kvinne" : "mann";
@@ -48,5 +49,6 @@ namespace Tipperesultater.Data
         public string Trekningsdato { get; protected set; }
         public string Premienavn { get; protected set; }
         public string Premietall { get; protected set; }
+        public string AntallVinnere { get; protected set; }
     }
 }

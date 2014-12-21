@@ -252,4 +252,7 @@
   <data name="VikingLottoVinnertallLabel.Text" xml:space="preserve">
     <value>winning numbers</value>
   </data>
+  <data name="JokerAntallVinnereLabel.Text" xml:space="preserve">
+    <value>number of winners</value>
+  </data>
 </root>
