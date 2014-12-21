@@ -54,18 +54,17 @@ namespace Tipperesultater.Data
 
 
             System.Diagnostics.Debug.WriteLine("fotballtipping");
-            string halvTid = "HALFTIME";
-            string helTid = "FULLTIME";
+            string halvTidOverskrift = "HALFTIME";
+            string helTidOverskrift = "FULLTIME";
             if (CultureInfo.CurrentCulture.TwoLetterISOLanguageName.Equals("nb"))
             {
-                halvTid = "HALVTID";
-                helTid = "HELTID";
+                halvTidOverskrift = "HALVTID";
+                helTidOverskrift = "HELTID";
             }
             var b = jsonObjectLotto["gameDays"].GetArray();
             foreach (JsonValue obj in b)
             {
                 {
-                    System.Diagnostics.Debug.WriteLine("----------------------");
                     if (obj.ValueType != JsonValueType.Null)
                     {
                         JsonObject ob1 = obj.GetObject();
@@ -77,12 +76,12 @@ namespace Tipperesultater.Data
                         string trekningspunktAsString2 = trekningspunkt2.ToString("dddd d. MMMM", CultureInfo.CurrentCulture);
 
                         JsonArray events = ob1["events"].GetArray();
-                        String kamper = "";
+                        StringBuilder kamper = new StringBuilder();
                         String kampstatus = "";
                         int tellert = 1;
                         int statusteller = 0;
-                        string liveResultat = "";
-                        string liveResultatStatus = "";
+                        StringBuilder liveResultat = new StringBuilder();
+                        StringBuilder liveResultatStatus = new StringBuilder();
                         foreach (JsonValue ev in events)
                         {
 
@@ -94,14 +93,14 @@ namespace Tipperesultater.Data
                             {
                                 kamp = kamp.Substring(0, 39) + ".";
                             }
-                            kamper += kamp + "\r\n";
-                            liveResultat += arra[5].GetString() + "\r\n";
-                            liveResultatStatus += String.Format("({0})\r\n", arra[4].GetString());
+                            kamper.Append(String.Format("{0}\r\n", kamp));
+                            liveResultat.Append(String.Format("{0}\r\n", arra[5].GetString()));
+                            liveResultatStatus.Append(String.Format("({0})\r\n", arra[4].GetString()));
                             if (tellert % 3 == 0)
                             {
-                                kamper += "\r\n";
-                                liveResultat += "\r\n";
-                                liveResultatStatus += "\r\n";
+                                kamper.Append("\r\n");
+                                liveResultat.Append("\r\n");
+                                liveResultatStatus.Append("\r\n");
                             }
                             tellert++;
                             String status = arra[4].GetString();
@@ -136,10 +135,10 @@ namespace Tipperesultater.Data
                         }
 
 
-                        String halvtid = "";
-                        String heltid = "";
-                        String premieTekst = halvTid + "\r\n";
-                        String premieVerdi = "\r\n";
+                        StringBuilder halvtid = new StringBuilder();
+                        StringBuilder heltid = new StringBuilder();
+                        StringBuilder premieTekst = new StringBuilder(String.Format("{0}\r\n", halvTidOverskrift));
+                        StringBuilder premieVerdi = new StringBuilder("\r\n");
                         int teller = 0;
                         JsonArray results = ob1["matchStages"].GetArray();
                         foreach (JsonValue ev in results)
@@ -152,11 +151,11 @@ namespace Tipperesultater.Data
 
                             if (teller == 0)
                             {
-                                halvtid += resultatText;
+                                halvtid.Append(resultatText);
                             }
                             else
                             {
-                                heltid += resultatText;
+                                heltid.Append(resultatText);
                             }
 
                             teller++;
@@ -170,28 +169,28 @@ namespace Tipperesultater.Data
 
                                 JsonArray j22 = j2.GetArray();
                                 String text = String.Join("", j22.Select((x, i) => i == 0 ? x.GetString().Replace("av", CultureInfo.CurrentCulture.TwoLetterISOLanguageName.Equals("nb") ? "av" : "of") : i == 1 ? "" : "\r\n"));
-                                premieTekst += text;
+                                premieTekst.Append(text);
                                 String text2 = String.Join("", j22.Select((x, i) => i == 1 ?
                                         x.ValueType == JsonValueType.String ? x.GetString() :
                                         x.GetNumber().ToString("### ### ### kr") : i == 0 ? "" : "\r\n"));
-                                premieVerdi += text2;
+                                premieVerdi.Append(text2);
                             }
                             if (teller == 1)
                             {
-                                premieTekst += "\r\n" + helTid + "\r\n";
-                                premieVerdi += "\r\n\r\n";
+                                premieTekst.Append(String.Format("\r\n{0}\r\n", helTidOverskrift));   
+                                premieVerdi.Append("\r\n\r\n");
                             }
 
                         }
-                        this.Heltid = heltid;
-                        this.Kamper = kamper;
-                        this.Halvtid = halvtid;
+                        this.Heltid = heltid.ToString();
+                        this.Kamper = kamper.ToString();
+                        this.Halvtid = halvtid.ToString();
                         this.Trekningsdato = trekningspunktAsString2;
-                        this.Premienavn = premieTekst;
-                        this.Premietall = premieVerdi;
+                        this.Premienavn = premieTekst.ToString();
+                        this.Premietall = premieVerdi.ToString();
                         this.Kampstatus = kampstatus;
-                        this.LiveResultat = liveResultat;
-                        this.LiveResultatStatus = liveResultatStatus;
+                        this.LiveResultat = liveResultat.ToString();
+                        this.LiveResultatStatus = liveResultatStatus.ToString();
                     }
                 }
             }
