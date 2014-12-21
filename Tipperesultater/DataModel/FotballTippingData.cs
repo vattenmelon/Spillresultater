@@ -82,6 +82,8 @@ namespace Tipperesultater.Data
                         String kampstatus = "";
                         int tellert = 1;
                         int statusteller = 0;
+                        string liveResultat = "";
+                        string liveResultatStatus = "";
                         foreach (JsonValue ev in events)
                         {
 
@@ -89,9 +91,13 @@ namespace Tipperesultater.Data
                             String lag1 = arra[1].GetString();
                             String lag2 = arra[2].GetString();
                             kamper += lag1 + " - " + lag2 + "\r\n";
+                            liveResultat += arra[5].GetString() + "\r\n";
+                            liveResultatStatus +=  "("+ arra[4].GetString()+ ")" + "\r\n";
                             if (tellert % 3 == 0)
                             {
                                 kamper += "\r\n";
+                                liveResultat += "\r\n";
+                                liveResultatStatus += "\r\n";
                             }
                             tellert++;
                             String status = arra[4].GetString();
@@ -180,6 +186,8 @@ namespace Tipperesultater.Data
                         this.Premienavn = premieTekst;
                         this.Premietall = premieVerdi;
                         this.Kampstatus = kampstatus;
+                        this.LiveResultat = liveResultat;
+                        this.LiveResultatStatus = liveResultatStatus;
                     }
                 }
             }
@@ -194,5 +202,7 @@ namespace Tipperesultater.Data
         public string Premienavn { get; protected set; }
         public string Premietall { get; protected set; }
         public string Kampstatus { get; protected set; }
+        public string LiveResultat { get; protected set; }
+        public string LiveResultatStatus { get; protected set; }
     }
 }

@@ -8,11 +8,9 @@ using Windows.Data.Json;
 
 namespace Tipperesultater.Data
 {
-    class JokerData : ResultatData
+    public class JokerData : ResultatData
     {
-        private JsonObject jsonObjectLotto;
-        private string gruppenavn;
-
+      
         public JokerData(JsonObject jsonObjectLotto, string spillnavn) : base(spillnavn)
        {
            System.Diagnostics.Debug.WriteLine("joker");

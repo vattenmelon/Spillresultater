@@ -8,10 +8,8 @@ using Windows.Data.Json;
 
 namespace Tipperesultater.Data
 {
-    class LottoData : ResultatData
+    public class LottoData : ResultatData
     {
-        private JsonObject jsonObjectLotto;
-        private string gruppenavn;
 
        public LottoData(JsonObject jsonObjectLotto, string spillnavn) : base(spillnavn)
       { 

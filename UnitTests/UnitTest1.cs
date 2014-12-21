@@ -11,7 +11,7 @@ namespace UnitTests
         [TestMethod]
         public async Task skal_hente_ned_lotto_resultater()
         {
-            var resultatdata = await WebDataSource.GetGroupAsync("lotto", false);
+            LottoData resultatdata = (LottoData) await WebDataSource.GetGroupAsync("lotto", false);
             Assert.IsNotNull(resultatdata);
             string[] vinnertallArray = resultatdata.Vinnertall.Split(',');
             Assert.AreEqual(7, vinnertallArray.Length);
@@ -20,7 +20,7 @@ namespace UnitTests
         [TestMethod]
         public async Task skal_hente_ned_vikinglotto_resultater()
         {
-            var resultatdata = await WebDataSource.GetGroupAsync("vikinglotto", false);
+            LottoData resultatdata = (LottoData) await WebDataSource.GetGroupAsync("vikinglotto", false);
             Assert.IsNotNull(resultatdata);
             string[] vinnertallArray = resultatdata.Vinnertall.Split(',');
             Assert.AreEqual(6, vinnertallArray.Length);
@@ -29,7 +29,7 @@ namespace UnitTests
         [TestMethod]
         public async Task skal_hente_ned_joker_resultater()
         {
-            var resultatdata = await WebDataSource.GetGroupAsync("joker", false);
+            JokerData resultatdata = (JokerData) await WebDataSource.GetGroupAsync("joker", false);
             Assert.IsNotNull(resultatdata);
             string[] vinnertallArray = resultatdata.Vinnertall.Split(',');
             Assert.AreEqual(5, vinnertallArray.Length);

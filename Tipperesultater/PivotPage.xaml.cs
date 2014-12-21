@@ -200,6 +200,43 @@ namespace Tipperesultater
             await statusBar.ProgressIndicator.HideAsync();
         }
 
+        private new void SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            string CurrentViewState = ApplicationView.GetForCurrentView().Orientation.ToString();
+            
+            if (CurrentViewState == "Portrait")
+            {
+                FotballtippingLiveResultsLabel.Visibility = Visibility.Collapsed;
+                FotballtippingLiveResultatValues.Visibility = Visibility.Collapsed;
+                FotballtippingLiveResultatStatusValues.Visibility = Visibility.Collapsed;
+
+                FotballtippingSonLiveResultsLabel.Visibility = Visibility.Collapsed;
+                FotballtippingSonLiveResultatValues.Visibility = Visibility.Collapsed;
+                FotballtippingSonLiveResultatStatusValues.Visibility = Visibility.Collapsed;
+
+                FotballtippingMidtLiveResultsLabel.Visibility = Visibility.Collapsed;
+                FotballtippingMidtLiveResultatValues.Visibility = Visibility.Collapsed;
+                FotballtippingMidtLiveResultatStatusValues.Visibility = Visibility.Collapsed;
+
+            }
+
+            if (CurrentViewState == "Landscape")
+            {
+                //To Do UI for landscape
+                FotballtippingLiveResultsLabel.Visibility = Visibility.Visible;
+                FotballtippingLiveResultatValues.Visibility = Visibility.Visible;
+                FotballtippingLiveResultatStatusValues.Visibility = Visibility.Visible;
+
+                FotballtippingSonLiveResultsLabel.Visibility = Visibility.Visible;
+                FotballtippingSonLiveResultatValues.Visibility = Visibility.Visible;
+                FotballtippingSonLiveResultatStatusValues.Visibility = Visibility.Visible;
+
+                FotballtippingMidtLiveResultsLabel.Visibility = Visibility.Visible;
+                FotballtippingMidtLiveResultatValues.Visibility = Visibility.Visible;
+                FotballtippingMidtLiveResultatStatusValues.Visibility = Visibility.Visible;
+            }  
+        }
+
 
     }
 }
