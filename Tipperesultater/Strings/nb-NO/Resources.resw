@@ -138,6 +138,9 @@
   <data name="FotballtippingHalftimeLabel.Text" xml:space="preserve">
     <value>HALV</value>
   </data>
+  <data name="FotballtippingLiveResultsLabel.Text" xml:space="preserve">
+    <value>LIVE</value>
+  </data>
   <data name="FotballtippingMatchesLabel.Text" xml:space="preserve">
     <value>KAMPER</value>
   </data>
@@ -149,6 +152,9 @@
   </data>
   <data name="FotballtippingSonHalftimeLabel.Text" xml:space="preserve">
     <value>HALV</value>
+  </data>
+  <data name="FotballtippingSonLiveResultsLabel.Text" xml:space="preserve">
+    <value>LIVE</value>
   </data>
   <data name="FotballtippingSonMatchesLabel.Text" xml:space="preserve">
     <value>KAMPER</value>

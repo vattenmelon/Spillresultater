@@ -10,8 +10,6 @@ namespace Tipperesultater.Data
 {
     class EuroJackpotData : ResultatData
     {
-        private JsonObject jsonObjectLotto;
-        private string gruppenavn;
 
        public EuroJackpotData(JsonObject jsonObjectLotto, string spillnavn) : base(spillnavn)
        {
@@ -51,7 +49,6 @@ namespace Tipperesultater.Data
            this.Tilleggspremie = merc;
        }
 
-       public string Spillnavn { get; protected set; }
        public string Hovedtall { get; protected set; }
        public string Stjernetall { get; protected set; }
        public string Trekningsdato { get; protected set; }

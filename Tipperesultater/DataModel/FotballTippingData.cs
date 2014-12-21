@@ -11,7 +11,6 @@ namespace Tipperesultater.Data
     class FotballTippingData : ResultatData
     {
         private Windows.Data.Json.JsonObject jsonObjectLotto;
-        private string gruppenavn;
 
         private static string GetFotballtippingResultater(JsonArray res2)
         {
@@ -90,7 +89,12 @@ namespace Tipperesultater.Data
                             JsonArray arra = ev.GetArray();
                             String lag1 = arra[1].GetString();
                             String lag2 = arra[2].GetString();
-                            kamper += lag1 + " - " + lag2 + "\r\n";
+                            String kamp = lag1 + " - " + lag2;
+                            if (kamp.Count() > 39) 
+                            {
+                                kamp = kamp.Substring(0, 39) + ".";
+                            }
+                            kamper += kamp + "\r\n";
                             liveResultat += arra[5].GetString() + "\r\n";
                             liveResultatStatus +=  "("+ arra[4].GetString()+ ")" + "\r\n";
                             if (tellert % 3 == 0)
