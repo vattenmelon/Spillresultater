@@ -11,6 +11,7 @@ namespace Tipperesultater.Data
     class FotballTippingData : ResultatData
     {
         private Windows.Data.Json.JsonObject jsonObjectLotto;
+        private string gruppenavn;
 
         private static string GetFotballtippingResultater(JsonArray res2)
         {
@@ -48,7 +49,7 @@ namespace Tipperesultater.Data
             }
         }
 
-        public FotballTippingData(Windows.Data.Json.JsonObject jsonObjectLotto) : base(jsonObjectLotto)
+        public FotballTippingData(Windows.Data.Json.JsonObject jsonObjectLotto, string spillnavn) : base(spillnavn)
         {
             this.jsonObjectLotto = jsonObjectLotto;
 
@@ -172,18 +173,26 @@ namespace Tipperesultater.Data
                             }
 
                         }
-                        this.Spillnavn = heltid;
-                        this.Vinnertall = kamper;
-                        this.Tilleggstall = halvtid;
+                        this.Heltid = heltid;
+                        this.Kamper = kamper;
+                        this.Halvtid = halvtid;
                         this.Trekningsdato = trekningspunktAsString2;
                         this.Premienavn = premieTekst;
                         this.Premietall = premieVerdi;
-                        this.Tilleggspremie = kampstatus;
+                        this.Kampstatus = kampstatus;
                     }
                 }
             }
 
 
         }
+
+        public string Heltid { get; protected set; }
+        public string Kamper { get; protected set; }
+        public string Halvtid { get; protected set; }
+        public string Trekningsdato { get; protected set; }
+        public string Premienavn { get; protected set; }
+        public string Premietall { get; protected set; }
+        public string Kampstatus { get; protected set; }
     }
 }

@@ -10,7 +10,10 @@ namespace Tipperesultater.Data
 {
     class JokerData : ResultatData
     {
-        public JokerData(JsonObject jsonObjectLotto) : base(jsonObjectLotto)
+        private JsonObject jsonObjectLotto;
+        private string gruppenavn;
+
+        public JokerData(JsonObject jsonObjectLotto, string spillnavn) : base(spillnavn)
        {
            System.Diagnostics.Debug.WriteLine("joker");
 
@@ -20,11 +23,11 @@ namespace Tipperesultater.Data
 
            JsonArray vinnertallArray = jsonObjectLotto["digits"].GetArray();
            string vinnertallStr = String.Join(", ", vinnertallArray.Select(x => x.GetNumber()).ToList());
-           string tilleggstallStr = jsonObjectLotto["winnerNr"].GetNumber().ToString("### ### ###");
+           string spillerkortvinner = jsonObjectLotto["winnerNr"].GetNumber().ToString("### ### ###");
            JsonObject personalia = jsonObjectLotto["winnerPersonalia"].GetObject();
            String genderKode = personalia["gender"].GetString();
            var gender = genderKode.Equals("K") ? "kvinne" : "mann";
-           tilleggstallStr = tilleggstallStr + " (" + gender + " " + personalia["age"].GetNumber() + ", " + personalia["borough"].GetString() + ")";
+           spillerkortvinner = spillerkortvinner + " (" + gender + " " + personalia["age"].GetNumber() + ", " + personalia["borough"].GetString() + ")";
 
            JsonArray premier = jsonObjectLotto["prizeTable"].GetArray();
            JsonArray premierTitles = jsonObjectLotto["prizeCaptionTable"].GetArray();
@@ -34,13 +37,18 @@ namespace Tipperesultater.Data
                            int.Parse(x.GetString()).ToString("### ### ### kr")
                         ).ToList());
 
-           this.Spillnavn = "2";
            this.Vinnertall = vinnertallStr;
-           this.Tilleggstall = tilleggstallStr;
+           this.Spillerkortnummer = spillerkortvinner;
            this.Trekningsdato = trekningspunktAsString;
            this.Premienavn = desc;
            this.Premietall = prem;
    
        }
+
+        public string Vinnertall { get; protected set; }
+        public string Spillerkortnummer { get; protected set; }
+        public string Trekningsdato { get; protected set; }
+        public string Premienavn { get; protected set; }
+        public string Premietall { get; protected set; }
     }
 }

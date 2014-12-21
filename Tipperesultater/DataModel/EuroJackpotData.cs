@@ -10,7 +10,10 @@ namespace Tipperesultater.Data
 {
     class EuroJackpotData : ResultatData
     {
-       public EuroJackpotData(JsonObject jsonObjectLotto) : base(jsonObjectLotto)
+        private JsonObject jsonObjectLotto;
+        private string gruppenavn;
+
+       public EuroJackpotData(JsonObject jsonObjectLotto, string spillnavn) : base(spillnavn)
        {
            System.Diagnostics.Debug.WriteLine("Eurojackpot");
            var a = jsonObjectLotto["drawDate"].GetString();
@@ -40,14 +43,21 @@ namespace Tipperesultater.Data
                teller++;
            }
 
-           this.Spillnavn = "1";
-           this.Vinnertall = vinnertallStr;
-           this.Tilleggstall = tilleggstallStr;
+           this.Hovedtall = vinnertallStr;
+           this.Stjernetall = tilleggstallStr;
            this.Trekningsdato = trekningspunktAsString;
            this.Premienavn = desce;
            this.Premietall = pr;
            this.Tilleggspremie = merc;
        }
+
+       public string Spillnavn { get; protected set; }
+       public string Hovedtall { get; protected set; }
+       public string Stjernetall { get; protected set; }
+       public string Trekningsdato { get; protected set; }
+       public string Premienavn { get; protected set; }
+       public string Premietall { get; protected set; }
+       public string Tilleggspremie { get; protected set; }
     }
 }
 

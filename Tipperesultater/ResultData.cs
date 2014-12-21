@@ -23,43 +23,11 @@ namespace Tipperesultater.Data
                 { "fotballtippingMidt", "https://www.norsk-tipping.no/api-tipping/getResultInfo.json?gameDay=001"}
         };
 
-        public ResultatData(String spillnavn, String vinnertall, String tilleggstall, String trekningsdato, String premienavn, String premietall)
+        public ResultatData(string spillnavn)
         {
+            
             this.Spillnavn = spillnavn;
-            this.Vinnertall = vinnertall;
-            this.Tilleggstall = tilleggstall;
-            this.Trekningsdato = trekningsdato;
-            this.Premienavn = premienavn;
-            this.Premietall = premietall;
         }
-
-        public ResultatData(String spillnavn, String vinnertall, String tilleggstall, String trekningsdato, String premienavn, String premietall, String tilleggspremie)
-        {
-            this.Spillnavn = spillnavn;
-            this.Vinnertall = vinnertall;
-            this.Tilleggstall = tilleggstall;
-            this.Trekningsdato = trekningsdato;
-            this.Premienavn = premienavn;
-            this.Premietall = premietall;
-            this.Tilleggspremie = tilleggspremie;
-        }
-
-        public ResultatData(Windows.Data.Json.JsonObject jsonObjectLotto)
-        {
-
-        }
-        
         public string Spillnavn { get; protected set; }
-        public string Vinnertall { get; protected set; }
-        public string Tilleggstall { get; protected set; }
-        public string Trekningsdato { get; protected set; }
-        public string Premienavn { get; protected set; }
-        public string Premietall { get; protected set; }
-        public string Tilleggspremie { get; protected set; }
-
-        public override string ToString()
-        {
-            return this.Vinnertall;
-        }
     }
 }

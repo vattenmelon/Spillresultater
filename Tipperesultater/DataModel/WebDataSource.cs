@@ -67,19 +67,19 @@ namespace Tipperesultater.Data
 
             if (gruppenavn.StartsWith("fotballtipping"))
             {
-                return new FotballTippingData(jsonObjectLotto);
+                return new FotballTippingData(jsonObjectLotto, gruppenavn);
             }
             if (gruppenavn.Equals("lotto") || gruppenavn.Equals("vikinglotto"))
             {
-                return new LottoData(jsonObjectLotto);
+                return new LottoData(jsonObjectLotto, gruppenavn);
             }
             else if (gruppenavn.Equals("joker"))
             {
-                return new JokerData(jsonObjectLotto);
+                return new JokerData(jsonObjectLotto, gruppenavn);
             }
             else if (gruppenavn.Equals("eurojackpot"))
             {
-                return new EuroJackpotData(jsonObjectLotto);
+                return new EuroJackpotData(jsonObjectLotto, gruppenavn);
 
             }
             return null;

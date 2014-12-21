@@ -10,8 +10,11 @@ namespace Tipperesultater.Data
 {
     class LottoData : ResultatData
     {
-       public LottoData(JsonObject jsonObjectLotto) : base(jsonObjectLotto)
-       {
+        private JsonObject jsonObjectLotto;
+        private string gruppenavn;
+
+       public LottoData(JsonObject jsonObjectLotto, string spillnavn) : base(spillnavn)
+      { 
            var a = jsonObjectLotto["drawDate"].GetString();
            DateTime trekningspunkt = DateTime.ParseExact(a, "yyyy,MM,dd,HH,mm,ss", CultureInfo.CurrentCulture);
            string trekningspunktAsString = trekningspunkt.ToString("dddd d. MMMM", CultureInfo.CurrentCulture);
@@ -37,6 +40,13 @@ namespace Tipperesultater.Data
            this.Premienavn = desc;
            this.Premietall = prem;
        }
+
+
+       public string Vinnertall { get; protected set; }
+       public string Tilleggstall { get; protected set; }
+       public string Trekningsdato { get; protected set; }
+       public string Premienavn { get; protected set; }
+       public string Premietall { get; protected set; }
     }
 }
 
