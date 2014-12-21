@@ -33,6 +33,7 @@ namespace Tipperesultater
         private const string FifthGroupName = "FifthGroup";
         private const string SixthGroupName = "SixthGroup";
         private const string SeventhGroupName = "SeventhGroup";
+        private const string EightGroupName = "EightGroup";
 
         public static Dictionary<int, GroupGameName> Games = new Dictionary<int, GroupGameName>()
         {
@@ -42,7 +43,8 @@ namespace Tipperesultater
                 { 3, new GroupGameName("eurojackpot", FourthGroupName)},
                 { 4, new GroupGameName("fotballtipping", FifthGroupName)}, 
                 { 5, new GroupGameName("fotballtippingSon", SixthGroupName)},
-                { 6, new GroupGameName("fotballtippingMidt", SeventhGroupName)}
+                { 6, new GroupGameName("fotballtippingMidt", SeventhGroupName)},
+                { 7, new GroupGameName("superlotto", EightGroupName)}
         };
 
         public struct GroupGameName

@@ -222,11 +222,26 @@
   <data name="PivotItem7.Header" xml:space="preserve">
     <value>midtuketipping</value>
   </data>
+  <data name="PivotItem8.Header" xml:space="preserve">
+    <value>superlotto</value>
+  </data>
   <data name="SecondaryButton1.Label" xml:space="preserve">
     <value>secondary command 1</value>
   </data>
   <data name="SecondaryButton2.Label" xml:space="preserve">
     <value>secondary command 2</value>
+  </data>
+  <data name="SuperLottoNesteTrekningLabel.Text" xml:space="preserve">
+    <value>neste trekning</value>
+  </data>
+  <data name="SuperLottoVinnereLabel.Text" xml:space="preserve">
+    <value>vinnere</value>
+  </data>
+  <data name="SuperLottoVinnertallLabel.Text" xml:space="preserve">
+    <value>antall vinnere</value>
+  </data>
+  <data name="SuperLottoViPremieLabel.Text" xml:space="preserve">
+    <value>premie</value>
   </data>
   <data name="VikingLottoPremierLabel.Text" xml:space="preserve">
     <value>premieprognose</value>

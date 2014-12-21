@@ -31,7 +31,21 @@ namespace Tipperesultater.Data
                            int.Parse(x.GetString()).ToString("### ### ### kr")
                         ).ToList());
 
-           this.Spillnavn = "3";
+           if (Spillnavn.Equals("lotto"))
+           {
+               try
+               {
+                   JsonObject superLottoNextDrawObject = jsonObjectLotto["superlottoNextDraw"].GetObject();
+                   DateTime superLottoNeste = DateTime.ParseExact(superLottoNextDrawObject["drawDate"].GetString(), "yyyy,MM,dd,HH,mm,ss", CultureInfo.CurrentCulture);
+                   this.NesteSuperLottoTrekning = superLottoNeste.ToString("dddd d. MMMM", CultureInfo.CurrentCulture);
+                   this.AntallTrekningerTilNesteSuperLotto = superLottoNextDrawObject["numberOfDrawsUntil"].GetNumber().ToString();
+               }
+               catch (Exception e)
+               {
+                   System.Diagnostics.Debug.WriteLine("kunne ikke parse superlotto nestetrekning");
+               }
+           }
+           
            this.Vinnertall = vinnertallStr;
            this.Tilleggstall = tilleggstallStr;
            this.Trekningsdato = trekningspunktAsString;
@@ -45,6 +59,8 @@ namespace Tipperesultater.Data
        public string Trekningsdato { get; protected set; }
        public string Premienavn { get; protected set; }
        public string Premietall { get; protected set; }
+       public string NesteSuperLottoTrekning { get; protected set; }
+       public string AntallTrekningerTilNesteSuperLotto { get; protected set; }
     }
 }
 

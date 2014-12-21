@@ -222,11 +222,26 @@
   <data name="PivotItem7.Header" xml:space="preserve">
     <value>midweek's soccer</value>
   </data>
+  <data name="PivotItem8.Header" xml:space="preserve">
+    <value>superlotto</value>
+  </data>
   <data name="SecondaryButton1.Label" xml:space="preserve">
     <value>secondary command 1</value>
   </data>
   <data name="SecondaryButton2.Label" xml:space="preserve">
     <value>secondary command 2</value>
+  </data>
+  <data name="SuperLottoNesteTrekningLabel.Text" xml:space="preserve">
+    <value>next draw</value>
+  </data>
+  <data name="SuperLottoVinnereLabel.Text" xml:space="preserve">
+    <value>winners</value>
+  </data>
+  <data name="SuperLottoVinnertallLabel.Text" xml:space="preserve">
+    <value>number of winners</value>
+  </data>
+  <data name="SuperLottoViPremieLabel.Text" xml:space="preserve">
+    <value>prize</value>
   </data>
   <data name="VikingLottoPremierLabel.Text" xml:space="preserve">
     <value>prizes</value>

@@ -208,6 +208,26 @@
                     </StackPanel>
                 </ScrollViewer>
             </PivotItem>
+            <PivotItem
+                x:Uid="PivotItem8"
+         
+                Header="eight" 
+                DataContext="{Binding EightGroup}"
+                CommonNavigationTransitionInfo.IsStaggerElement="True" >
+                <ScrollViewer>
+                    <StackPanel HorizontalAlignment="Left" Height="700"  VerticalAlignment="Top" Width="361">
+                        <TextBlock x:Uid="SuperLottoTrekningsdatoLabel" x:Name="SuperLottoTrekningsdatoLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Trekningsdato}" VerticalAlignment="Top" Height="22" Width="341" FontSize="18"/>
+                        <TextBlock x:Uid="SuperLottoVinnertallLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="312" FontSize="36"/>
+                        <TextBlock x:Name="SuperLottoVinnertallValues" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding AntallVinnere}" VerticalAlignment="Top" Height="36" Width="328" FontSize="18" RenderTransformOrigin="0.322,0.395"/>
+                        <TextBlock x:Uid="SuperLottoViPremieLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="312" FontSize="36"/>
+                        <TextBlock x:Name="SuperLottoPremieValues" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Premie}" VerticalAlignment="Top" Height="36" Width="328" FontSize="18" RenderTransformOrigin="0.322,0.395"/>
+                        <TextBlock x:Uid="SuperLottoVinnereLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="312" FontSize="36"/>
+                        <TextBlock x:Name="SuperLottoVinnereValues" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Vinnere}" VerticalAlignment="Top" Height="400" Width="328" FontSize="18" RenderTransformOrigin="0.322,0.395"/>
+                        <TextBlock x:Uid="SuperLottoNesteTrekningLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="312" FontSize="36"/>
+                        <TextBlock x:Name="SuperLottoNesteTrekningValues" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding NesteTrekning}" VerticalAlignment="Top" Height="36" Width="328" FontSize="18" RenderTransformOrigin="0.322,0.395"/>
+                    </StackPanel>
+                </ScrollViewer>
+            </PivotItem>
         </Pivot>
     </Grid>
 

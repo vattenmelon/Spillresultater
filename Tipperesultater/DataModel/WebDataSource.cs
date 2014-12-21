@@ -82,6 +82,11 @@ namespace Tipperesultater.Data
                 return new EuroJackpotData(jsonObjectLotto, gruppenavn);
 
             }
+            else if (gruppenavn.Equals("superlotto"))
+            {
+                LottoData lottoData = (LottoData) await GetGroupAsync("lotto", false);
+                return new SuperLottoData(jsonObjectLotto, gruppenavn, lottoData);
+            }
             return null;
 
         }
