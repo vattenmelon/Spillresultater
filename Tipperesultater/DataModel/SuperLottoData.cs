@@ -28,7 +28,7 @@ namespace Tipperesultater.Data
            this.Premie = prizeAsString;
            this.Trekningsdato = trekningspunktAsString;
            this.Vinnere = String.Join("\r\n", jObject["winnerList"].GetArray().Select(x =>
-                           int.Parse(x.GetArray()[0].GetString()).ToString("### ### ###") + ": " + decodeGender(x.GetArray()[1].GetString()) + ", " + UpperFirst(x.GetArray()[4].GetString()) + " " + x.GetArray()[6].GetString()
+                           int.Parse(x.GetArray()[0].GetString()).ToString("### ### ###") + ": " + decodeGender(x.GetArray()[1].GetString()) + ", " + UpperFirst(x.GetArray()[4].GetString()) + ", " + x.GetArray()[6].GetString()
                         ).ToList());
            this.NesteTrekning = String.Format("{0} ({1} trekninger til)", lottoData.NesteSuperLottoTrekning, lottoData.AntallTrekningerTilNesteSuperLotto);
            
