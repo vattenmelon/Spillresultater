@@ -56,10 +56,12 @@ namespace Tipperesultater.Data
             System.Diagnostics.Debug.WriteLine("fotballtipping");
             string halvTidOverskrift = "HALFTIME";
             string helTidOverskrift = "FULLTIME";
+            string antallVinnereOverskrift = "WINNERS";
             if (CultureInfo.CurrentCulture.TwoLetterISOLanguageName.Equals("nb"))
             {
                 halvTidOverskrift = "HALVTID";
                 helTidOverskrift = "HELTID";
+                antallVinnereOverskrift = "VINNERE";
             }
             var b = jsonObjectLotto["gameDays"].GetArray();
             foreach (JsonValue obj in b)
@@ -139,7 +141,7 @@ namespace Tipperesultater.Data
                         StringBuilder heltid = new StringBuilder();
                         StringBuilder premieTekst = new StringBuilder(String.Format("{0}\r\n", halvTidOverskrift));
                         StringBuilder premieVerdi = new StringBuilder("\r\n");
-                        StringBuilder antallVinnere = new StringBuilder(""); //initialiseres ikke med linjeskift fordi linjeskift fordi siste element i linja
+                        StringBuilder antallVinnere = new StringBuilder(antallVinnereOverskrift); //initialiseres ikke med linjeskift fordi linjeskift fordi siste element i linja
                         int teller = 0;
                         JsonArray results = ob1["matchStages"].GetArray();
                         foreach (JsonValue ev in results)
@@ -179,7 +181,7 @@ namespace Tipperesultater.Data
 
                                 String antallVinnerePrRette = String.Join("", j22.Select((x, i) => i == 2 ?
                                         x.ValueType == JsonValueType.String ? x.GetString() :
-                                        formatVinnere(x) : i == 1 ? "" : "\r\n"));
+                                        x.GetNumber() == 0 ? "0" : x.GetNumber().ToString("### ###") : i == 1 ? "" : "\r\n"));
                                 antallVinnere.Append(antallVinnerePrRette);
                             }
                             if (teller == 1)
@@ -205,24 +207,6 @@ namespace Tipperesultater.Data
             }
 
 
-        }
-
-        private string formatVinnere(IJsonValue x)
-        {
-            double antallAsD = x.GetNumber();
-            if (antallAsD == 0d)
-            {
-                return "Ingen vinner";
-            }
-            else if (antallAsD == 1d)
-            {
-                return antallAsD.ToString("### ### vinner");
-            }
-            else
-            {
-                return antallAsD.ToString("### ### vinnere");
-            }
-         
         }
 
 
