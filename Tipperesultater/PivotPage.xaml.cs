@@ -222,6 +222,8 @@ namespace Tipperesultater
                 LottoAntallVinnereValues.Visibility = Visibility.Collapsed;
                 VikingLottoAntallVinnereValues.Visibility = Visibility.Collapsed;
 
+                EuroPremierAntallVinnereValues.Visibility = Visibility.Collapsed;
+
             }
 
             if (CurrentViewState == "Landscape")
@@ -244,6 +246,8 @@ namespace Tipperesultater
 
                 LottoAntallVinnereValues.Visibility = Visibility.Visible;
                 VikingLottoAntallVinnereValues.Visibility = Visibility.Visible;
+
+                EuroPremierAntallVinnereValues.Visibility = Visibility.Visible;
 
                 
             }  
