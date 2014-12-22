@@ -179,7 +179,7 @@ namespace Tipperesultater.Data
 
                                 String antallVinnerePrRette = String.Join("", j22.Select((x, i) => i == 2 ?
                                         x.ValueType == JsonValueType.String ? x.GetString() :
-                                        x.GetNumber() == 1d ? x.GetNumber().ToString("### ### vinner") : x.GetNumber().ToString("### ### vinnere") : i == 1 ? "" : "\r\n"));
+                                        formatVinnere(x) : i == 1 ? "" : "\r\n"));
                                 antallVinnere.Append(antallVinnerePrRette);
                             }
                             if (teller == 1)
@@ -206,6 +206,26 @@ namespace Tipperesultater.Data
 
 
         }
+
+        private string formatVinnere(IJsonValue x)
+        {
+            double antallAsD = x.GetNumber();
+            if (antallAsD == 0d)
+            {
+                return "Ingen vinner";
+            }
+            else if (antallAsD == 1d)
+            {
+                return antallAsD.ToString("### ### vinner");
+            }
+            else
+            {
+                return antallAsD.ToString("### ### vinnere");
+            }
+         
+        }
+
+
 
         public string Heltid { get; protected set; }
         public string Kamper { get; protected set; }
