@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<VoiceCommands xmlns="http://schemas.microsoft.com/voicecommands/1.1">
+  <CommandSet xml:lang="en-US">
+    <CommandPrefix>Results</CommandPrefix>
+    <Example> show lotto results </Example>
+
+    <Command Name="ShowLottoResults">
+      <Example> show lotto results </Example>
+      <ListenFor> [and] show lotto results [a] </ListenFor>
+      <ListenFor> [and] lotto [a] </ListenFor>
+      <Feedback> Opening lotto results </Feedback>
+      <Navigate Target="PivotPage.xml"/>
+    </Command>
+
+    <Command Name="ShowVikingLottoResults">
+      <Example> show vikinglotto results </Example>
+      <ListenFor> [and] show vikinglotto results [a] </ListenFor>
+      <ListenFor> [and] viking [a] </ListenFor>
+      <Feedback> Opening viking lotto results </Feedback>
+      <Navigate Target="PivotPage.xml"/>
+    </Command>
+
+    <Command Name="ShowJokerResults">
+      <Example> show joker results </Example>
+      <ListenFor> [and] show joker results [a] </ListenFor>
+      <ListenFor> [and] joker [a] </ListenFor>
+      <Feedback> Opening joker results </Feedback>
+      <Navigate Target="PivotPage.xml"/>
+    </Command>
+
+    <Command Name="ShowEuroJackpotResults">
+      <Example> show eurojackpot results </Example>
+      <ListenFor> [and] show eurojackpot results [a] </ListenFor>
+      <ListenFor> [and] eurojackpot [a] </ListenFor>
+      <Feedback> Opening eurojackpot results </Feedback>
+      <Navigate Target="PivotPage.xml"/>
+    </Command>
+
+    <Command Name="ShowSuperLottoResults">
+      <Example> show superlotto results </Example>
+      <ListenFor> [and] show superlotto results [a] </ListenFor>
+      <ListenFor> [and] superlotto [a] </ListenFor>
+      <Feedback> Opening superlotto results </Feedback>
+      <Navigate Target="PivotPage.xml"/>
+    </Command>
+
+    <Command Name="TellLottoResults">
+      <Example> tell me lotto results </Example>
+      <ListenFor> [and] tell [me] lotto results </ListenFor>
+      <ListenFor> [and] tell lotto </ListenFor>
+      <Feedback> The lotto results are </Feedback>
+      <Navigate Target="PivotPage.xml"/>
+    </Command>
+
+    <Command Name="TellVikingLottoResults">
+      <Example> tell me viking lotto results </Example>
+      <ListenFor> [and] tell [me] vikinglotto results </ListenFor>
+      <ListenFor> [and] tell viking </ListenFor>
+      <Feedback> The vikinglotto results are </Feedback>
+      <Navigate Target="PivotPage.xml"/>
+    </Command>
+
+    <Command Name="TellJokerLottoResults">
+      <Example> tell me joker results </Example>
+      <ListenFor> [and] tell [me] joker results </ListenFor>
+      <ListenFor> [and] tell joker </ListenFor>
+      <Feedback> The joker results are </Feedback>
+      <Navigate Target="PivotPage.xml"/>
+    </Command>
+
+    <Command Name="CoolestGuyOnEarth">
+      <Example>?</Example>
+      <ListenFor> who is the coolest guy on earth </ListenFor>
+      <ListenFor> coolest guy </ListenFor>
+      <Feedback> His name is Erling </Feedback>
+      <Navigate Target="PivotPage.xml"/>
+    </Command>
+
+    <!--PhraseList Label="number">
+      <Item> one </Item>
+      <Item> two </Item>
+      <Item> three </Item>
+    </PhraseList -->
+
+    <!--PhraseTopic Label="dateTopic" Scenario="Form Filling"> 
+        <Subject> Date/Time </Subject> 
+        <Subject> MyCustomSubject </Subject> 
+    </PhraseTopic -->
+	
+  </CommandSet>
+</VoiceCommands>
+
+<!-- Example -->
+<!--
+
+    The preceding example demonstrates a hypothetical game called 'Contoso ROD3O!' which defines two
+    Commands that a user can say to either start a new game or replay one of three levels in the game.  
+    To initiate the PlayGame command, a user can say "Contoso Rodeo play  a new game" or "Contoso Rodeo
+    play new game". Either phrase will start a new game. To initiate the second Command, a user can say
+    "Contoso Rodeo replay level one", "Contoso Rodeo replay level two", or "Contoso Rodeo replay level 
+    three".
+    The second Command demonstrates how to use a PhraseList with a Command. PhraseLists can be updated 
+    dynamically by the application (e.g., if a user unlocks a new level or game or feature, you might 
+    want to allow the user to give commands for newfeatures after voice commands are already registered.)
+    The third Command demonstrates how the {*} sequence can parallel another command to recognize speech
+    that is not defined in the CommandSet.
+
+  Note:
+
+      [and] Indicates that "and" is optional. Making connecting words like this optional
+            can help both "Contoso Rodeo, play new game" and "open Contoso Rodeo and play
+            a new game" feel natural to speak.
+                 
+      {number} Defined separately from the Command, mapping to "one" or "two" or "three".
+
+-->
