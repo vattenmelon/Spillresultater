@@ -240,7 +240,7 @@ namespace Tipperesultater
             
             await statusBar.ProgressIndicator.ShowAsync();
 
-            LoadData(false);
+            await LoadData(false);
 
             await statusBar.ProgressIndicator.HideAsync();
 
