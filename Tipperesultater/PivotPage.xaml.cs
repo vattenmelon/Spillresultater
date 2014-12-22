@@ -162,7 +162,7 @@ namespace Tipperesultater
         private async void PivotSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var statusBar = StatusBar.GetForCurrentView();
-            if (isEnglish())
+            if (Utils.isEnglish())
             {
                 statusBar.ProgressIndicator.Text = "Retreiving results";
             }
@@ -180,10 +180,6 @@ namespace Tipperesultater
             
         }
 
-        private bool isEnglish()
-        {
-            return !CultureInfo.CurrentCulture.TwoLetterISOLanguageName.Equals("nb");
-        }
 
         private async System.Threading.Tasks.Task LoadData(Boolean forceRefresh)
         {

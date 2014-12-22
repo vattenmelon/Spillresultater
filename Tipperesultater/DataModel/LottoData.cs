@@ -32,7 +32,7 @@ namespace Tipperesultater.Data
                         ).ToList());
 
            JsonArray antallVinnereArray = jsonObjectLotto["winnerCountTable"].GetArray();
-           this.AntallVinnere = String.Join("\r\n", antallVinnereArray.Select(x => String.Format("{0} vinnere", x.GetNumber().ToString("### ###"))).ToList());
+           this.AntallVinnere = String.Join("\r\n", antallVinnereArray.Select(x => formatVinnere(x)).ToList());
 
            if (Spillnavn.Equals("lotto"))
            {
@@ -45,7 +45,7 @@ namespace Tipperesultater.Data
                }
                catch (Exception e)
                {
-                   System.Diagnostics.Debug.WriteLine("kunne ikke parse superlotto nestetrekning");
+                   System.Diagnostics.Debug.WriteLine("kunne ikke parse superlotto nestetrekning " + e.Message);
                }
            }
            
@@ -54,6 +54,23 @@ namespace Tipperesultater.Data
            this.Trekningsdato = trekningspunktAsString;
            this.Premienavn = desc;
            this.Premietall = prem;
+       }
+
+       private static string formatVinnere(IJsonValue x)
+       {
+           if (x.GetNumber() == 0d)
+           {
+               return Utils.isEnglish() ? "no winners" : "ingen vinnere";
+           }
+           else if (x.GetNumber() == 1d)
+           {
+               return "1 vinner";
+           }
+           else
+           {
+               return String.Format("{0} {1}", x.GetNumber().ToString("### ###"), Utils.isEnglish() ? "winners" : "vinnere");
+           }
+
        }
 
 
