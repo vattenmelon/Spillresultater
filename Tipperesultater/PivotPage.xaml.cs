@@ -211,6 +211,7 @@ namespace Tipperesultater
                 FotballtippingLiveResultsLabel.Visibility = Visibility.Collapsed;
                 FotballtippingLiveResultatValues.Visibility = Visibility.Collapsed;
                 FotballtippingLiveResultatStatusValues.Visibility = Visibility.Collapsed;
+                FotballtippingAntallVinnereValues.Visibility = Visibility.Collapsed;
 
                 FotballtippingSonLiveResultsLabel.Visibility = Visibility.Collapsed;
                 FotballtippingSonLiveResultatValues.Visibility = Visibility.Collapsed;
@@ -231,6 +232,7 @@ namespace Tipperesultater
                 FotballtippingLiveResultsLabel.Visibility = Visibility.Visible;
                 FotballtippingLiveResultatValues.Visibility = Visibility.Visible;
                 FotballtippingLiveResultatStatusValues.Visibility = Visibility.Visible;
+                FotballtippingAntallVinnereValues.Visibility = Visibility.Visible;
 
                 FotballtippingSonLiveResultsLabel.Visibility = Visibility.Visible;
                 FotballtippingSonLiveResultatValues.Visibility = Visibility.Visible;
@@ -242,6 +244,8 @@ namespace Tipperesultater
 
                 LottoAntallVinnereValues.Visibility = Visibility.Visible;
                 VikingLottoAntallVinnereValues.Visibility = Visibility.Visible;
+
+                
             }  
         }
 
