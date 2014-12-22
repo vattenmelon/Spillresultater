@@ -240,7 +240,7 @@ namespace Tipperesultater
             
             await statusBar.ProgressIndicator.ShowAsync();
 
-            await LoadData(false);
+            LoadData(false);
 
             await statusBar.ProgressIndicator.HideAsync();
 
@@ -250,8 +250,9 @@ namespace Tipperesultater
 
         private async System.Threading.Tasks.Task LoadData(Boolean forceRefresh)
         {
-            var sampleDataGroup = await WebDataSource.GetGroupAsync(Games[pivot.SelectedIndex].Name, forceRefresh);
-            this.DefaultViewModel[Games[pivot.SelectedIndex].GroupName] = sampleDataGroup;
+            int selectedIndex = pivot.SelectedIndex;
+            var sampleDataGroup = await WebDataSource.GetGroupAsync(Games[selectedIndex].Name, forceRefresh);
+            this.DefaultViewModel[Games[selectedIndex].GroupName] = sampleDataGroup;
         }
 
 
