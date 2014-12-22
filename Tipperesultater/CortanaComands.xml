@@ -76,17 +76,6 @@
       <Feedback> His name is Erling </Feedback>
       <Navigate Target="PivotPage.xml"/>
     </Command>
-
-    <!--PhraseList Label="number">
-      <Item> one </Item>
-      <Item> two </Item>
-      <Item> three </Item>
-    </PhraseList -->
-
-    <!--PhraseTopic Label="dateTopic" Scenario="Form Filling"> 
-        <Subject> Date/Time </Subject> 
-        <Subject> MyCustomSubject </Subject> 
-    </PhraseTopic -->
 	
   </CommandSet>
 </VoiceCommands>
