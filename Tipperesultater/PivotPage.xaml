@@ -239,7 +239,7 @@
     </Grid>
 
     <Page.BottomAppBar>
-        <CommandBar>
+        <CommandBar ClosedDisplayMode="Minimal">
             <AppBarButton x:Uid="AddAppBarButton" x:Name="AddAppBarButton" Label="add" Click="AddAppBarButton_Click" Icon="Sync" />
         </CommandBar>
     </Page.BottomAppBar>
