@@ -29,6 +29,11 @@ namespace Tipperesultater.Data
                        int.Parse(x.GetArray()[1].GetString()).ToString("### ### ### kr")
                ).ToList());
 
+           this.AntallVinnere = String.Join("\r\n", prizes.Select(x =>
+                       !Regex.IsMatch(x.GetArray()[2].GetString(), @"^\d+$") ? x.GetArray()[2].GetString() :
+                       String.Format("{0} {1}", int.Parse(x.GetArray()[2].GetString()).ToString("### ### ##0"), Utils.isEnglish() ? "winners" : "vinnere")
+               ).ToList());
+
            JsonArray merchandises = jsonObjectLotto["merchandise"].GetArray();
            String merc = "";
            int teller = 1;
@@ -55,6 +60,7 @@ namespace Tipperesultater.Data
        public string Premienavn { get; protected set; }
        public string Premietall { get; protected set; }
        public string Tilleggspremie { get; protected set; }
+       public string AntallVinnere { get; protected set; }
     }
 }
 
