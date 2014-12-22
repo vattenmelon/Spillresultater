@@ -19,6 +19,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.ViewManagement;
+using Windows.ApplicationModel.Activation;
+using Windows.Media.SpeechSynthesis;
 
 // The Pivot Application template is documented at http://go.microsoft.com/fwlink/?LinkID=391641
 
@@ -147,9 +149,74 @@ namespace Tipperesultater
         /// </summary>
         /// <param name="e">Provides data for navigation methods and event
         /// handlers that cannot cancel the navigation request.</param>
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             this.navigationHelper.OnNavigatedTo(e);
+            System.Diagnostics.Debug.WriteLine("------------------>" + e);
+            System.Diagnostics.Debug.WriteLine(e.Parameter);
+            if (e.Parameter.Equals("ShowLottoResults"))
+            {
+                pivot.SelectedIndex = 0;
+            }
+            else if (e.Parameter.Equals("ShowVikingLottoResults"))
+            {
+                pivot.SelectedIndex = 1;
+            }
+            else if (e.Parameter.Equals("ShowJokerResults"))
+            {
+                pivot.SelectedIndex = 2;
+            }
+            else if (e.Parameter.Equals("ShowEuroJackpotResults"))
+            {
+                pivot.SelectedIndex = 3;
+            }
+            else if (e.Parameter.Equals("ShowSuperLottoResults"))
+            {
+                pivot.SelectedIndex = 7;
+            }
+            else if (e.Parameter.Equals("TellLottoResults"))
+            {
+                await SelectedAndTellLotto(0, "lotto");
+            }
+            else if (e.Parameter.Equals("TellVikingLottoResults"))
+            {
+                await SelectedAndTellLotto(1, "vikinglotto");
+            }
+            else if (e.Parameter.Equals("TellJokerResults"))
+            {
+                await SelectedAndTellJoker(2, "joker");
+            }
+            
+        }
+
+        private async System.Threading.Tasks.Task SelectedAndTellLotto(int selectedIndex, string gruppenavn)
+        {
+            pivot.SelectedIndex = selectedIndex;
+            {
+                using (var speech = new SpeechSynthesizer())
+                {
+                    LottoData sampleDataGroup = (LottoData)await WebDataSource.GetGroupAsync(gruppenavn, true);
+
+                    var voiceStream = await speech.SynthesizeTextToStreamAsync("Winning numbers are " + sampleDataGroup.Vinnertall + ". Additional numbers are " + sampleDataGroup.Tilleggstall);
+                    player.SetSource(voiceStream, voiceStream.ContentType);
+                    player.Play();
+                }
+            }
+        }
+
+        private async System.Threading.Tasks.Task SelectedAndTellJoker(int selectedIndex, string gruppenavn)
+        {
+            pivot.SelectedIndex = selectedIndex;
+            {
+                using (var speech = new SpeechSynthesizer())
+                {
+                    JokerData sampleDataGroup = (JokerData)await WebDataSource.GetGroupAsync(gruppenavn, true);
+
+                    var voiceStream = await speech.SynthesizeTextToStreamAsync("Winning numbers are " + sampleDataGroup.Vinnertall + ". Winning player card numbers is " + sampleDataGroup.Spillerkortnummer);
+                    player.SetSource(voiceStream, voiceStream.ContentType);
+                    player.Play();
+                }
+            }
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
@@ -197,6 +264,7 @@ namespace Tipperesultater
             await LoadData(true);
             await statusBar.ProgressIndicator.HideAsync();
         }
+
 
         private new void SizeChanged(object sender, SizeChangedEventArgs e)
         {
@@ -252,6 +320,9 @@ namespace Tipperesultater
                 
             }  
         }
+
+       
+
 
 
     }

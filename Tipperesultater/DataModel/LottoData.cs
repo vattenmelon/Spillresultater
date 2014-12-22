@@ -22,6 +22,11 @@ namespace Tipperesultater.Data
            String vinnertallStr = String.Join(", ", vinnertallArray.Select(x => x.GetNumber()).ToList());
            JsonArray tilleggstallArray = jsonObjectLotto["addTable"].GetArray();
            String tilleggstallStr = String.Join(", ", tilleggstallArray.Select(x => x.GetNumber()).ToList());
+           if (spillnavn.Equals("vikinglotto"))
+           {
+               JsonArray lykketallArray = jsonObjectLotto["luckyTable"].GetArray();
+               this.Lykketall = String.Join(", ", lykketallArray.Select(x => x.GetNumber()).ToList());
+           }
 
            JsonArray premier = jsonObjectLotto["prizeTable"].GetArray();
            JsonArray premierTitles = jsonObjectLotto["prizeCaptionTable"].GetArray();
@@ -64,7 +69,7 @@ namespace Tipperesultater.Data
            }
            else if (x.GetNumber() == 1d)
            {
-               return "1 vinner";
+               return Utils.isEnglish() ? "1 winner" : "1 vinner";
            }
            else
            {
@@ -82,6 +87,7 @@ namespace Tipperesultater.Data
        public string AntallVinnere { get; protected set; }
        public string NesteSuperLottoTrekning { get; protected set; }
        public string AntallTrekningerTilNesteSuperLotto { get; protected set; }
+       public string Lykketall { get; protected set; }
     }
 }
 

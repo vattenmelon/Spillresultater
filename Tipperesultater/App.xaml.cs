@@ -16,6 +16,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
+using Windows.Media.SpeechRecognition;
+using Windows.Storage;
 
 // The Pivot Application template is documented at http://go.microsoft.com/fwlink/?LinkID=391641
 
@@ -110,8 +112,19 @@ namespace Tipperesultater
                 }
             }
 
+            registerCortana();
+
             // Ensure the current window is active.
             Window.Current.Activate();
+        }
+
+        private async void registerCortana()
+        {
+
+            var storageFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///CortanaComands.xml"));
+ 
+                await VoiceCommandManager.InstallCommandSetsFromStorageFileAsync(storageFile);
+           
         }
 
         /// <summary>
@@ -136,6 +149,29 @@ namespace Tipperesultater
             var deferral = e.SuspendingOperation.GetDeferral();
             await SuspensionManager.SaveAsync();
             deferral.Complete();
+        }
+        protected override void OnActivated(IActivatedEventArgs args)
+        {
+            // Was the app activated by a voice command?
+            if (args.Kind == Windows.ApplicationModel.Activation.ActivationKind.VoiceCommand)
+            {
+                var commandArgs = args as Windows.ApplicationModel.Activation.VoiceCommandActivatedEventArgs;
+                Windows.Media.SpeechRecognition.SpeechRecognitionResult speechRecognitionResult = commandArgs.Result;
+
+                // If so, get the name of the voice command, the actual text spoken, and the value of Command/Navigate@Target.
+                string voiceCommandName = speechRecognitionResult.RulePath[0];
+                string textSpoken = speechRecognitionResult.Text;
+                string navigationTarget = speechRecognitionResult.SemanticInterpretation.Properties["NavigationTarget"][0];
+
+                
+                        Frame rootFrame = Window.Current.Content as Frame;
+                        rootFrame.Navigate(typeof(PivotPage), voiceCommandName);
+                        
+                        //this.NavigationService.Navigate(new Uri("/PivotPage.xaml?item=4", UriKind.RelativeOrAbsolute));
+                        //todo
+              
+
+            }
         }
     }
 }

@@ -58,6 +58,8 @@
                         <TextBlock x:Name="VikingLottoVinnertallValues" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Vinnertall}" VerticalAlignment="Top" Height="36" Width="328" FontSize="18" RenderTransformOrigin="0.322,0.395"/>
                         <TextBlock x:Uid="VikingLottoTilleggstallLabel" x:Name="VikingLottoTilleggstallLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="312" FontSize="36"/>
                         <TextBlock x:Name="VikingLottoTilleggstallValues" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Tilleggstall}" VerticalAlignment="Top" Height="36" Width="328" FontSize="18" RenderTransformOrigin="0.322,0.395"/>
+                        <TextBlock x:Uid="VikingLottoLykketallLabel" x:Name="VikingLottoLykketallLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="312" FontSize="36"/>
+                        <TextBlock x:Name="VikingLottoLykketallValues" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Lykketall}" VerticalAlignment="Top" Height="36" Width="328" FontSize="18" RenderTransformOrigin="0.322,0.395"/>
                         <TextBlock x:Uid="VikingLottoPremierLabel" x:Name="VikingLottoPremierLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="312" FontSize="36"/>
                         <StackPanel HorizontalAlignment="Left" Height="433"  VerticalAlignment="Top" Width="Auto" Orientation="Horizontal">
                             <TextBlock x:Name="VikingLottoPremierValuesTittel"  TextWrapping="Wrap" Text="{Binding Premienavn}" VerticalAlignment="Top" Height="253" Width="144" FontSize="18" RenderTransformOrigin="0.322,0.395" HorizontalAlignment="Left"/>
@@ -236,6 +238,7 @@
                 </ScrollViewer>
             </PivotItem>
         </Pivot>
+        <MediaElement x:Name="player" HorizontalAlignment="Left" Height="100" Margin="389,272,-89,0" VerticalAlignment="Top" Width="100"/>
     </Grid>
 
     <Page.BottomAppBar>

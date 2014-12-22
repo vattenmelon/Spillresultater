@@ -255,4 +255,7 @@
   <data name="JokerAntallVinnereLabel.Text" xml:space="preserve">
     <value>antall vinnere</value>
   </data>
+  <data name="VikingLottoLykketallLabel.Text" xml:space="preserve">
+    <value>lykketall</value>
+  </data>
 </root>
