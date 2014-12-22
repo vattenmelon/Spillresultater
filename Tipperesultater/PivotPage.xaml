@@ -111,7 +111,7 @@
                             <TextBlock x:Name="EuroPremierAntallVinnereValues"  TextWrapping="Wrap" Text="{Binding AntallVinnere}"  Height="267" Width="144" FontSize="18" RenderTransformOrigin="0.322,0.395" VerticalAlignment="Top" HorizontalAlignment="Right" TextAlignment="Right"/>
                         </StackPanel>
                         <TextBlock x:Uid="EuroTilleggPremierLabel" x:Name="EuroTilleggPremierLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="312" FontSize="36"/>
-                        <TextBlock x:Uid="EuroTilleggPremierValues" x:Name="EuroTilleggPremierValues" Text="{Binding Tilleggspremie}" HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top" Height="254" Width="312" FontSize="18"/>
+                        <TextBlock x:Uid="EuroTilleggPremierValues" x:Name="EuroTilleggPremierValues" Text="{Binding Tilleggspremie}" HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top" Height="254" Width="Auto" FontSize="18"/>
                     </StackPanel>
                 </ScrollViewer>
             </PivotItem>
