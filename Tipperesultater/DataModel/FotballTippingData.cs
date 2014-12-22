@@ -56,10 +56,12 @@ namespace Tipperesultater.Data
             System.Diagnostics.Debug.WriteLine("fotballtipping");
             string halvTidOverskrift = "HALFTIME";
             string helTidOverskrift = "FULLTIME";
+            string antallVinnereOverskrift = "WINNERS";
             if (CultureInfo.CurrentCulture.TwoLetterISOLanguageName.Equals("nb"))
             {
                 halvTidOverskrift = "HALVTID";
                 helTidOverskrift = "HELTID";
+                antallVinnereOverskrift = "VINNERE";
             }
             var b = jsonObjectLotto["gameDays"].GetArray();
             foreach (JsonValue obj in b)
@@ -139,6 +141,7 @@ namespace Tipperesultater.Data
                         StringBuilder heltid = new StringBuilder();
                         StringBuilder premieTekst = new StringBuilder(String.Format("{0}\r\n", halvTidOverskrift));
                         StringBuilder premieVerdi = new StringBuilder("\r\n");
+                        StringBuilder antallVinnere = new StringBuilder(antallVinnereOverskrift); //initialiseres ikke med linjeskift fordi linjeskift fordi siste element i linja
                         int teller = 0;
                         JsonArray results = ob1["matchStages"].GetArray();
                         foreach (JsonValue ev in results)
@@ -170,15 +173,22 @@ namespace Tipperesultater.Data
                                 JsonArray j22 = j2.GetArray();
                                 String text = String.Join("", j22.Select((x, i) => i == 0 ? x.GetString().Replace("av", CultureInfo.CurrentCulture.TwoLetterISOLanguageName.Equals("nb") ? "av" : "of") : i == 1 ? "" : "\r\n"));
                                 premieTekst.Append(text);
+
                                 String text2 = String.Join("", j22.Select((x, i) => i == 1 ?
                                         x.ValueType == JsonValueType.String ? x.GetString() :
                                         x.GetNumber().ToString("### ### ### kr") : i == 0 ? "" : "\r\n"));
                                 premieVerdi.Append(text2);
+
+                                String antallVinnerePrRette = String.Join("", j22.Select((x, i) => i == 2 ?
+                                        x.ValueType == JsonValueType.String ? x.GetString() :
+                                        x.GetNumber() == 0 ? "0" : x.GetNumber().ToString("### ###") : i == 1 ? "" : "\r\n"));
+                                antallVinnere.Append(antallVinnerePrRette);
                             }
                             if (teller == 1)
                             {
                                 premieTekst.Append(String.Format("\r\n{0}\r\n", helTidOverskrift));   
                                 premieVerdi.Append("\r\n\r\n");
+                                antallVinnere.Append("\r\n\r\n");
                             }
 
                         }
@@ -191,12 +201,15 @@ namespace Tipperesultater.Data
                         this.Kampstatus = kampstatus;
                         this.LiveResultat = liveResultat.ToString();
                         this.LiveResultatStatus = liveResultatStatus.ToString();
+                        this.AntallVinnere = antallVinnere.ToString();
                     }
                 }
             }
 
 
         }
+
+
 
         public string Heltid { get; protected set; }
         public string Kamper { get; protected set; }
@@ -207,5 +220,6 @@ namespace Tipperesultater.Data
         public string Kampstatus { get; protected set; }
         public string LiveResultat { get; protected set; }
         public string LiveResultatStatus { get; protected set; }
+        public string AntallVinnere { get; protected set; }
     }
 }
