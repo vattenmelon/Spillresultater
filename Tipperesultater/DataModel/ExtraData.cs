@@ -41,7 +41,7 @@ namespace Tipperesultater.Data
            foreach (JsonValue andreValue in winnerArray)
            {
                JsonArray array2 = andreValue.GetArray();
-               ekstraSjansenVinnere.Append(String.Format("{0} {1}, {2}\r\n", array2[2].GetString().Replace("'", ""), array2[4].GetString().Replace("'", ""), array2[6].GetString().Replace("'", "")));
+               ekstraSjansenVinnere.Append(String.Format("{0} {1}, {2} {3}\r\n", array2[2].GetString().Replace("'", ""), array2[4].GetString().Replace("'", ""), array2[5].GetString().Replace("'", ""), array2[6].GetString().Replace("'", "")));
            }
 
 
