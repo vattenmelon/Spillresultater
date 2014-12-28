@@ -304,6 +304,9 @@ namespace Tipperesultater
                 EuroStackPanelVertical.Visibility = Visibility.Visible;
                 EuroStackPanelHorizontal.Visibility = Visibility.Collapsed;
 
+                SuperLottoStackPanelVertical.Visibility = Visibility.Visible;
+                SuperLottoStackPanelHorizontal.Visibility = Visibility.Collapsed;
+
             }
 
             if (CurrentViewState == "Landscape")
@@ -339,6 +342,9 @@ namespace Tipperesultater
 
                 EuroStackPanelVertical.Visibility = Visibility.Collapsed;
                 EuroStackPanelHorizontal.Visibility = Visibility.Visible;
+
+                SuperLottoStackPanelVertical.Visibility = Visibility.Collapsed;
+                SuperLottoStackPanelHorizontal.Visibility = Visibility.Visible;
 
                 
             }  
