@@ -273,25 +273,6 @@ namespace Tipperesultater
             
             if (CurrentViewState == "Portrait")
             {
-                FotballtippingLiveResultsLabel.Visibility = Visibility.Collapsed;
-                FotballtippingLiveResultatValues.Visibility = Visibility.Collapsed;
-                FotballtippingLiveResultatStatusValues.Visibility = Visibility.Collapsed;
-                FotballtippingAntallVinnereValues.Visibility = Visibility.Collapsed;
-
-                FotballtippingSonLiveResultsLabel.Visibility = Visibility.Collapsed;
-                FotballtippingSonLiveResultatValues.Visibility = Visibility.Collapsed;
-                FotballtippingSonLiveResultatStatusValues.Visibility = Visibility.Collapsed;
-                FotballtippingSonAntallVinnereValues.Visibility = Visibility.Collapsed;
-
-                FotballtippingMidtLiveResultsLabel.Visibility = Visibility.Collapsed;
-                FotballtippingMidtLiveResultatValues.Visibility = Visibility.Collapsed;
-                FotballtippingMidtLiveResultatStatusValues.Visibility = Visibility.Collapsed;
-                FotballtippingMidtAntallVinnereValues.Visibility = Visibility.Collapsed;
-
-               
-
-                EuroPremierAntallVinnereValues.Visibility = Visibility.Collapsed;
-
                 LottoStackPanelVertical.Visibility = Visibility.Visible;
                 LottoStackPanelHorizontal.Visibility = Visibility.Collapsed;
 
@@ -312,25 +293,6 @@ namespace Tipperesultater
             if (CurrentViewState == "Landscape")
             {
                 //To Do UI for landscape
-                FotballtippingLiveResultsLabel.Visibility = Visibility.Visible;
-                FotballtippingLiveResultatValues.Visibility = Visibility.Visible;
-                FotballtippingLiveResultatStatusValues.Visibility = Visibility.Visible;
-                FotballtippingAntallVinnereValues.Visibility = Visibility.Visible;
-
-                FotballtippingSonLiveResultsLabel.Visibility = Visibility.Visible;
-                FotballtippingSonLiveResultatValues.Visibility = Visibility.Visible;
-                FotballtippingSonLiveResultatStatusValues.Visibility = Visibility.Visible;
-                FotballtippingSonAntallVinnereValues.Visibility = Visibility.Visible;
-
-                FotballtippingMidtLiveResultsLabel.Visibility = Visibility.Visible;
-                FotballtippingMidtLiveResultatValues.Visibility = Visibility.Visible;
-                FotballtippingMidtLiveResultatStatusValues.Visibility = Visibility.Visible;
-                FotballtippingMidtAntallVinnereValues.Visibility = Visibility.Visible;
-
-               
-
-                EuroPremierAntallVinnereValues.Visibility = Visibility.Visible;
-
                 LottoStackPanelVertical.Visibility = Visibility.Collapsed;
                 LottoStackPanelHorizontal.Visibility = Visibility.Visible;
 

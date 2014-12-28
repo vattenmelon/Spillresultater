@@ -200,9 +200,8 @@
                         <TextBlock x:Uid="EuroPremierLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="312" FontSize="36"/>
                         <StackPanel HorizontalAlignment="Left" Height="auto"  VerticalAlignment="Top" Width="Auto" Orientation="Horizontal">
                             <TextBlock x:Name="EuroPremierValuesTittel"  TextWrapping="Wrap" Text="{Binding Premienavn}" VerticalAlignment="Top" Height="267" Width="144" FontSize="18" RenderTransformOrigin="0.322,0.395" HorizontalAlignment="Left"/>
-                            <TextBlock x:Name="EuroPremierValues"  TextWrapping="Wrap" Text="{Binding Premietall}"  Height="267" Width="144" FontSize="18" RenderTransformOrigin="0.322,0.395" VerticalAlignment="Top" HorizontalAlignment="Right" TextAlignment="Right"/>
-                            <TextBlock x:Name="EuroPremierAntallVinnereValues"  TextWrapping="Wrap" Text="{Binding AntallVinnere}"  Height="267" Width="144" FontSize="18" RenderTransformOrigin="0.322,0.395" VerticalAlignment="Top" HorizontalAlignment="Right" TextAlignment="Right"/>
-                        </StackPanel>
+                                <TextBlock x:Name="EuroPremierValues"  TextWrapping="Wrap" Text="{Binding Premietall}"  Height="267" Width="144" FontSize="18" RenderTransformOrigin="0.322,0.395" VerticalAlignment="Top" HorizontalAlignment="Right" TextAlignment="Right"/>
+                            </StackPanel>
                         <TextBlock x:Uid="EuroTilleggPremierLabel"  HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="312" FontSize="36"/>
                         <TextBlock x:Uid="EuroTilleggPremierValues"  Text="{Binding Tilleggspremie}" HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top" Height="254" Width="Auto" FontSize="18"/>
                     </StackPanel>

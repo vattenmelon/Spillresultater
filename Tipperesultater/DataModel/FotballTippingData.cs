@@ -20,7 +20,7 @@ namespace Tipperesultater.Data
             foreach (JsonValue r22 in res2)
             {
                 JsonArray j2 = r22.GetArray();
-                text += String.Join("", j2.Select((x, i) => i == 0 ? x.GetString() : decode(x.GetNumber())));
+                text += String.Join("", j2.Select((x, i) => i == 0 ? ("".Equals(x.GetString()) ? "       " : x.GetString()) : decode(x.GetNumber())));
                 if (pteller % 3 == 0)
                 {
                     text += "\r\n";
