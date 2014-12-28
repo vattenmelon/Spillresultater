@@ -259,18 +259,33 @@
     <value>lucky number</value>
   </data>
   <data name="EuroTilleggstallLabelKort.Text" xml:space="preserve">
-    <value>star numbers</value>
+    <value>star #</value>
+  </data>
+  <data name="EuroVinnertallLabelKort.Text" xml:space="preserve">
+    <value>main #</value>
   </data>
   <data name="JokerAntallVinnereLabelKort.Text" xml:space="preserve">
     <value>winners</value>
   </data>
+  <data name="JokerSpillerkortLabelKort.Text" xml:space="preserve">
+    <value>player card #</value>
+  </data>
+  <data name="JokerVinnertallLabelKort.Text" xml:space="preserve">
+    <value>winning #</value>
+  </data>
   <data name="LottoTilleggstallLabelKort.Text" xml:space="preserve">
-    <value>additional</value>
+    <value>additional #</value>
+  </data>
+  <data name="LottoVinnertallLabelKort.Text" xml:space="preserve">
+    <value>winning #</value>
   </data>
   <data name="VikingLottoLykketallLabelKort.Text" xml:space="preserve">
-    <value>lucky</value>
+    <value>lucky #</value>
   </data>
   <data name="VikingLottoTilleggstallLabelKort.Text" xml:space="preserve">
-    <value>additional</value>
+    <value>additional #</value>
+  </data>
+  <data name="VikingLottoVinnertallLabelKort.Text" xml:space="preserve">
+    <value>winning #</value>
   </data>
 </root>

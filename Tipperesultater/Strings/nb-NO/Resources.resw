@@ -261,16 +261,31 @@
   <data name="EuroTilleggstallLabelKort.Text" xml:space="preserve">
     <value>stjernetall</value>
   </data>
+  <data name="EuroVinnertallLabelKort.Text" xml:space="preserve">
+    <value>hovedtall</value>
+  </data>
   <data name="JokerAntallVinnereLabelKort.Text" xml:space="preserve">
     <value>vinnere</value>
   </data>
+  <data name="JokerSpillerkortLabelKort.Text" xml:space="preserve">
+    <value>spillerkort</value>
+  </data>
+  <data name="JokerVinnertallLabelKort.Text" xml:space="preserve">
+    <value>vinnertall</value>
+  </data>
   <data name="LottoTilleggstallLabelKort.Text" xml:space="preserve">
     <value>tilleggstall</value>
+  </data>
+  <data name="LottoVinnertallLabelKort.Text" xml:space="preserve">
+    <value>vinnertall</value>
   </data>
   <data name="VikingLottoLykketallLabelKort.Text" xml:space="preserve">
     <value>lykketall</value>
   </data>
   <data name="VikingLottoTilleggstallLabelKort.Text" xml:space="preserve">
     <value>tilleggstall</value>
+  </data>
+  <data name="VikingLottoVinnertallLabelKort.Text" xml:space="preserve">
+    <value>vinnertall</value>
   </data>
 </root>
