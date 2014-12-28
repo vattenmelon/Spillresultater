@@ -307,6 +307,8 @@ namespace Tipperesultater
                 SuperLottoStackPanelVertical.Visibility = Visibility.Visible;
                 SuperLottoStackPanelHorizontal.Visibility = Visibility.Collapsed;
 
+                ExtraVinnertallValues.Width = 368;
+
                 //ExtraStackPanelVertical.Visibility = Visibility.Visible;
                 //ExtraStackPanelHorizontal.Visibility = Visibility.Collapsed;
 
@@ -346,6 +348,8 @@ namespace Tipperesultater
 
                 SuperLottoStackPanelVertical.Visibility = Visibility.Collapsed;
                 SuperLottoStackPanelHorizontal.Visibility = Visibility.Visible;
+
+                ExtraVinnertallValues.Width = 612;
 
                // ExtraStackPanelVertical.Visibility = Visibility.Collapsed;
                // ExtraStackPanelHorizontal.Visibility = Visibility.Visible;
