@@ -118,24 +118,6 @@ namespace Tipperesultater.Data
            this.Tilleggstall = ekstraNumbers.ToString().TrimEnd(new[]{',', ' '});
        }
 
-       private static string formatVinnere(IJsonValue x)
-       {
-           if (x.GetNumber() == 0d)
-           {
-               return Utils.isEnglish() ? "no winners" : "ingen vinnere";
-           }
-           else if (x.GetNumber() == 1d)
-           {
-               return Utils.isEnglish() ? "1 winner" : "1 vinner";
-           }
-           else
-           {
-               return String.Format("{0} {1}", x.GetNumber().ToString("### ###"), Utils.isEnglish() ? "winners" : "vinnere");
-           }
-
-       }
-
-
        public string Vinnertall { get; protected set; }
        public string Tilleggstall { get; protected set; }
        public string Trekningsdato { get; protected set; }
