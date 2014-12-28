@@ -26,14 +26,14 @@ namespace Tipperesultater.Data
            tmpPremieTall += int.Parse(jsonObjectLotto["prizeExtraCandidate"].GetString()).ToString("### ### ### kr") + "\r\n";
            tmpPremieTall += int.Parse(jsonObjectLotto["extraChancePrize"].GetString()).ToString("### ### ### kr");
 
-           string tmpPremieNavn = "Første brett\r\n";
-           tmpPremieNavn += "Første ramme\r\n";
-           tmpPremieNavn += "Første bilde\r\n";
-           tmpPremieNavn += "Brett\r\n";
-           tmpPremieNavn += "Ramme\r\n";
-           tmpPremieNavn += "Bilde\r\n";
-           tmpPremieNavn += "Ekstrakandidaten\r\n";
-           tmpPremieNavn += "Ekstrasjansen";
+           string tmpPremieNavn = Utils.isEnglish() ? "First board\r\n" : "Første brett\r\n";
+           tmpPremieNavn += Utils.isEnglish() ? "First frame\r\n" : "Første ramme\r\n";
+           tmpPremieNavn += Utils.isEnglish() ? "First image\r\n" : "Første bilde\r\n";
+           tmpPremieNavn += Utils.isEnglish() ? "Board\r\n" : "Brett\r\n";
+           tmpPremieNavn += Utils.isEnglish() ? "Frame\r\n" : "Ramme\r\n";
+           tmpPremieNavn += Utils.isEnglish() ? "Image\r\n" : "Bilde\r\n";
+           tmpPremieNavn += Utils.isEnglish() ? "Extra candidate\r\n" : "Extrakandidaten\r\n";
+           tmpPremieNavn += Utils.isEnglish() ? "Extra chanse" : "Ekstrasjansen";
 
            JsonArray winnerArray = jsonObjectLotto["winnerList"].GetArray();
            StringBuilder ekstraSjansenVinnere = new StringBuilder();
@@ -68,15 +68,37 @@ namespace Tipperesultater.Data
                   String valueToAppend = "";
                   if ("B".Equals(bokstav))
                   {
-                      valueToAppend = "Første bilde";
+                      if (Utils.isEnglish())
+                      {
+                          valueToAppend = "First image";
+                      }
+                      else
+                      {
+                          valueToAppend = "Første bilde";
+                      }
+                      
                   }
                   else if ("R".Equals(bokstav))
                   {
-                      valueToAppend = "Første ramme";
+                      if (Utils.isEnglish())
+                      {
+                          valueToAppend = "First frame";
+                      }
+                      else
+                      {
+                          valueToAppend = "Første ramme";
+                      }
                   }
                   else if ("F".Equals(bokstav))
                   {
-                      valueToAppend = "Første brett";
+                      if (Utils.isEnglish())
+                      {
+                          valueToAppend = "First board";
+                      }
+                      else
+                      {
+                          valueToAppend = "Første brett";
+                      }
                   }
                   else if ("N".Equals(bokstav))
                   {
