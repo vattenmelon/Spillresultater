@@ -171,7 +171,7 @@
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock x:Uid="JokerPremierLabel"  HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="312" FontSize="36"/>
-                                <TextBlock x:Uid="JokerAntallVinnereLabelKort"  HorizontalAlignment="Right"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="Auto" FontSize="36"/>
+                                <TextBlock x:Uid="JokerAntallVinnereLabelKort"  HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="Auto" FontSize="36"/>
                             </StackPanel>
                                 <StackPanel HorizontalAlignment="Left" Height="Auto"  VerticalAlignment="Top" Width="Auto" Orientation="Horizontal">
                                 <TextBlock  TextWrapping="Wrap" Text="{Binding Premienavn}" VerticalAlignment="Top" Height="Auto" Width="144" FontSize="18"  HorizontalAlignment="Left"/>
