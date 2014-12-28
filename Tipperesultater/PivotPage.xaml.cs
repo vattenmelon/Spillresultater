@@ -307,8 +307,8 @@ namespace Tipperesultater
                 SuperLottoStackPanelVertical.Visibility = Visibility.Visible;
                 SuperLottoStackPanelHorizontal.Visibility = Visibility.Collapsed;
 
-                ExtraStackPanelVertical.Visibility = Visibility.Visible;
-                ExtraStackPanelHorizontal.Visibility = Visibility.Collapsed;
+                //ExtraStackPanelVertical.Visibility = Visibility.Visible;
+                //ExtraStackPanelHorizontal.Visibility = Visibility.Collapsed;
 
             }
 
@@ -347,8 +347,8 @@ namespace Tipperesultater
                 SuperLottoStackPanelVertical.Visibility = Visibility.Collapsed;
                 SuperLottoStackPanelHorizontal.Visibility = Visibility.Visible;
 
-                ExtraStackPanelVertical.Visibility = Visibility.Collapsed;
-                ExtraStackPanelHorizontal.Visibility = Visibility.Visible;
+               // ExtraStackPanelVertical.Visibility = Visibility.Collapsed;
+               // ExtraStackPanelHorizontal.Visibility = Visibility.Visible;
 
                 
             }  

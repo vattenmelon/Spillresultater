@@ -291,6 +291,15 @@
   <data name="ExtraPremierLabel.Text" xml:space="preserve">
     <value>premieprognose</value>
   </data>
+  <data name="ExtraTilleggstallLabel.Text" xml:space="preserve">
+    <value>ekstrakandidaten</value>
+  </data>
+  <data name="ExtraVinnerEkstrasjansenLabel.Text" xml:space="preserve">
+    <value>vinnere ekstrasjansen</value>
+  </data>
+  <data name="ExtraVinnertallLabel.Text" xml:space="preserve">
+    <value>tall</value>
+  </data>
   <data name="PivotItem9.Header" xml:space="preserve">
     <value>extra</value>
   </data>

@@ -22,7 +22,9 @@ namespace Tipperesultater.Data
            tmpPremieTall += int.Parse(jsonObjectLotto["prizeFirstImage"].GetString()).ToString("### ### ### kr") + "\r\n";
            tmpPremieTall += int.Parse(jsonObjectLotto["prizeBoard"].GetString()).ToString("### ### ### kr") + "\r\n";
            tmpPremieTall += int.Parse(jsonObjectLotto["prizeFrame"].GetString()).ToString("### ### ### kr") + "\r\n";
-           tmpPremieTall += int.Parse(jsonObjectLotto["prizeImage"].GetString()).ToString("### ### ### kr");
+           tmpPremieTall += int.Parse(jsonObjectLotto["prizeImage"].GetString()).ToString("### ### ### kr") + "\r\n";
+           tmpPremieTall += int.Parse(jsonObjectLotto["prizeExtraCandidate"].GetString()).ToString("### ### ### kr") + "\r\n";
+           tmpPremieTall += int.Parse(jsonObjectLotto["extraChancePrize"].GetString()).ToString("### ### ### kr");
 
            string tmpPremieNavn = "Første brett\r\n";
            tmpPremieNavn += "Første ramme\r\n";
@@ -30,53 +32,68 @@ namespace Tipperesultater.Data
            tmpPremieNavn += "Brett\r\n";
            tmpPremieNavn += "Ramme\r\n";
            tmpPremieNavn += "Bilde\r\n";
+           tmpPremieNavn += "Ekstrakandidaten\r\n";
+           tmpPremieNavn += "Ekstrasjansen";
 
-      /*
-           JsonArray vinnertallArray = jsonObjectLotto["mainTable"].GetArray();
-           String vinnertallStr = String.Join(", ", vinnertallArray.Select(x => x.GetNumber()).ToList());
-           JsonArray tilleggstallArray = jsonObjectLotto["addTable"].GetArray();
-           String tilleggstallStr = String.Join(", ", tilleggstallArray.Select(x => x.GetNumber()).ToList());
-           if (spillnavn.Equals("vikinglotto"))
-           {
-               JsonArray lykketallArray = jsonObjectLotto["luckyTable"].GetArray();
-               this.Lykketall = String.Join(", ", lykketallArray.Select(x => x.GetNumber()).ToList());
-           }
-
-           JsonArray premier = jsonObjectLotto["prizeTable"].GetArray();
-           JsonArray premierTitles = jsonObjectLotto["prizeCaptionTable"].GetArray();
-           string desc = String.Join("\r\n", premierTitles.Select(x => x.GetString()).ToList());
-           string prem = String.Join("\r\n", premier.Select(x =>
-                           !Regex.IsMatch(x.GetString(), @"^\d+$") ? x.GetString() :
-                           int.Parse(x.GetString()).ToString("### ### ### kr")
-                        ).ToList());
-
-           JsonArray antallVinnereArray = jsonObjectLotto["winnerCountTable"].GetArray();
-           this.AntallVinnere = String.Join("\r\n", antallVinnereArray.Select(x => formatVinnere(x)).ToList());
-
-           if (Spillnavn.Equals("lotto"))
-           {
-               try
-               {
-                   JsonObject superLottoNextDrawObject = jsonObjectLotto["superlottoNextDraw"].GetObject();
-                   DateTime superLottoNeste = DateTime.ParseExact(superLottoNextDrawObject["drawDate"].GetString(), "yyyy,MM,dd,HH,mm,ss", CultureInfo.CurrentCulture);
-                   this.NesteSuperLottoTrekning = superLottoNeste.ToString("dddd d. MMMM", CultureInfo.CurrentCulture);
-                   this.AntallTrekningerTilNesteSuperLotto = superLottoNextDrawObject["numberOfDrawsUntil"].GetNumber().ToString();
-               }
-               catch (Exception e)
-               {
-                   System.Diagnostics.Debug.WriteLine("kunne ikke parse superlotto nestetrekning " + e.Message);
-               }
-           }
+           JsonArray winnerArray = jsonObjectLotto["winnerList"].GetArray();
+           StringBuilder ekstraSjansenVinnere = new StringBuilder();
            
-           this.Vinnertall = vinnertallStr;
-           this.Tilleggstall = tilleggstallStr;
-           this.Trekningsdato = trekningspunktAsString;
-           this.Premienavn = desc;
-           this.Premietall = prem;
-       */
+           foreach (JsonValue andreValue in winnerArray)
+           {
+               JsonArray array2 = andreValue.GetArray();
+               ekstraSjansenVinnere.Append(String.Format("{0} {1}, {2}\r\n", array2[2].GetString().Replace("'", ""), array2[4].GetString().Replace("'", ""), array2[6].GetString().Replace("'", "")));
+           }
+
+
+           JsonArray numberBuffer = jsonObjectLotto["numberBuffer"].GetArray();
+           StringBuilder numbers = new StringBuilder();
+           StringBuilder ekstraNumbers = new StringBuilder();
+           Boolean leggTilEkstranummer = false;
+           foreach (JsonValue value in numberBuffer)
+           {
+              if (value.ValueType == JsonValueType.Number)
+              {
+                  if (leggTilEkstranummer)
+                  {
+                      ekstraNumbers.Append(String.Format("{0}, ", value.GetNumber()));
+                  }
+                  else
+                  {
+                      numbers.Append(String.Format("{0}, ", value.GetNumber()));
+                  }
+              }
+              else
+              {
+                  String bokstav = value.GetString();
+                  String valueToAppend = "";
+                  if ("B".Equals(bokstav))
+                  {
+                      valueToAppend = "Første bilde";
+                  }
+                  else if ("R".Equals(bokstav))
+                  {
+                      valueToAppend = "Første ramme";
+                  }
+                  else if ("F".Equals(bokstav))
+                  {
+                      valueToAppend = "Første brett";
+                  }
+                  else if ("N".Equals(bokstav))
+                  {
+                      leggTilEkstranummer = true;
+                      continue;
+                  }
+                  numbers.Append(String.Format("{0}, ", valueToAppend));
+              }
+              
+           }
+
            this.Trekningsdato = trekningspunktAsString;
            this.Premienavn = tmpPremieNavn;
            this.Premietall = tmpPremieTall;
+           this.VinnereEkstrasjansen = ekstraSjansenVinnere.ToString();
+           this.Vinnertall = numbers.ToString().TrimEnd(new[]{',', ' '});
+           this.Tilleggstall = ekstraNumbers.ToString().TrimEnd(new[]{',', ' '});
        }
 
        private static string formatVinnere(IJsonValue x)
@@ -102,10 +119,8 @@ namespace Tipperesultater.Data
        public string Trekningsdato { get; protected set; }
        public string Premienavn { get; protected set; }
        public string Premietall { get; protected set; }
-       public string AntallVinnere { get; protected set; }
-       public string NesteSuperLottoTrekning { get; protected set; }
-       public string AntallTrekningerTilNesteSuperLotto { get; protected set; }
-       public string Lykketall { get; protected set; }
+       public string VinnereEkstrasjansen { get; protected set; }
+
     }
 }
 
