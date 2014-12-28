@@ -81,7 +81,7 @@ namespace Tipperesultater.Data
                         StringBuilder kamper = new StringBuilder();
                         String kampstatus = "";
                         int tellert = 1;
-                        int statusteller = 0;
+                        HashSet<string> statusMap = new HashSet<string>();
                         StringBuilder liveResultat = new StringBuilder();
                         StringBuilder liveResultatStatus = new StringBuilder();
                         foreach (JsonValue ev in events)
@@ -121,13 +121,17 @@ namespace Tipperesultater.Data
                             }
                             tellert++;
                             String status = arra[4].GetString();
-                            if (status.Equals("Slutt"))
-                            {
-                                statusteller++;
-                            }
+                            statusMap.Add(status);
+     
 
                         }
-                        if (statusteller == 12)
+
+                        Boolean alleKamperErFerdig = false;
+                        if (statusMap.Contains("Slutt") || statusMap.Contains("Trukket") && statusMap.Count < 2)
+                        {
+                            alleKamperErFerdig = true;
+                        }
+                        if (alleKamperErFerdig)
                         {
                             if (CultureInfo.CurrentCulture.TwoLetterISOLanguageName.Equals("nb"))
                             {
