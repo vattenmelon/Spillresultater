@@ -33,7 +33,7 @@ namespace Tipperesultater.Data
            tmpPremieNavn += Utils.isEnglish() ? "Frame\r\n" : "Ramme\r\n";
            tmpPremieNavn += Utils.isEnglish() ? "Image\r\n" : "Bilde\r\n";
            tmpPremieNavn += Utils.isEnglish() ? "Extra candidate\r\n" : "Extrakandidaten\r\n";
-           tmpPremieNavn += Utils.isEnglish() ? "Extra chanse" : "Ekstrasjansen";
+           tmpPremieNavn += Utils.isEnglish() ? "Extra chanse" : "Extrasjansen";
 
            JsonArray winnerArray = jsonObjectLotto["winnerList"].GetArray();
            StringBuilder ekstraSjansenVinnere = new StringBuilder();
