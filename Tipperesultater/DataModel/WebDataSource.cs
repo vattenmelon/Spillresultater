@@ -63,29 +63,33 @@ namespace Tipperesultater.Data
             var result = await response.Content.ReadAsStringAsync();
             result = result.Replace("while(true);/* 0;", "");
             result = result.Replace("/* */", "");
-            JsonObject jsonObjectLotto = JsonObject.Parse(result);
+            JsonObject jsonData = JsonObject.Parse(result);
 
             if (gruppenavn.StartsWith("fotballtipping"))
             {
-                return new FotballTippingData(jsonObjectLotto, gruppenavn);
+                return new FotballTippingData(jsonData, gruppenavn);
             }
             if (gruppenavn.Equals("lotto") || gruppenavn.Equals("vikinglotto"))
             {
-                return new LottoData(jsonObjectLotto, gruppenavn);
+                return new LottoData(jsonData, gruppenavn);
             }
             else if (gruppenavn.Equals("joker"))
             {
-                return new JokerData(jsonObjectLotto, gruppenavn);
+                return new JokerData(jsonData, gruppenavn);
             }
             else if (gruppenavn.Equals("eurojackpot"))
             {
-                return new EuroJackpotData(jsonObjectLotto, gruppenavn);
+                return new EuroJackpotData(jsonData, gruppenavn);
 
             }
             else if (gruppenavn.Equals("superlotto"))
             {
                 LottoData lottoData = (LottoData) await GetGroupAsync("lotto", false);
-                return new SuperLottoData(jsonObjectLotto, gruppenavn, lottoData);
+                return new SuperLottoData(jsonData, gruppenavn, lottoData);
+            }
+            else if (gruppenavn.Equals("extra"))
+            {
+                return new ExtraData(jsonData, gruppenavn);
             }
             return null;
 

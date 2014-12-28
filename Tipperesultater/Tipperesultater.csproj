@@ -99,6 +99,7 @@
     <Compile Include="DataModel\EuroJackpotData.cs" />
     <Compile Include="DataModel\FotballTippingData.cs" />
     <Compile Include="DataModel\JokerData.cs" />
+    <Compile Include="DataModel\ExtraData.cs" />
     <Compile Include="DataModel\SuperLottoData.cs" />
     <Compile Include="DataModel\LottoData.cs" />
     <Compile Include="DataModel\WebDataSource.cs" />

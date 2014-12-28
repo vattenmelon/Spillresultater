@@ -21,7 +21,8 @@ namespace Tipperesultater.Data
                 { "fotballtipping", "https://www.norsk-tipping.no/api-tipping/getResultInfo.json?gameDay=100"}, //100 = lørdag, 010 = søndag, 001 = onsdag/midtuke
                 { "fotballtippingSon", "https://www.norsk-tipping.no/api-tipping/getResultInfo.json?gameDay=010"},
                 { "fotballtippingMidt", "https://www.norsk-tipping.no/api-tipping/getResultInfo.json?gameDay=001"},
-                { "superlotto", "https://www.norsk-tipping.no/api-lotto/getSuperLottoResultInfo.json"}
+                { "superlotto", "https://www.norsk-tipping.no/api-lotto/getSuperLottoResultInfo.json"},
+                { "extra", "https://www.norsk-tipping.no/api-extra/getResultInfo.json"}
         };
 
         public ResultatData(string spillnavn)

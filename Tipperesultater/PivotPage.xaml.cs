@@ -36,6 +36,7 @@ namespace Tipperesultater
         private const string SixthGroupName = "SixthGroup";
         private const string SeventhGroupName = "SeventhGroup";
         private const string EightGroupName = "EightGroup";
+        private const string NinthGroupName = "NinthGroup";
 
         public static Dictionary<int, GroupGameName> Games = new Dictionary<int, GroupGameName>()
         {
@@ -46,7 +47,8 @@ namespace Tipperesultater
                 { 4, new GroupGameName("fotballtipping", FifthGroupName)}, 
                 { 5, new GroupGameName("fotballtippingSon", SixthGroupName)},
                 { 6, new GroupGameName("fotballtippingMidt", SeventhGroupName)},
-                { 7, new GroupGameName("superlotto", EightGroupName)}
+                { 7, new GroupGameName("superlotto", EightGroupName)},
+                { 8, new GroupGameName("extra", NinthGroupName)}
         };
 
         public struct GroupGameName
@@ -305,6 +307,9 @@ namespace Tipperesultater
                 SuperLottoStackPanelVertical.Visibility = Visibility.Visible;
                 SuperLottoStackPanelHorizontal.Visibility = Visibility.Collapsed;
 
+                ExtraStackPanelVertical.Visibility = Visibility.Visible;
+                ExtraStackPanelHorizontal.Visibility = Visibility.Collapsed;
+
             }
 
             if (CurrentViewState == "Landscape")
@@ -341,6 +346,9 @@ namespace Tipperesultater
 
                 SuperLottoStackPanelVertical.Visibility = Visibility.Collapsed;
                 SuperLottoStackPanelHorizontal.Visibility = Visibility.Visible;
+
+                ExtraStackPanelVertical.Visibility = Visibility.Collapsed;
+                ExtraStackPanelHorizontal.Visibility = Visibility.Visible;
 
                 
             }  

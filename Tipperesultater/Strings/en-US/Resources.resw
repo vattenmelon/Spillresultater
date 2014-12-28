@@ -288,4 +288,10 @@
   <data name="VikingLottoVinnertallLabelKort.Text" xml:space="preserve">
     <value>winning #</value>
   </data>
+  <data name="ExtraPremierLabel.Text" xml:space="preserve">
+    <value>prizes</value>
+  </data>
+  <data name="PivotItem9.Header" xml:space="preserve">
+    <value>extra</value>
+  </data>
 </root>
