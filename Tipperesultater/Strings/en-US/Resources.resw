@@ -258,4 +258,19 @@
   <data name="VikingLottoLykketallLabel.Text" xml:space="preserve">
     <value>lucky number</value>
   </data>
+  <data name="EuroTilleggstallLabelKort.Text" xml:space="preserve">
+    <value>star numbers</value>
+  </data>
+  <data name="JokerAntallVinnereLabelKort.Text" xml:space="preserve">
+    <value>winners</value>
+  </data>
+  <data name="LottoTilleggstallLabelKort.Text" xml:space="preserve">
+    <value>additional</value>
+  </data>
+  <data name="VikingLottoLykketallLabelKort.Text" xml:space="preserve">
+    <value>lucky</value>
+  </data>
+  <data name="VikingLottoTilleggstallLabelKort.Text" xml:space="preserve">
+    <value>additional</value>
+  </data>
 </root>

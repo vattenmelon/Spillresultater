@@ -288,10 +288,21 @@ namespace Tipperesultater
                 FotballtippingMidtLiveResultatStatusValues.Visibility = Visibility.Collapsed;
                 FotballtippingMidtAntallVinnereValues.Visibility = Visibility.Collapsed;
 
-                LottoAntallVinnereValues.Visibility = Visibility.Collapsed;
-                VikingLottoAntallVinnereValues.Visibility = Visibility.Collapsed;
+               
 
                 EuroPremierAntallVinnereValues.Visibility = Visibility.Collapsed;
+
+                LottoStackPanelVertical.Visibility = Visibility.Visible;
+                LottoStackPanelHorizontal.Visibility = Visibility.Collapsed;
+
+                VikingLottoStackPanelVertical.Visibility = Visibility.Visible;
+                VikingLottoStackPanelHorizontal.Visibility = Visibility.Collapsed;
+
+                JokerStackPanelVertical.Visibility = Visibility.Visible;
+                JokerStackPanelHorizontal.Visibility = Visibility.Collapsed;
+
+                EuroStackPanelVertical.Visibility = Visibility.Visible;
+                EuroStackPanelHorizontal.Visibility = Visibility.Collapsed;
 
             }
 
@@ -313,10 +324,21 @@ namespace Tipperesultater
                 FotballtippingMidtLiveResultatStatusValues.Visibility = Visibility.Visible;
                 FotballtippingMidtAntallVinnereValues.Visibility = Visibility.Visible;
 
-                LottoAntallVinnereValues.Visibility = Visibility.Visible;
-                VikingLottoAntallVinnereValues.Visibility = Visibility.Visible;
+               
 
                 EuroPremierAntallVinnereValues.Visibility = Visibility.Visible;
+
+                LottoStackPanelVertical.Visibility = Visibility.Collapsed;
+                LottoStackPanelHorizontal.Visibility = Visibility.Visible;
+
+                VikingLottoStackPanelVertical.Visibility = Visibility.Collapsed;
+                VikingLottoStackPanelHorizontal.Visibility = Visibility.Visible;
+
+                JokerStackPanelVertical.Visibility = Visibility.Collapsed;
+                JokerStackPanelHorizontal.Visibility = Visibility.Visible;
+
+                EuroStackPanelVertical.Visibility = Visibility.Collapsed;
+                EuroStackPanelHorizontal.Visibility = Visibility.Visible;
 
                 
             }  
