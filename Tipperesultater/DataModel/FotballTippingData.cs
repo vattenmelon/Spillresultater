@@ -103,8 +103,8 @@ namespace Tipperesultater.Data
                             string kampStartKlokkeslett = kampStartDate.ToString("HH.mm", CultureInfo.CurrentCulture);
                
                             string enKampStatus = arra[4].GetString();
-                            System.Diagnostics.Debug.WriteLine("er" + enKampStatus);
-                            if ("Ikke startet".Equals(enKampStatus)) 
+                            enKampStatus = translateKamptatus(enKampStatus);
+                            if ("Ikke startet".Equals(enKampStatus) || "Not started".Equals(enKampStatus)) 
                             {
                                 enKampStatus += ": " + kampStartKlokkeslett;
                             }
@@ -226,6 +226,35 @@ namespace Tipperesultater.Data
             }
 
 
+        }
+
+        private string translateKamptatus(string enKampStatus)
+        {
+            if (!Utils.isEnglish())
+            {
+                return enKampStatus;
+            }
+            else if ("Ikke startet".Equals(enKampStatus))
+            {
+                return "Not started";
+            }
+            else if ("Slutt".Equals(enKampStatus))
+            {
+                return "Finished";
+            }
+            else if ("Trukket".Equals(enKampStatus))
+            {
+                return "Drawed";
+            }
+            else if ("1. omgang pågår".Equals(enKampStatus))
+            {
+                return "1th half ongoing";
+            }
+            else if ("2. omgang pågår".Equals(enKampStatus))
+            {
+                return "2nd half ongoing";
+            }
+            return enKampStatus;
         }
 
 
