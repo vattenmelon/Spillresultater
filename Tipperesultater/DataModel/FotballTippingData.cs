@@ -97,7 +97,22 @@ namespace Tipperesultater.Data
                             }
                             kamper.Append(String.Format("{0}\r\n", kamp));
                             liveResultat.Append(String.Format("{0}\r\n", arra[5].GetString()));
-                            liveResultatStatus.Append(String.Format("({0})\r\n", arra[4].GetString()));
+
+                            String klokkeSlettAsString = arra[6].GetString();
+                            DateTime kampStartDate = DateTime.ParseExact(klokkeSlettAsString, "yyyy,MM,dd,HH,mm,ss", CultureInfo.CurrentCulture);
+                            string kampStartKlokkeslett = kampStartDate.ToString("HH.mm", CultureInfo.CurrentCulture);
+               
+                            string enKampStatus = arra[4].GetString();
+                            System.Diagnostics.Debug.WriteLine("er" + enKampStatus);
+                            if ("Ikke startet".Equals(enKampStatus)) 
+                            {
+                                enKampStatus += ": " + kampStartKlokkeslett;
+                            }
+                            liveResultatStatus.Append(String.Format("({0})\r\n", enKampStatus));
+
+
+
+
                             if (tellert % 3 == 0)
                             {
                                 kamper.Append("\r\n");
