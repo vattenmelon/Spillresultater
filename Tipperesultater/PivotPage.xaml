@@ -145,22 +145,22 @@
                     <Viewbox VerticalAlignment="Top">
                         <StackPanel>
                             <StackPanel x:Name="JokerStackPanelVertical" HorizontalAlignment="Left" Height="Auto"  VerticalAlignment="Top" Width="361">
-                                <TextBlock x:Uid="JokerTrekningsdatoLabel" x:Name="JokerTrekningsdatoLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Trekningsdato}" VerticalAlignment="Top" Height="22" Width="341" FontSize="18"/>
-                                <TextBlock x:Uid="JokerVinnertallLabel" x:Name="JokerVinnertallLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="312" FontSize="36"/>
-                                <TextBlock x:Name="JokerVinnertallValues" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Vinnertall}" VerticalAlignment="Top" Height="36" Width="328" FontSize="18" RenderTransformOrigin="0.322,0.395"/>
-                                <TextBlock x:Uid="JokerSpillerkortLabel" x:Name="JokerSpillerkortLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="312" FontSize="36"/>
-                                <TextBlock x:Name="JokerSpillerkortValues" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Spillerkortnummer}" VerticalAlignment="Top" Height="36" Width="328" FontSize="18" RenderTransformOrigin="0.322,0.395"/>
-                                <TextBlock x:Uid="JokerPremierLabel" x:Name="JokerPremierLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="312" FontSize="36"/>
+                                <TextBlock x:Uid="JokerTrekningsdatoLabel" x:Name="JokerTrekningsdatoLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Trekningsdato}" VerticalAlignment="Top" Height="Auto" Width="341" FontSize="18"/>
+                                <TextBlock x:Uid="JokerVinnertallLabel" x:Name="JokerVinnertallLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="Auto" Width="312" FontSize="36"/>
+                                <TextBlock x:Name="JokerVinnertallValues" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Vinnertall}" VerticalAlignment="Top" Height="Auto" Width="328" FontSize="18" RenderTransformOrigin="0.322,0.395"/>
+                                <TextBlock x:Uid="JokerSpillerkortLabel" x:Name="JokerSpillerkortLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="Auto" Width="312" FontSize="36" Margin="0,20,0,0"/>
+                                <TextBlock x:Name="JokerSpillerkortValues" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Spillerkortnummer}" VerticalAlignment="Top" Height="Auto" Width="328" FontSize="18" RenderTransformOrigin="0.322,0.395"/>
+                                <TextBlock x:Uid="JokerPremierLabel" x:Name="JokerPremierLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="Auto" Width="312" FontSize="36" Margin="0,20,0,0"/>
                                 <StackPanel HorizontalAlignment="Left" Height="Auto"  VerticalAlignment="Top" Width="361" Orientation="Horizontal">
                                     <TextBlock x:Name="JokerPremierValuesTittel" TextWrapping="Wrap" Text="{Binding Premienavn}" VerticalAlignment="Top" Height="Auto" Width="144" FontSize="18" RenderTransformOrigin="0.322,0.395" HorizontalAlignment="Left"/>
                                     <TextBlock x:Name="JokerPremierValues"  TextWrapping="Wrap" Text="{Binding Premietall}"  Height="Auto" Width="144" FontSize="18" RenderTransformOrigin="0.322,0.395" VerticalAlignment="Top" HorizontalAlignment="Right" TextAlignment="Right"/>
                                 </StackPanel>
-                                <TextBlock x:Uid="JokerAntallVinnereLabel" x:Name="JokerAntallVinnereLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="312" FontSize="36"/>
-                                <TextBlock x:Name="JokerAntallVinnereValues" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding AntallVinnere}" VerticalAlignment="Top" Height="36" Width="328" FontSize="18"/>
+                                <TextBlock x:Uid="JokerAntallVinnereLabel" x:Name="JokerAntallVinnereLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="Auto" Width="312" FontSize="36" Margin="0,20,0,0"/>
+                                <TextBlock x:Name="JokerAntallVinnereValues" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding AntallVinnere}" VerticalAlignment="Top" Height="Auto" Width="328" FontSize="18"/>
                             </StackPanel>
                             <!-- Joker Landscape -->
                             <StackPanel x:Name="JokerStackPanelHorizontal" HorizontalAlignment="Left" Height="Auto"  VerticalAlignment="Top" Width="Auto">
-                                <TextBlock x:Uid="JokerTrekningsdatoLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Trekningsdato}" VerticalAlignment="Top" Height="22" Width="341" FontSize="18"/>
+                                <TextBlock x:Uid="JokerTrekningsdatoLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Trekningsdato}" VerticalAlignment="Top" Height="Auto" Width="341" FontSize="18"/>
                                 <StackPanel Orientation="Horizontal" Width="Auto">
                                     <Grid>
                                         <Grid.ColumnDefinitions>
@@ -168,23 +168,23 @@
                                             <ColumnDefinition Width="Auto" />
                                         </Grid.ColumnDefinitions>
                                         <StackPanel Grid.Column="0">
-                                            <TextBlock x:Uid="JokerVinnertallLabelKort"  HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="Auto" FontSize="36"/>
-                                            <TextBlock HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Vinnertall}" VerticalAlignment="Top" Height="36" Width="Auto" FontSize="18"/>
+                                            <TextBlock x:Uid="JokerVinnertallLabelKort"  HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="Auto" Width="Auto" FontSize="36"/>
+                                            <TextBlock HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Vinnertall}" VerticalAlignment="Top" Height="Auto" Width="Auto" FontSize="18"/>
                                         </StackPanel>
                                         <StackPanel Margin="20,0,0,0" Grid.Column="2">
-                                            <TextBlock x:Uid="JokerSpillerkortLabelKort"  HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="Auto" FontSize="36"/>
-                                            <TextBlock  HorizontalAlignment="Right" TextAlignment="Right"  TextWrapping="Wrap" Text="{Binding Spillerkortnummer}" VerticalAlignment="Top" Height="36" Width="Auto" FontSize="18"/>
+                                            <TextBlock x:Uid="JokerSpillerkortLabelKort"  HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="Auto" Width="Auto" FontSize="36"/>
+                                            <TextBlock  HorizontalAlignment="Right" TextAlignment="Right"  TextWrapping="Wrap" Text="{Binding Spillerkortnummer}" VerticalAlignment="Top" Height="Auto" Width="Auto" FontSize="18"/>
                                         </StackPanel>
                                     </Grid>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock x:Uid="JokerPremierLabel"  HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="312" FontSize="36"/>
-                                    <TextBlock x:Uid="JokerAntallVinnereLabelKort"  HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="Auto" FontSize="36"/>
+                                    <TextBlock x:Uid="JokerPremierLabel"  HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="Auto" Width="312" FontSize="36" Margin="0,20,0,0"/>
+                                    <TextBlock x:Uid="JokerAntallVinnereLabelKort"  HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="Auto" Width="Auto" FontSize="36" Margin="0,20,0,0"/>
                                 </StackPanel>
                                 <StackPanel HorizontalAlignment="Left" Height="Auto"  VerticalAlignment="Top" Width="Auto" Orientation="Horizontal">
                                     <TextBlock  TextWrapping="Wrap" Text="{Binding Premienavn}" VerticalAlignment="Top" Height="Auto" Width="144" FontSize="18"  HorizontalAlignment="Left"/>
                                     <TextBlock  TextWrapping="Wrap" Text="{Binding Premietall}"  Height="Auto" Width="144" FontSize="18" VerticalAlignment="Top" HorizontalAlignment="Right" TextAlignment="Right"/>
-                                    <TextBlock  HorizontalAlignment="Right" TextAlignment="Right"  TextWrapping="Wrap" Text="{Binding AntallVinnere}" VerticalAlignment="Top" Height="36" Width="142" FontSize="18"/>
+                                    <TextBlock  HorizontalAlignment="Right" TextAlignment="Right"  TextWrapping="Wrap" Text="{Binding AntallVinnere}" VerticalAlignment="Top" Height="Auto" Width="142" FontSize="18"/>
                                 </StackPanel>
                             </StackPanel>
                         </StackPanel>
