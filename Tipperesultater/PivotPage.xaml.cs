@@ -358,6 +358,11 @@ namespace Tipperesultater
             }  
         }
 
+        private void AboutAppBarButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(AboutPage));
+        }
+
        
 
 

@@ -435,7 +435,12 @@
 
     <Page.BottomAppBar>
         <CommandBar ClosedDisplayMode="Minimal">
-            <AppBarButton x:Uid="AddAppBarButton" x:Name="AddAppBarButton" Label="add" Click="AddAppBarButton_Click" Icon="Sync" />
+            <CommandBar.PrimaryCommands>
+                <AppBarButton x:Uid="AddAppBarButton" x:Name="AddAppBarButton" Label="add" Click="AddAppBarButton_Click" Icon="Sync" />
+            </CommandBar.PrimaryCommands>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton x:Uid="AboutAppBarButton" Label="about" Click="AboutAppBarButton_Click" />
+            </CommandBar.SecondaryCommands>
         </CommandBar>
     </Page.BottomAppBar>
 </Page>

@@ -303,4 +303,31 @@
   <data name="PivotItem9.Header" xml:space="preserve">
     <value>extra</value>
   </data>
+  <data name="AboutAppBarButton.Label" xml:space="preserve">
+    <value>about</value>
+  </data>
+  <data name="AboutApplicationDeveloper.Text" xml:space="preserve">
+    <value>by TheRealErling</value>
+  </data>
+  <data name="AboutApplicationName.Text" xml:space="preserve">
+    <value>SPILLRESULTATER</value>
+  </data>
+  <data name="AboutApplicationNameContent.Text" xml:space="preserve">
+    <value>Spillresultater</value>
+  </data>
+  <data name="AboutAppstore.Content" xml:space="preserve">
+    <value>This app in Windows Phone Store</value>
+  </data>
+  <data name="AboutPageName.Text" xml:space="preserve">
+    <value>about</value>
+  </data>
+  <data name="AboutReview.Content" xml:space="preserve">
+    <value>Review this app</value>
+  </data>
+  <data name="AboutSourceAtGithub.Content" xml:space="preserve">
+    <value>Source at github</value>
+  </data>
+  <data name="AboutVersion.Text" xml:space="preserve">
+    <value>Version: </value>
+  </data>
 </root>
