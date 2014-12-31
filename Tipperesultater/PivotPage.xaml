@@ -202,23 +202,23 @@
                 <ScrollViewer>
                     <Viewbox VerticalAlignment="Top">
                         <StackPanel>
-                            <StackPanel x:Name="EuroStackPanelVertical" HorizontalAlignment="Left" Height="858"  VerticalAlignment="Top" Width="Auto">
-                                <TextBlock x:Uid="EuroTrekningsdatoLabel" x:Name="EuroTrekningsdatoLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Trekningsdato}" VerticalAlignment="Top" Height="22" Width="341" FontSize="18"/>
-                                <TextBlock x:Uid="EuroVinnertallLabel" x:Name="EuroVinnertallLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="312" FontSize="36"/>
-                                <TextBlock x:Name="EuroVinnertallValues" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Hovedtall}" VerticalAlignment="Top" Height="36" Width="328" FontSize="18" RenderTransformOrigin="0.322,0.395"/>
-                                <TextBlock x:Uid="EuroTilleggstallLabel" x:Name="EuroTilleggstallLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="312" FontSize="36"/>
-                                <TextBlock x:Name="EuroTilleggstallValues" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Stjernetall}" VerticalAlignment="Top" Height="36" Width="328" FontSize="18" RenderTransformOrigin="0.322,0.395"/>
-                                <TextBlock x:Uid="EuroPremierLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="312" FontSize="36"/>
+                            <StackPanel x:Name="EuroStackPanelVertical" HorizontalAlignment="Left" Height="Auto"  VerticalAlignment="Top" Width="Auto">
+                                <TextBlock x:Uid="EuroTrekningsdatoLabel" x:Name="EuroTrekningsdatoLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Trekningsdato}" VerticalAlignment="Top" Height="Auto" Width="341" FontSize="18"/>
+                                <TextBlock x:Uid="EuroVinnertallLabel" x:Name="EuroVinnertallLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="Auto" Width="312" FontSize="36"/>
+                                <TextBlock x:Name="EuroVinnertallValues" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Hovedtall}" VerticalAlignment="Top" Height="Auto" Width="328" FontSize="18" RenderTransformOrigin="0.322,0.395"/>
+                                <TextBlock x:Uid="EuroTilleggstallLabel" x:Name="EuroTilleggstallLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="Auto" Width="312" FontSize="36" Margin="0,20,0,0"/>
+                                <TextBlock x:Name="EuroTilleggstallValues" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Stjernetall}" VerticalAlignment="Top" Height="Auto" Width="328" FontSize="18" RenderTransformOrigin="0.322,0.395"/>
+                                <TextBlock x:Uid="EuroPremierLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="Auto" Width="312" FontSize="36" Margin="0,20,0,0"/>
                                 <StackPanel HorizontalAlignment="Left" Height="auto"  VerticalAlignment="Top" Width="Auto" Orientation="Horizontal">
-                                    <TextBlock x:Name="EuroPremierValuesTittel"  TextWrapping="Wrap" Text="{Binding Premienavn}" VerticalAlignment="Top" Height="267" Width="144" FontSize="18" RenderTransformOrigin="0.322,0.395" HorizontalAlignment="Left"/>
-                                    <TextBlock x:Name="EuroPremierValues"  TextWrapping="Wrap" Text="{Binding Premietall}"  Height="267" Width="144" FontSize="18" RenderTransformOrigin="0.322,0.395" VerticalAlignment="Top" HorizontalAlignment="Right" TextAlignment="Right"/>
+                                    <TextBlock x:Name="EuroPremierValuesTittel"  TextWrapping="Wrap" Text="{Binding Premienavn}" VerticalAlignment="Top" Height="Auto" Width="144" FontSize="18" RenderTransformOrigin="0.322,0.395" HorizontalAlignment="Left"/>
+                                    <TextBlock x:Name="EuroPremierValues"  TextWrapping="Wrap" Text="{Binding Premietall}"  Height="Auto" Width="144" FontSize="18" RenderTransformOrigin="0.322,0.395" VerticalAlignment="Top" HorizontalAlignment="Right" TextAlignment="Right"/>
                                 </StackPanel>
-                                <TextBlock x:Uid="EuroTilleggPremierLabel"  HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="312" FontSize="36"/>
-                                <TextBlock x:Uid="EuroTilleggPremierValues"  Text="{Binding Tilleggspremie}" HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top" Height="254" Width="Auto" FontSize="18"/>
+                                <TextBlock x:Uid="EuroTilleggPremierLabel"  HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="Auto" Width="312" FontSize="36" Margin="0,20,0,0"/>
+                                <TextBlock x:Uid="EuroTilleggPremierValues"  Text="{Binding Tilleggspremie}" HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top" Height="Auto" Width="Auto" FontSize="18"/>
                             </StackPanel>
                             <!-- Eurojackpot Landscape -->
                             <StackPanel x:Name="EuroStackPanelHorizontal" HorizontalAlignment="Left" Height="Auto"  VerticalAlignment="Top" Width="Auto">
-                                <TextBlock x:Uid="LottoTrekningsdatoLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Trekningsdato}" VerticalAlignment="Top" Height="22" Width="341" FontSize="18"/>
+                                <TextBlock x:Uid="LottoTrekningsdatoLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Trekningsdato}" VerticalAlignment="Top" Height="Auto" Width="341" FontSize="18"/>
                                 <StackPanel Orientation="Horizontal" Width="Auto">
                                     <Grid>
                                         <Grid.ColumnDefinitions>
@@ -226,22 +226,22 @@
                                             <ColumnDefinition />
                                         </Grid.ColumnDefinitions>
                                         <StackPanel Grid.Column="0">
-                                            <TextBlock x:Uid="EuroVinnertallLabelKort"  HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="Auto" FontSize="36"/>
-                                            <TextBlock HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Hovedtall}" VerticalAlignment="Top" Height="36" Width="Auto" FontSize="18"/>
+                                            <TextBlock x:Uid="EuroVinnertallLabelKort"  HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="Auto" Width="Auto" FontSize="36"/>
+                                            <TextBlock HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Hovedtall}" VerticalAlignment="Top" Height="Auto" Width="Auto" FontSize="18"/>
                                         </StackPanel>
                                         <StackPanel Margin="20,0,0,0" Grid.Column="1">
-                                            <TextBlock x:Uid="EuroTilleggstallLabelKort"  HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="Auto" FontSize="36"/>
-                                            <TextBlock  HorizontalAlignment="Right" TextAlignment="Right"  TextWrapping="Wrap" Text="{Binding Stjernetall}" VerticalAlignment="Top" Height="36" Width="Auto" FontSize="18"/>
+                                            <TextBlock x:Uid="EuroTilleggstallLabelKort"  HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="Auto" Width="Auto" FontSize="36"/>
+                                            <TextBlock  HorizontalAlignment="Right" TextAlignment="Right"  TextWrapping="Wrap" Text="{Binding Stjernetall}" VerticalAlignment="Top" Height="Auto" Width="Auto" FontSize="18"/>
                                         </StackPanel>
                                     </Grid>
                                 </StackPanel>
-                                <TextBlock x:Uid="EuroPremierLabel"  HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="312" FontSize="36"/>
+                                <TextBlock x:Uid="EuroPremierLabel"  HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="Auto" Width="312" FontSize="36" Margin="0,20,0,0"/>
                                 <StackPanel HorizontalAlignment="Left" Height="Auto"  VerticalAlignment="Top" Width="Auto" Orientation="Horizontal">
                                     <TextBlock  TextWrapping="Wrap" Text="{Binding Premienavn}" VerticalAlignment="Top" Height="Auto" Width="144" FontSize="18"  HorizontalAlignment="Left"/>
                                     <TextBlock  TextWrapping="Wrap" Text="{Binding Premietall}"  Height="Auto" Width="144" FontSize="18" VerticalAlignment="Top" HorizontalAlignment="Right" TextAlignment="Right"/>
                                     <TextBlock  Margin="10, 0, 0, 0"  TextWrapping="Wrap" Text="{Binding AntallVinnere}"  Height="Auto" Width="175" FontSize="18" RenderTransformOrigin="0.322,0.395" VerticalAlignment="Top" HorizontalAlignment="Right" TextAlignment="Right"/>
                                 </StackPanel>
-                                <TextBlock x:Uid="EuroTilleggPremierLabel"  HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="312" FontSize="36"/>
+                                <TextBlock x:Uid="EuroTilleggPremierLabel"  HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="Auto" Width="312" FontSize="36" Margin="0,20,0,0"/>
                                 <TextBlock x:Uid="EuroTilleggPremierValues"  Text="{Binding Tilleggspremie}" HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top" Height="Auto" Width="Auto" FontSize="18"/>
                             </StackPanel>
                         </StackPanel>
