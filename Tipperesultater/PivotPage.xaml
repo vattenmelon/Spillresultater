@@ -365,32 +365,32 @@
                     <Viewbox VerticalAlignment="Top">
                         <StackPanel>
                             <StackPanel x:Name="SuperLottoStackPanelVertical" HorizontalAlignment="Left" Height="Auto"  VerticalAlignment="Top" Width="Auto">
-                                <TextBlock x:Uid="SuperLottoTrekningsdatoLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Trekningsdato}" VerticalAlignment="Top" Height="22" Width="341" FontSize="18"/>
-                                <TextBlock x:Uid="SuperLottoVinnertallLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="312" FontSize="36"/>
-                                <TextBlock x:Uid="SuperLottoVinnertallValues" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding AntallVinnere}" VerticalAlignment="Top" Height="36" Width="328" FontSize="18" RenderTransformOrigin="0.322,0.395"/>
-                                <TextBlock x:Uid="SuperLottoViPremieLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="312" FontSize="36"/>
-                                <TextBlock x:Uid="SuperLottoPremieValues" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Premie}" VerticalAlignment="Top" Height="36" Width="328" FontSize="18" RenderTransformOrigin="0.322,0.395"/>
-                                <TextBlock x:Uid="SuperLottoVinnereLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="Auto" Width="312" FontSize="36"/>
+                                <TextBlock x:Uid="SuperLottoTrekningsdatoLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Trekningsdato}" VerticalAlignment="Top" Height="Auto" Width="341" FontSize="18"/>
+                                <TextBlock x:Uid="SuperLottoVinnertallLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="Auto" Width="312" FontSize="36"/>
+                                <TextBlock x:Uid="SuperLottoVinnertallValues" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding AntallVinnere}" VerticalAlignment="Top" Height="Auto" Width="328" FontSize="18" RenderTransformOrigin="0.322,0.395"/>
+                                <TextBlock x:Uid="SuperLottoViPremieLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="Auto" Width="312" FontSize="36" Margin="0,20,0,0"/>
+                                <TextBlock x:Uid="SuperLottoPremieValues" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Premie}" VerticalAlignment="Top" Height="Auto" Width="328" FontSize="18" RenderTransformOrigin="0.322,0.395"/>
+                                <TextBlock x:Uid="SuperLottoVinnereLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="Auto" Width="312" FontSize="36" Margin="0,20,0,0"/>
                                 <TextBlock x:Uid="SuperLottoVinnereValues" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Vinnere}" VerticalAlignment="Top" Height="Auto" Width="Auto" FontSize="18" RenderTransformOrigin="0.322,0.395"/>
-                                <TextBlock x:Uid="SuperLottoNesteTrekningLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="312" FontSize="36"/>
-                                <TextBlock x:Uid="SuperLottoNesteTrekningValues" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding NesteTrekning}" VerticalAlignment="Top" Height="36" Width="328" FontSize="18" RenderTransformOrigin="0.322,0.395"/>
+                                <TextBlock x:Uid="SuperLottoNesteTrekningLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="Auto" Width="312" FontSize="36" Margin="0,20,0,0"/>
+                                <TextBlock x:Uid="SuperLottoNesteTrekningValues" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding NesteTrekning}" VerticalAlignment="Top" Height="Auto" Width="328" FontSize="18" RenderTransformOrigin="0.322,0.395"/>
                             </StackPanel>
                             <!-- Superlotto Landscape -->
                             <StackPanel x:Name="SuperLottoStackPanelHorizontal" HorizontalAlignment="Left" Height="Auto"  VerticalAlignment="Top" Width="Auto">
 
-                                <TextBlock x:Uid="SuperLottoTrekningsdatoLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Trekningsdato}" VerticalAlignment="Top" Height="22" Width="341" FontSize="18"/>
+                                <TextBlock x:Uid="SuperLottoTrekningsdatoLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Trekningsdato}" VerticalAlignment="Top" Height="Auto" Width="341" FontSize="18"/>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock x:Uid="SuperLottoVinnertallLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="328" FontSize="36"/>
-                                    <TextBlock x:Uid="SuperLottoViPremieLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="150" FontSize="36" TextAlignment="Right"/>
+                                    <TextBlock x:Uid="SuperLottoVinnertallLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="Auto" Width="328" FontSize="36"/>
+                                    <TextBlock x:Uid="SuperLottoViPremieLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="Auto" Width="150" FontSize="36" TextAlignment="Right"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock x:Uid="SuperLottoVinnertallValues" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding AntallVinnere}" VerticalAlignment="Top" Height="36" Width="328" FontSize="18" RenderTransformOrigin="0.322,0.395"/>
-                                    <TextBlock x:Uid="SuperLottoPremieValues" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Premie}" VerticalAlignment="Top" Height="36" Width="150" FontSize="18" RenderTransformOrigin="0.322,0.395" TextAlignment="Right"/>
+                                    <TextBlock x:Uid="SuperLottoVinnertallValues" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding AntallVinnere}" VerticalAlignment="Top" Height="Auto" Width="328" FontSize="18" RenderTransformOrigin="0.322,0.395"/>
+                                    <TextBlock x:Uid="SuperLottoPremieValues" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Premie}" VerticalAlignment="Top" Height="Auto" Width="150" FontSize="18" RenderTransformOrigin="0.322,0.395" TextAlignment="Right"/>
                                 </StackPanel>
-                                <TextBlock x:Uid="SuperLottoVinnereLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="Auto" Width="312" FontSize="36"/>
+                                <TextBlock x:Uid="SuperLottoVinnereLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="Auto" Width="312" FontSize="36" Margin="0,20,0,0"/>
                                 <TextBlock x:Uid="SuperLottoVinnereValues" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Vinnere}" VerticalAlignment="Top" Height="Auto" Width="Auto" FontSize="18" RenderTransformOrigin="0.322,0.395"/>
-                                <TextBlock x:Uid="SuperLottoNesteTrekningLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="312" FontSize="36"/>
-                                <TextBlock x:Uid="SuperLottoNesteTrekningValues" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding NesteTrekning}" VerticalAlignment="Top" Height="36" Width="328" FontSize="18" RenderTransformOrigin="0.322,0.395"/>
+                                <TextBlock x:Uid="SuperLottoNesteTrekningLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="Auto" Width="312" FontSize="36" Margin="0,20,0,0"/>
+                                <TextBlock x:Uid="SuperLottoNesteTrekningValues" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding NesteTrekning}" VerticalAlignment="Top" Height="Auto" Width="328" FontSize="18" RenderTransformOrigin="0.322,0.395"/>
                             </StackPanel>
 
 
