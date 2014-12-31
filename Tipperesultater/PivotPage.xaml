@@ -409,17 +409,17 @@
                     <Viewbox VerticalAlignment="Top" >
                         <StackPanel>
                             <StackPanel x:Name="ExtraStackPanelVertical" HorizontalAlignment="Left" Height="Auto"  VerticalAlignment="Top" Width="Auto">
-                                <TextBlock x:Uid="ExtraTrekningsdatoLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Trekningsdato}" VerticalAlignment="Top" Height="22" Width="341" FontSize="18"/>
-                                <TextBlock x:Uid="ExtraVinnertallLabel"  HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="Auto" FontSize="36" />
-                                <TextBlock x:Name="ExtraVinnertallValues" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Vinnertall}" VerticalAlignment="Top" Height="Auto" Width="368" FontSize="18" RenderTransformOrigin="0.322,0.395"/>
-                                <TextBlock x:Uid="ExtraTilleggstallLabel"  HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="312" FontSize="36"/>
-                                <TextBlock x:Name="ExtraTilleggstallValues" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Tilleggstall}" VerticalAlignment="Top" Height="36" Width="328" FontSize="18" RenderTransformOrigin="0.322,0.395"/>
-                                <TextBlock x:Uid="ExtraPremierLabel"  HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="312" FontSize="36"/>
+                                <TextBlock x:Uid="ExtraTrekningsdatoLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Trekningsdato}" VerticalAlignment="Top" Height="Auto" Width="341" FontSize="18"/>
+                                <TextBlock x:Uid="ExtraVinnertallLabel"  HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="Auto" Width="Auto" FontSize="36" />
+                                <TextBlock x:Name="ExtraVinnertallValues" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Vinnertall}" VerticalAlignment="Top" MaxWidth="500" Height="Auto" FontSize="18" RenderTransformOrigin="0.322,0.395"/>
+                                <TextBlock x:Uid="ExtraTilleggstallLabel"  HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="Auto" Width="312" FontSize="36" Margin="0,20,0,0"/>
+                                <TextBlock x:Name="ExtraTilleggstallValues" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Tilleggstall}" VerticalAlignment="Top" Height="Auto" Width="328" FontSize="18" RenderTransformOrigin="0.322,0.395"/>
+                                <TextBlock x:Uid="ExtraPremierLabel"  HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="Auto" Width="312" FontSize="36" Margin="0,20,0,0"/>
                                 <StackPanel HorizontalAlignment="Left" Height="Auto"  VerticalAlignment="Top" Width="Auto" Orientation="Horizontal">
                                     <TextBlock x:Uid="ExtraPremierValuesTittel" TextWrapping="Wrap" Text="{Binding Premienavn}" VerticalAlignment="Top" Height="Auto" Width="144" FontSize="18" RenderTransformOrigin="0.322,0.395" HorizontalAlignment="Left"/>
                                     <TextBlock x:Uid="ExtraPremierValues"  TextWrapping="Wrap" Text="{Binding Premietall}"  Height="Auto" Width="144" FontSize="18" RenderTransformOrigin="0.322,0.395" VerticalAlignment="Top" HorizontalAlignment="Right" TextAlignment="Right"/>
                                 </StackPanel>
-                                <TextBlock x:Uid="ExtraVinnerEkstrasjansenLabel"  HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="42" Width="Auto" FontSize="36" />
+                                <TextBlock x:Uid="ExtraVinnerEkstrasjansenLabel"  HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="Auto" Width="Auto" FontSize="36" Margin="0,20,0,0"/>
                                 <TextBlock x:Name="ExtraVinnerEkstrasjansenValues" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding VinnereEkstrasjansen}" VerticalAlignment="Top" Height="Auto" Width="Auto" FontSize="18" />
                             </StackPanel>
 

@@ -59,7 +59,7 @@ namespace Tipperesultater.Data
                   }
                   else
                   {
-                      numbers.Append(String.Format("{0}, ", value.GetNumber()));
+                      numbers.Append(String.Format("{0,2}, ", value.GetNumber()));
                   }
               }
               else
