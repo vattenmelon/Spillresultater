@@ -18,6 +18,7 @@ using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 using Windows.Media.SpeechRecognition;
 using Windows.Storage;
+using Windows.UI.Xaml.Media.Imaging;
 
 // The Pivot Application template is documented at http://go.microsoft.com/fwlink/?LinkID=391641
 
@@ -63,6 +64,7 @@ namespace Tipperesultater
             {
                 // Create a Frame to act as the navigation context and navigate to the first page.
                 rootFrame = new Frame();
+
 
                 // Associate the frame with a SuspensionManager key.
                 SuspensionManager.RegisterFrame(rootFrame, "AppFrame");
@@ -167,8 +169,7 @@ namespace Tipperesultater
                         Frame rootFrame = Window.Current.Content as Frame;
                         rootFrame.Navigate(typeof(PivotPage), voiceCommandName);
                         
-                        //this.NavigationService.Navigate(new Uri("/PivotPage.xaml?item=4", UriKind.RelativeOrAbsolute));
-                        //todo
+                       
               
 
             }
