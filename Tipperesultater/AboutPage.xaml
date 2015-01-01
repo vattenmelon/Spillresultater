@@ -1,0 +1,55 @@
+﻿<Page
+    x:Class="Tipperesultater.AboutPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Tipperesultater"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid x:Name="LayoutRoot">
+
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Title Panel -->
+        <StackPanel Grid.Row="0" Margin="19,0,0,0">
+            <TextBlock x:Uid="AboutApplicationName" Text="MY APPLICATION" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0"/>
+            <TextBlock x:Uid="AboutPageName" Text="page title" Margin="0,-6.5,0,26.5" Style="{ThemeResource HeaderTextBlockStyle}" CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}"/>
+        </StackPanel>
+
+        <!--TODO: Content should be placed within the following grid-->
+        <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,9.5,19,0">
+            <StackPanel Width="Auto">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                    <TextBlock x:Uid="AboutApplicationNameContent" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Style="{StaticResource SubheaderTextBlockStyle}" Foreground="{StaticResource PhoneAccentBrush}" />
+                    <TextBlock x:Uid="AboutApplicationDeveloper" HorizontalAlignment="Left" Text="by TheRealErling" Style="{StaticResource GroupHeaderTextBlockStyle}" />
+                        <StackPanel Orientation="Horizontal" Margin="0,5,0,30">
+                            <TextBlock x:Uid="AboutVersion" Text="Version:" FontSize="{StaticResource TextStyleMediumFontSize}" Margin="0,0,5,0" />
+                            <TextBlock  x:Name="versjonsnummer" FontSize="{StaticResource TextStyleMediumFontSize}"/>
+                        </StackPanel>
+                    </StackPanel>
+                        <Image Grid.Column="1" Height="150" Source="Assets/orig.png" HorizontalAlignment="Right" />
+                </Grid>
+                
+                <HyperlinkButton x:Uid="AboutReview"  HorizontalAlignment="Left" Content="review.." FontSize="{StaticResource TextStyleLargeFontSize}" Click="AboutReview_Click"/>
+                <HyperlinkButton x:Uid="AboutAppstore"  HorizontalAlignment="Left" Content="appstore.." FontSize="{StaticResource TextStyleLargeFontSize}" Click="AboutAppstore_Click" />
+                <HyperlinkButton x:Uid="AboutSourceAtGithub" NavigateUri="https://github.com/vattenmelon/Spillresultater" HorizontalAlignment="Left" Content="source at github" FontSize="{StaticResource TextStyleLargeFontSize}" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>
