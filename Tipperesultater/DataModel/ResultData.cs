@@ -31,5 +31,40 @@ namespace Tipperesultater.Data
             this.Spillnavn = spillnavn;
         }
         public string Spillnavn { get; protected set; }
+
+        public string ConvertToProperNameCase(string input)
+        {
+
+            char[] chars = toTitleCase(input).ToCharArray();
+
+            for (int i = 0; i + 1 < chars.Length; i++)
+            {
+                if ((chars[i].Equals('\'')) ||
+                    (chars[i].Equals('-')))
+                {
+                    chars[i + 1] = Char.ToUpper(chars[i + 1]);
+                }
+            }
+            return new string(chars);
+        }
+
+        private string toTitleCase(string value)
+        {
+            if (value == null)
+                return null;
+            if (value.Length == 0)
+                return value;
+
+            StringBuilder result = new StringBuilder(value);
+            result[0] = char.ToUpper(result[0]);
+            for (int i = 1; i < result.Length; ++i)
+            {
+                if (char.IsWhiteSpace(result[i - 1]))
+                    result[i] = char.ToUpper(result[i]);
+                else
+                    result[i] = char.ToLower(result[i]);
+            }
+            return result.ToString();
+        }
     }
 }

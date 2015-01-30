@@ -23,9 +23,9 @@ namespace Tipperesultater.Data
            JsonArray tilleggstallArray = jsonObjectLotto["starTable"].GetArray();
            String tilleggstallStr = String.Join(", ", tilleggstallArray.Select(x => x.GetNumber()).ToList());
            JsonArray prizes = jsonObjectLotto["prizes"].GetArray();
-           string desce = String.Join("\r\n", prizes.Select(x => x.GetArray()[0].GetString()).ToList());
+           string desce = String.Join("\r\n", prizes.Select(x => x.GetArray()[0].GetString().Aggregate(string.Empty, (c, i) => c + i + ' ').Replace("+ 0", "") + "rette").ToList());
            string pr = String.Join("\r\n", prizes.Select(x =>
-                       !Regex.IsMatch(x.GetArray()[1].GetString(), @"^\d+$") ? x.GetArray()[1].GetString() :
+                       !Regex.IsMatch(x.GetArray()[1].GetString(), @"^\d+$") ? x.GetArray()[1].GetString()+"!" :
                        int.Parse(x.GetArray()[1].GetString()).ToString("### ### ### kr")
                ).ToList());
 
@@ -42,7 +42,7 @@ namespace Tipperesultater.Data
                JsonObject o = obj.GetObject();
                JsonArray ja = o["winnerDetails"].GetArray();
                JsonArray ja2 = ja[0].GetArray();
-               merc += teller + ". " + o["name"].GetString().ToUpper() + ":\r\n    " + ja2[0].GetString() + "\r\n    " + ja2[1].GetString() + ", " + ja2[2].GetString() + "\r\n\r\n";
+               merc += teller + ". " + o["name"].GetString() + ":\r\n    " + ConvertToProperNameCase( ja2[0].GetString()) + "\r\n    " + ConvertToProperNameCase( ja2[1].GetString()) + ", " + ja2[2].GetString() + "\r\n\r\n";
                teller++;
            }
 

@@ -276,10 +276,24 @@
                             </StackPanel>
                             <TextBlock x:Uid="FotballtippingStatusLabel"  HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Kampstatus}" VerticalAlignment="Top" Height="Auto" Width="341" FontSize="18" Foreground="{ThemeResource PhoneAccentBrush}"/>
                             <TextBlock x:Uid="FotballtippingPremieprognoseLabel" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="Auto" Width="312" FontSize="36" Margin="0,20,0,0"/>
+                            <StackPanel Width="Auto">
+                                <StackPanel Orientation="Horizontal" Width="Auto">
+                                    <TextBlock Width="288" Grid.Column="0" x:Uid="FotballtippingPremierValuesHalfTimeTittel"  TextWrapping="Wrap" VerticalAlignment="Top" Height="Auto" HorizontalAlignment="Left" Foreground="{ThemeResource PhoneAccentBrush}" TextAlignment="Left"/>
+                                    <TextBlock Width="144" Grid.Column="1" x:Uid="FotballtippingPremierValuesHalfTimeAntallVinnereTittel" x:Name="FotballtippingPremierValuesHalfTimeAntallVinnereTittel"  TextWrapping="Wrap" VerticalAlignment="Top" Height="Auto"  HorizontalAlignment="Right" TextAlignment="Right" Foreground="{ThemeResource PhoneAccentBrush}"/>
+                                </StackPanel>
+                            </StackPanel>
                             <StackPanel HorizontalAlignment="Left" Height="auto"  VerticalAlignment="Top" Width="Auto" Orientation="Horizontal">
                                 <TextBlock x:Name="FotballtippingPremierValuesTittel"  TextWrapping="Wrap" Text="{Binding Premienavn}" VerticalAlignment="Top" Height="Auto" Width="144" FontSize="18" RenderTransformOrigin="0.322,0.395" HorizontalAlignment="Left" Foreground="{ThemeResource PhoneMidBrush}"/>
-                                <TextBlock x:Name="FotballtippingPremierValues"  TextWrapping="Wrap" Text="{Binding Premietall}"  Height="Auto" Width="Auto" FontSize="18" RenderTransformOrigin="0.322,0.395" VerticalAlignment="Top" HorizontalAlignment="Right" TextAlignment="Right" Foreground="{ThemeResource PhoneMidBrush}"/>
+                                <TextBlock x:Name="FotballtippingPremierValues"  TextWrapping="Wrap" Text="{Binding Premietall}"  Height="Auto" Width="144" FontSize="18" RenderTransformOrigin="0.322,0.395" VerticalAlignment="Top" HorizontalAlignment="Right" TextAlignment="Right" Foreground="{ThemeResource PhoneMidBrush}"/>
                                 <TextBlock x:Name="FotballtippingAntallVinnereValues"  TextWrapping="Wrap" Text="{Binding AntallVinnere}"  Height="Auto" Width="144" FontSize="18" RenderTransformOrigin="0.322,0.395" VerticalAlignment="Top" HorizontalAlignment="Right" TextAlignment="Right" Foreground="{ThemeResource PhoneMidBrush}"/>
+                            </StackPanel>
+                            <StackPanel>
+                                <TextBlock x:Uid="FotballtippingPremierValuesFullTimeTittel"  TextWrapping="Wrap" VerticalAlignment="Top" Height="Auto" Width="144" RenderTransformOrigin="0.322,0.395" HorizontalAlignment="Left" Foreground="{ThemeResource PhoneAccentBrush}"/>
+                            </StackPanel>
+                            <StackPanel HorizontalAlignment="Left" Height="auto"  VerticalAlignment="Top" Width="Auto" Orientation="Horizontal">
+                                <TextBlock x:Name="FotballtippingPremierFullTimeValuesTittel"  TextWrapping="Wrap" Text="{Binding PremienavnFullTid}" VerticalAlignment="Top" Height="Auto" Width="144" FontSize="18" RenderTransformOrigin="0.322,0.395" HorizontalAlignment="Left" Foreground="{ThemeResource PhoneMidBrush}"/>
+                                <TextBlock x:Name="FotballtippingPremierFullTimeValues"  TextWrapping="Wrap" Text="{Binding PremietallFullTid}"  Height="Auto" Width="144" FontSize="18" RenderTransformOrigin="0.322,0.395" VerticalAlignment="Top" HorizontalAlignment="Right" TextAlignment="Right" Foreground="{ThemeResource PhoneMidBrush}"/>
+                                <TextBlock x:Name="FotballtippingAntallFullVinnereValues"  TextWrapping="Wrap" Text="{Binding AntallVinnereFullTid}"  Height="Auto" Width="144" FontSize="18" RenderTransformOrigin="0.322,0.395" VerticalAlignment="Top" HorizontalAlignment="Right" TextAlignment="Right" Foreground="{ThemeResource PhoneMidBrush}"/>
                             </StackPanel>
                         </StackPanel>
                     </Viewbox>
@@ -311,11 +325,28 @@
                             </StackPanel>
                             <TextBlock x:Uid="FotballtippingSonStatusLabel"  HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Kampstatus}" VerticalAlignment="Top" Height="Auto" Width="341" FontSize="18" Foreground="{ThemeResource PhoneAccentBrush}"/>
                             <TextBlock x:Uid="FotballtippingSonPremieprognoseLabel" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="Auto" Width="312" FontSize="36" Margin="0,20,0,0"/>
+                            <StackPanel Width="Auto">
+                                <StackPanel Orientation="Horizontal" Width="Auto">
+                                    <TextBlock Width="288" Grid.Column="0" x:Uid="FotballtippingSonPremierValuesHalfTimeTittel"  TextWrapping="Wrap" VerticalAlignment="Top" Height="Auto" HorizontalAlignment="Left" Foreground="{ThemeResource PhoneAccentBrush}" TextAlignment="Left"/>
+                                    <TextBlock Width="144" Grid.Column="1" x:Uid="FotballtippingSonPremierValuesHalfTimeAntallVinnereTittel" x:Name="FotballtippingSonPremierValuesHalfTimeAntallVinnereTittel"  TextWrapping="Wrap" VerticalAlignment="Top" Height="Auto"  HorizontalAlignment="Right" TextAlignment="Right" Foreground="{ThemeResource PhoneAccentBrush}"/>
+                                </StackPanel>
+                            </StackPanel>
+                            
                             <StackPanel HorizontalAlignment="Left" Height="auto"  VerticalAlignment="Top" Width="Auto" Orientation="Horizontal">
                                 <TextBlock x:Name="FotballtippingSonPremierValuesTittel"  TextWrapping="Wrap" Text="{Binding Premienavn}" VerticalAlignment="Top" Height="Auto" Width="144" FontSize="18" RenderTransformOrigin="0.322,0.395" HorizontalAlignment="Left" Foreground="{ThemeResource PhoneMidBrush}"/>
                                 <TextBlock x:Name="FotballtippingSonPremierValues"  TextWrapping="Wrap" Text="{Binding Premietall}"  Height="Auto" Width="144" FontSize="18" RenderTransformOrigin="0.322,0.395" VerticalAlignment="Top" HorizontalAlignment="Right" TextAlignment="Right" Foreground="{ThemeResource PhoneMidBrush}"/>
                                 <TextBlock x:Name="FotballtippingSonAntallVinnereValues"  TextWrapping="Wrap" Text="{Binding AntallVinnere}"  Height="Auto" Width="144" FontSize="18" RenderTransformOrigin="0.322,0.395" VerticalAlignment="Top" HorizontalAlignment="Right" TextAlignment="Right" Foreground="{ThemeResource PhoneMidBrush}"/>
                             </StackPanel>
+
+                            <StackPanel>
+                                <TextBlock x:Uid="FotballtippingPremierSonValuesFullTimeTittel"  TextWrapping="Wrap" VerticalAlignment="Top" Height="Auto" Width="144" RenderTransformOrigin="0.322,0.395" HorizontalAlignment="Left" Foreground="{ThemeResource PhoneAccentBrush}"/>
+                            </StackPanel>
+                            <StackPanel HorizontalAlignment="Left" Height="auto"  VerticalAlignment="Top" Width="Auto" Orientation="Horizontal">
+                                <TextBlock x:Name="FotballtippingPremierSonFullTimeValuesTittel"  TextWrapping="Wrap" Text="{Binding PremienavnFullTid}" VerticalAlignment="Top" Height="Auto" Width="144" FontSize="18" RenderTransformOrigin="0.322,0.395" HorizontalAlignment="Left" Foreground="{ThemeResource PhoneMidBrush}"/>
+                                <TextBlock x:Name="FotballtippingPremierSonFullTimeValues"  TextWrapping="Wrap" Text="{Binding PremietallFullTid}"  Height="Auto" Width="144" FontSize="18" RenderTransformOrigin="0.322,0.395" VerticalAlignment="Top" HorizontalAlignment="Right" TextAlignment="Right" Foreground="{ThemeResource PhoneMidBrush}"/>
+                                <TextBlock x:Name="FotballtippingAntallSonFullVinnereValues"  TextWrapping="Wrap" Text="{Binding AntallVinnereFullTid}"  Height="Auto" Width="144" FontSize="18" RenderTransformOrigin="0.322,0.395" VerticalAlignment="Top" HorizontalAlignment="Right" TextAlignment="Right" Foreground="{ThemeResource PhoneMidBrush}"/>
+                            </StackPanel>
+
                         </StackPanel>
                     </Viewbox>
                 </ScrollViewer>
@@ -347,11 +378,28 @@
                             </StackPanel>
                             <TextBlock x:Uid="FotballtippingMidtStatusLabel"  HorizontalAlignment="Left"  TextWrapping="Wrap" Text="{Binding Kampstatus}" VerticalAlignment="Top" Height="Auto" Width="341" FontSize="18" Foreground="{ThemeResource PhoneAccentBrush}"/>
                             <TextBlock x:Uid="FotballtippingSonPremieprognoseLabel" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="Auto" Width="312" FontSize="36" Margin="0,20,0,0"/>
+                            <StackPanel Width="Auto">
+                                <StackPanel Orientation="Horizontal" Width="Auto">
+                                    <TextBlock Width="288" Grid.Column="0" x:Uid="FotballtippingMidtPremierValuesHalfTimeTittel"  TextWrapping="Wrap" VerticalAlignment="Top" Height="Auto" HorizontalAlignment="Left" Foreground="{ThemeResource PhoneAccentBrush}" TextAlignment="Left"/>
+                                    <TextBlock Width="144" Grid.Column="1" x:Uid="FotballtippingMidtPremierValuesHalfTimeAntallVinnereTittel" x:Name="FotballtippingMidtPremierValuesHalfTimeAntallVinnereTittel"  TextWrapping="Wrap" VerticalAlignment="Top" Height="Auto"  HorizontalAlignment="Right" TextAlignment="Right" Foreground="{ThemeResource PhoneAccentBrush}"/>
+                                </StackPanel>
+                            </StackPanel>
+                            
                             <StackPanel HorizontalAlignment="Left" Height="auto"  VerticalAlignment="Top" Width="Auto" Orientation="Horizontal">
                                 <TextBlock x:Name="FotballtippingMidtPremierValuesTittel"  TextWrapping="Wrap" Text="{Binding Premienavn}" VerticalAlignment="Top" Height="Auto" Width="144" FontSize="18" RenderTransformOrigin="0.322,0.395" HorizontalAlignment="Left" Foreground="{ThemeResource PhoneMidBrush}"/>
                                 <TextBlock x:Name="FotballtippingMidtPremierValues"  TextWrapping="Wrap" Text="{Binding Premietall}"  Height="Auto" Width="144" FontSize="18" RenderTransformOrigin="0.322,0.395" VerticalAlignment="Top" HorizontalAlignment="Right" TextAlignment="Right" Foreground="{ThemeResource PhoneMidBrush}"/>
                                 <TextBlock x:Name="FotballtippingMidtAntallVinnereValues"  TextWrapping="Wrap" Text="{Binding AntallVinnere}"  Height="Auto" Width="144" FontSize="18" RenderTransformOrigin="0.322,0.395" VerticalAlignment="Top" HorizontalAlignment="Right" TextAlignment="Right" Foreground="{ThemeResource PhoneMidBrush}"/>
                             </StackPanel>
+
+                            <StackPanel>
+                                <TextBlock x:Uid="FotballtippingPremierMidtValuesFullTimeTittel"  TextWrapping="Wrap" VerticalAlignment="Top" Height="Auto" Width="144" RenderTransformOrigin="0.322,0.395" HorizontalAlignment="Left" Foreground="{ThemeResource PhoneAccentBrush}"/>
+                            </StackPanel>
+                            <StackPanel HorizontalAlignment="Left" Height="auto"  VerticalAlignment="Top" Width="Auto" Orientation="Horizontal">
+                                <TextBlock x:Name="FotballtippingPremierMidtFullTimeValuesTittel"  TextWrapping="Wrap" Text="{Binding PremienavnFullTid}" VerticalAlignment="Top" Height="Auto" Width="144" FontSize="18" RenderTransformOrigin="0.322,0.395" HorizontalAlignment="Left" Foreground="{ThemeResource PhoneMidBrush}"/>
+                                <TextBlock x:Name="FotballtippingPremierMidtFullTimeValues"  TextWrapping="Wrap" Text="{Binding PremietallFullTid}"  Height="Auto" Width="144" FontSize="18" RenderTransformOrigin="0.322,0.395" VerticalAlignment="Top" HorizontalAlignment="Right" TextAlignment="Right" Foreground="{ThemeResource PhoneMidBrush}"/>
+                                <TextBlock x:Name="FotballtippingAntallMidtFullVinnereValues"  TextWrapping="Wrap" Text="{Binding AntallVinnereFullTid}"  Height="Auto" Width="144" FontSize="18" RenderTransformOrigin="0.322,0.395" VerticalAlignment="Top" HorizontalAlignment="Right" TextAlignment="Right" Foreground="{ThemeResource PhoneMidBrush}"/>
+                            </StackPanel>
+
                         </StackPanel>
                     </Viewbox>
                 </ScrollViewer>

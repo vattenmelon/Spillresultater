@@ -33,7 +33,7 @@ namespace Tipperesultater.Data
            tmpPremieNavn += Utils.isEnglish() ? "Frame\r\n" : "Ramme\r\n";
            tmpPremieNavn += Utils.isEnglish() ? "Image\r\n" : "Bilde\r\n";
            tmpPremieNavn += Utils.isEnglish() ? "Extra candidate\r\n" : "Extrakandidaten\r\n";
-           tmpPremieNavn += Utils.isEnglish() ? "Extra chanse" : "Extrasjansen";
+           tmpPremieNavn += Utils.isEnglish() ? "Extra chance" : "Extrasjansen";
 
            JsonArray winnerArray = jsonObjectLotto["winnerList"].GetArray();
            StringBuilder ekstraSjansenVinnere = new StringBuilder();
@@ -41,7 +41,7 @@ namespace Tipperesultater.Data
            foreach (JsonValue andreValue in winnerArray)
            {
                JsonArray array2 = andreValue.GetArray();
-               ekstraSjansenVinnere.Append(String.Format("{0} {1}, {2} {3}\r\n", array2[2].GetString().Replace("'", ""), array2[4].GetString().Replace("'", ""), array2[5].GetString().Replace("'", ""), array2[6].GetString().Replace("'", "")));
+               ekstraSjansenVinnere.Append(String.Format("{0} {1}, {2} {3}\r\n", ConvertToProperNameCase( array2[2].GetString().Replace("'", "")), ConvertToProperNameCase( array2[4].GetString().Replace("'", "")), array2[5].GetString().Replace("'", ""), array2[6].GetString().Replace("'", "")));
            }
 
 

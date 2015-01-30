@@ -54,15 +54,7 @@ namespace Tipperesultater.Data
 
 
             System.Diagnostics.Debug.WriteLine("fotballtipping");
-            string halvTidOverskrift = "HALFTIME";
-            string helTidOverskrift = "FULLTIME";
-            string antallVinnereOverskrift = "WINNERS";
-            if (CultureInfo.CurrentCulture.TwoLetterISOLanguageName.Equals("nb"))
-            {
-                halvTidOverskrift = "HALVTID";
-                helTidOverskrift = "HELTID";
-                antallVinnereOverskrift = "VINNERE";
-            }
+            
             var b = jsonObjectLotto["gameDays"].GetArray();
             foreach (JsonValue obj in b)
             {
@@ -127,7 +119,7 @@ namespace Tipperesultater.Data
                         }
 
                         Boolean alleKamperErFerdig = false;
-                        if (statusMap.Contains("Slutt") || statusMap.Contains("Trukket") && statusMap.Count < 2)
+                        if ((statusMap.Contains("Slutt") && statusMap.Count == 1) || statusMap.Contains("Trukket") && statusMap.Count < 2)
                         {
                             alleKamperErFerdig = true;
                         }
@@ -158,9 +150,14 @@ namespace Tipperesultater.Data
 
                         StringBuilder halvtid = new StringBuilder();
                         StringBuilder heltid = new StringBuilder();
-                        StringBuilder premieTekst = new StringBuilder(String.Format("{0}\r\n", halvTidOverskrift));
-                        StringBuilder premieVerdi = new StringBuilder("\r\n");
-                        StringBuilder antallVinnere = new StringBuilder(antallVinnereOverskrift); //initialiseres ikke med linjeskift fordi linjeskift fordi siste element i linja
+                        StringBuilder premieTekst = new StringBuilder();
+                        StringBuilder premieVerdi = new StringBuilder();
+                        StringBuilder antallVinnere = new StringBuilder(); //initialiseres ikke med linjeskift fordi linjeskift fordi siste element i linja
+
+                        StringBuilder premieTekstFullTid = new StringBuilder();
+                        StringBuilder premieVerdiFullTid = new StringBuilder();
+                        StringBuilder antallVinnereFullTid = new StringBuilder();
+
                         int teller = 0;
                         JsonArray results = ob1["matchStages"].GetArray();
                         foreach (JsonValue ev in results)
@@ -188,26 +185,46 @@ namespace Tipperesultater.Data
 
                             foreach (JsonValue j2 in abba)
                             {
+                                if (teller == 1)
+                                {
+                                    JsonArray j22 = j2.GetArray();
+                                    String text = String.Join("", j22.Select((x, i) => i == 0 ? x.GetString().Replace("av", CultureInfo.CurrentCulture.TwoLetterISOLanguageName.Equals("nb") ? "av" : "of") : i == 1 ? "" : "\r\n"));
+                                    premieTekst.Append(text);
 
-                                JsonArray j22 = j2.GetArray();
-                                String text = String.Join("", j22.Select((x, i) => i == 0 ? x.GetString().Replace("av", CultureInfo.CurrentCulture.TwoLetterISOLanguageName.Equals("nb") ? "av" : "of") : i == 1 ? "" : "\r\n"));
-                                premieTekst.Append(text);
+                                    String text2 = String.Join("", j22.Select((x, i) => i == 1 ?
+                                            x.ValueType == JsonValueType.String ? x.GetString() :
+                                            x.GetNumber().ToString("### ### ### kr") : i == 0 ? "" : "\r\n"));
+                                    premieVerdi.Append(text2);
 
-                                String text2 = String.Join("", j22.Select((x, i) => i == 1 ?
-                                        x.ValueType == JsonValueType.String ? x.GetString() :
-                                        x.GetNumber().ToString("### ### ### kr") : i == 0 ? "" : "\r\n"));
-                                premieVerdi.Append(text2);
+                                    String antallVinnerePrRette = String.Join("", j22.Select((x, i) => i == 2 ?
+                                            x.ValueType == JsonValueType.String ? x.GetString()+"\r\n" :
+                                            x.GetNumber() == 0 ? "0" : x.GetNumber().ToString("### ###\r\n") : ""));
+                                    antallVinnere.Append(antallVinnerePrRette);
+                                }
 
-                                String antallVinnerePrRette = String.Join("", j22.Select((x, i) => i == 2 ?
-                                        x.ValueType == JsonValueType.String ? x.GetString() :
-                                        x.GetNumber() == 0 ? "0" : x.GetNumber().ToString("### ###") : i == 1 ? "" : "\r\n"));
-                                antallVinnere.Append(antallVinnerePrRette);
+                                if (teller == 2)
+                                {
+                                    JsonArray j22 = j2.GetArray();
+                                    String text = String.Join("", j22.Select((x, i) => i == 0 ? x.GetString().Replace("av", CultureInfo.CurrentCulture.TwoLetterISOLanguageName.Equals("nb") ? "av" : "of") : i == 1 ? "" : "\r\n"));
+                                    
+                                    premieTekstFullTid.Append(text);
+
+                                    String text2 = String.Join("", j22.Select((x, i) => i == 1 ?
+                                            x.ValueType == JsonValueType.String ? x.GetString() :
+                                            x.GetNumber().ToString("### ### ### kr") : i == 0 ? "" : "\r\n"));
+                                    premieVerdiFullTid.Append(text2);
+
+                                    String antallVinnerePrRette = String.Join("", j22.Select((x, i) => i == 2 ?
+                                            x.ValueType == JsonValueType.String ? x.GetString()+"\r\n" :
+                                            x.GetNumber() == 0 ? "0" : x.GetNumber().ToString("### ###\r\n") : ""));
+                                    antallVinnereFullTid.Append(antallVinnerePrRette);
+                                }
                             }
                             if (teller == 1)
                             {
-                                premieTekst.Append(String.Format("\r\n{0}\r\n", helTidOverskrift));   
-                                premieVerdi.Append("\r\n\r\n");
-                                antallVinnere.Append("\r\n\r\n");
+                                //premieTekst.Append(String.Format("\r\n{0}\r\n", helTidOverskrift));   
+                                //premieVerdi.Append("\r\n\r\n");
+                                //antallVinnere.Append("\r\n\r\n");
                             }
 
                         }
@@ -221,6 +238,9 @@ namespace Tipperesultater.Data
                         this.LiveResultat = liveResultat.ToString();
                         this.LiveResultatStatus = liveResultatStatus.ToString();
                         this.AntallVinnere = antallVinnere.ToString();
+                        this.PremienavnFullTid = premieTekstFullTid.ToString();
+                        this.PremietallFullTid = premieVerdiFullTid.ToString();
+                        this.AntallVinnereFullTid = antallVinnereFullTid.ToString();
                     }
                 }
             }
@@ -265,9 +285,12 @@ namespace Tipperesultater.Data
         public string Trekningsdato { get; protected set; }
         public string Premienavn { get; protected set; }
         public string Premietall { get; protected set; }
+        public string PremienavnFullTid { get; protected set; }
+        public string PremietallFullTid { get; protected set; }
         public string Kampstatus { get; protected set; }
         public string LiveResultat { get; protected set; }
         public string LiveResultatStatus { get; protected set; }
         public string AntallVinnere { get; protected set; }
+        public string AntallVinnereFullTid { get; protected set; }
     }
 }

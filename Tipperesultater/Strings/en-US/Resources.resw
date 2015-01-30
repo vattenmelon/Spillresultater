@@ -172,7 +172,7 @@
     <value>MY APPLICATION</value>
   </data>
   <data name="JokerPremierLabel.Text" xml:space="preserve">
-    <value>premieprognose</value>
+    <value>prizes</value>
   </data>
   <data name="JokerSpillerkortLabel.Text" xml:space="preserve">
     <value>player card number</value>
@@ -295,7 +295,7 @@
     <value>extra candidate</value>
   </data>
   <data name="ExtraVinnerEkstrasjansenLabel.Text" xml:space="preserve">
-    <value>winners extra chanse</value>
+    <value>winners extra chance</value>
   </data>
   <data name="ExtraVinnertallLabel.Text" xml:space="preserve">
     <value>numbers</value>
@@ -329,5 +329,32 @@
   </data>
   <data name="AboutVersion.Text" xml:space="preserve">
     <value>Version: </value>
+  </data>
+  <data name="FotballtippingPremierValuesFullTimeTittel.Text" xml:space="preserve">
+    <value>FULL TIME</value>
+  </data>
+  <data name="FotballtippingPremierValuesHalfTimeAntallVinnereTittel.Text" xml:space="preserve">
+    <value>WINNERS</value>
+  </data>
+  <data name="FotballtippingPremierValuesHalfTimeTittel.Text" xml:space="preserve">
+    <value>HALF TIME</value>
+  </data>
+  <data name="FotballtippingMidtPremierValuesHalfTimeAntallVinnereTittel.Text" xml:space="preserve">
+    <value>WINNERS</value>
+  </data>
+  <data name="FotballtippingMidtPremierValuesHalfTimeTittel.Text" xml:space="preserve">
+    <value>HALF TIME</value>
+  </data>
+  <data name="FotballtippingPremierMidtValuesFullTimeTittel.Text" xml:space="preserve">
+    <value>FULL TIME</value>
+  </data>
+  <data name="FotballtippingPremierSonValuesFullTimeTittel.Text" xml:space="preserve">
+    <value>FULL TIME</value>
+  </data>
+  <data name="FotballtippingSonPremierValuesHalfTimeAntallVinnereTittel.Text" xml:space="preserve">
+    <value>WINNERS</value>
+  </data>
+  <data name="FotballtippingSonPremierValuesHalfTimeTittel.Text" xml:space="preserve">
+    <value>HALF TIME</value>
   </data>
 </root>

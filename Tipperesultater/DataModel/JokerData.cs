@@ -25,12 +25,12 @@ namespace Tipperesultater.Data
            this.AntallVinnere = jsonObjectLotto["nrOfWinners"].GetNumber().ToString("### ### ###");
            JsonObject personalia = jsonObjectLotto["winnerPersonalia"].GetObject();
            String genderKode = personalia["gender"].GetString();
-           var gender = genderKode.Equals("K") ? "kvinne" : "mann";
+           var gender = genderKode.Equals("K") ?  (Utils.isEnglish() ? "female" : "kvinne") : (Utils.isEnglish() ? "male" : "mann");
            spillerkortvinner = spillerkortvinner + " (" + gender + " " + personalia["age"].GetNumber() + ", " + personalia["borough"].GetString() + ")";
 
            JsonArray premier = jsonObjectLotto["prizeTable"].GetArray();
            JsonArray premierTitles = jsonObjectLotto["prizeCaptionTable"].GetArray();
-           string desc = String.Join("\r\n", premierTitles.Select(x => x.GetString()).ToList());
+           string desc = String.Join("\r\n", premierTitles.Select(x => x.GetString().Replace("1.premie", "1. premie")).ToList());
            string prem = String.Join("\r\n", premier.Select(x =>
                            !Regex.IsMatch(x.GetString(), @"^\d+$") ? x.GetString() :
                            int.Parse(x.GetString()).ToString("### ### ### kr")

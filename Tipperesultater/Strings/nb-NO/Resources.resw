@@ -330,4 +330,31 @@
   <data name="AboutVersion.Text" xml:space="preserve">
     <value>Versjon: </value>
   </data>
+  <data name="FotballtippingPremierValuesFullTimeTittel.Text" xml:space="preserve">
+    <value>HELTID</value>
+  </data>
+  <data name="FotballtippingPremierValuesHalfTimeAntallVinnereTittel.Text" xml:space="preserve">
+    <value>VINNERE</value>
+  </data>
+  <data name="FotballtippingPremierValuesHalfTimeTittel.Text" xml:space="preserve">
+    <value>HALVTID</value>
+  </data>
+  <data name="FotballtippingMidtPremierValuesHalfTimeAntallVinnereTittel.Text" xml:space="preserve">
+    <value>VINNERE</value>
+  </data>
+  <data name="FotballtippingMidtPremierValuesHalfTimeTittel.Text" xml:space="preserve">
+    <value>HALVTID</value>
+  </data>
+  <data name="FotballtippingPremierMidtValuesFullTimeTittel.Text" xml:space="preserve">
+    <value>HELTID</value>
+  </data>
+  <data name="FotballtippingPremierSonValuesFullTimeTittel.Text" xml:space="preserve">
+    <value>HELTID</value>
+  </data>
+  <data name="FotballtippingSonPremierValuesHalfTimeAntallVinnereTittel.Text" xml:space="preserve">
+    <value>VINNERE</value>
+  </data>
+  <data name="FotballtippingSonPremierValuesHalfTimeTittel.Text" xml:space="preserve">
+    <value>HALVTID</value>
+  </data>
 </root>

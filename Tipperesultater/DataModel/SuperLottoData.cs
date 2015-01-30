@@ -30,8 +30,14 @@ namespace Tipperesultater.Data
            this.Vinnere = String.Join("\r\n", jObject["winnerList"].GetArray().Select(x =>
                            int.Parse(x.GetArray()[0].GetString()).ToString("### ### ###") + ": " + decodeGender(x.GetArray()[1].GetString()) + ", " + UpperFirst(x.GetArray()[4].GetString()) + ", " + x.GetArray()[6].GetString()
                         ).ToList());
-           this.NesteTrekning = String.Format("{0} ({1} trekninger til)", lottoData.NesteSuperLottoTrekning, lottoData.AntallTrekningerTilNesteSuperLotto);
-           
+           if (Utils.isEnglish())
+           {
+               this.NesteTrekning = String.Format("{0} (in {1} draws)", lottoData.NesteSuperLottoTrekning, lottoData.AntallTrekningerTilNesteSuperLotto);
+           }
+           else
+           {
+               this.NesteTrekning = String.Format("{0} ({1} trekninger til)", lottoData.NesteSuperLottoTrekning, lottoData.AntallTrekningerTilNesteSuperLotto);
+           }
        }
 
        private string UpperFirst(string text)
@@ -44,9 +50,9 @@ namespace Tipperesultater.Data
        {
            if (p.Equals("K"))
            {
-               return "Kvinne";
+               return Utils.isEnglish() ? "Female" : "Kvinne";
            }
-           return "Mann";
+           return Utils.isEnglish() ? "Male" : "Mann";
        }
 
 
