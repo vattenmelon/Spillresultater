@@ -193,12 +193,12 @@ namespace Tipperesultater.Data
 
                                     String text2 = String.Join("", j22.Select((x, i) => i == 1 ?
                                             x.ValueType == JsonValueType.String ? x.GetString() :
-                                            x.GetNumber().ToString("### ### ### kr") : i == 0 ? "" : "\r\n"));
+                                            x.GetNumber() == 0 ? "-" : x.GetNumber().ToString("### ### ### kr") : i == 0 ? "" : "\r\n"));
                                     premieVerdi.Append(text2);
 
                                     String antallVinnerePrRette = String.Join("", j22.Select((x, i) => i == 2 ?
-                                            x.ValueType == JsonValueType.String ? x.GetString()+"\r\n" :
-                                            x.GetNumber() == 0 ? "0" : x.GetNumber().ToString("### ###\r\n") : ""));
+                                            x.ValueType == JsonValueType.String ? x.GetString() :
+                                            x.GetNumber() == 0 ? "0\r\n" : x.GetNumber().ToString("### ###\r\n") : ""));
                                     antallVinnere.Append(antallVinnerePrRette);
                                 }
 
@@ -211,12 +211,12 @@ namespace Tipperesultater.Data
 
                                     String text2 = String.Join("", j22.Select((x, i) => i == 1 ?
                                             x.ValueType == JsonValueType.String ? x.GetString() :
-                                            x.GetNumber().ToString("### ### ### kr") : i == 0 ? "" : "\r\n"));
+                                            x.GetNumber() == 0 ? "-" : x.GetNumber().ToString("### ### ### kr") : i == 0 ? "" : "\r\n"));
                                     premieVerdiFullTid.Append(text2);
 
                                     String antallVinnerePrRette = String.Join("", j22.Select((x, i) => i == 2 ?
-                                            x.ValueType == JsonValueType.String ? x.GetString()+"\r\n" :
-                                            x.GetNumber() == 0 ? "0" : x.GetNumber().ToString("### ###\r\n") : ""));
+                                            x.ValueType == JsonValueType.String ? x.GetString() :
+                                            x.GetNumber() == 0 ? "0\r\n" : x.GetNumber().ToString("### ###\r\n") : ""));
                                     antallVinnereFullTid.Append(antallVinnerePrRette);
                                 }
                             }
