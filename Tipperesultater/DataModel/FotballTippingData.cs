@@ -221,12 +221,6 @@ namespace Tipperesultater.Data
                                     antallVinnereFullTid.Append(antallVinnerePrRette);
                                 }
                             }
-                            if (teller == 1)
-                            {
-                                //premieTekst.Append(String.Format("\r\n{0}\r\n", helTidOverskrift));   
-                                //premieVerdi.Append("\r\n\r\n");
-                                //antallVinnere.Append("\r\n\r\n");
-                            }
 
                         }
                         this.Heltid = heltid.ToString();
