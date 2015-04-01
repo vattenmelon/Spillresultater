@@ -1,3 +1,3 @@
-MainPackage=C:\dev\src\Spillresultater\Tipperesultater\bin\Release\Tipperesultater_1.3.0.2_Bundle\Tipperesultater_1.3.0.2_AnyCPU.appx
-SymbolPackage=C:\dev\src\Spillresultater\Tipperesultater\AppPackages\Tipperesultater_1.3.0.2_Test\Tipperesultater_1.3.0.2_AnyCPU.appxsym
-ResourcePack=C:\dev\src\Spillresultater\Tipperesultater\bin\Release\Tipperesultater_1.3.0.2_Bundle\Tipperesultater_1.3.0.2_language-en.appx
+MainPackage=C:\dev\src\Spillresultater\Tipperesultater\bin\Release\Tipperesultater_1.3.0.3_Bundle\Tipperesultater_1.3.0.3_AnyCPU.appx
+SymbolPackage=C:\dev\src\Spillresultater\Tipperesultater\AppPackages\Tipperesultater_1.3.0.3_Test\Tipperesultater_1.3.0.3_AnyCPU.appxsym
+ResourcePack=C:\dev\src\Spillresultater\Tipperesultater\bin\Release\Tipperesultater_1.3.0.3_Bundle\Tipperesultater_1.3.0.3_language-en.appx
