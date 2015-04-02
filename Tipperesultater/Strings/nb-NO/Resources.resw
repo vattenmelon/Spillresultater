@@ -136,7 +136,7 @@
     <value>FULL</value>
   </data>
   <data name="FotballtippingHalftimeLabel.Text" xml:space="preserve">
-    <value>HALV</value>
+    <value>PAUSE</value>
   </data>
   <data name="FotballtippingLiveResultsLabel.Text" xml:space="preserve">
     <value>LIVE</value>
@@ -151,7 +151,7 @@
     <value>FULL</value>
   </data>
   <data name="FotballtippingSonHalftimeLabel.Text" xml:space="preserve">
-    <value>HALV</value>
+    <value>PAUSE</value>
   </data>
   <data name="FotballtippingSonLiveResultsLabel.Text" xml:space="preserve">
     <value>LIVE</value>
@@ -331,30 +331,30 @@
     <value>Versjon: </value>
   </data>
   <data name="FotballtippingPremierValuesFullTimeTittel.Text" xml:space="preserve">
-    <value>HELTID</value>
+    <value>FULLTID</value>
   </data>
   <data name="FotballtippingPremierValuesHalfTimeAntallVinnereTittel.Text" xml:space="preserve">
     <value>VINNERE</value>
   </data>
   <data name="FotballtippingPremierValuesHalfTimeTittel.Text" xml:space="preserve">
-    <value>HALVTID</value>
+    <value>PAUSE</value>
   </data>
   <data name="FotballtippingMidtPremierValuesHalfTimeAntallVinnereTittel.Text" xml:space="preserve">
     <value>VINNERE</value>
   </data>
   <data name="FotballtippingMidtPremierValuesHalfTimeTittel.Text" xml:space="preserve">
-    <value>HALVTID</value>
+    <value>PAUSE</value>
   </data>
   <data name="FotballtippingPremierMidtValuesFullTimeTittel.Text" xml:space="preserve">
-    <value>HELTID</value>
+    <value>FULLTID</value>
   </data>
   <data name="FotballtippingPremierSonValuesFullTimeTittel.Text" xml:space="preserve">
-    <value>HELTID</value>
+    <value>FULLTID</value>
   </data>
   <data name="FotballtippingSonPremierValuesHalfTimeAntallVinnereTittel.Text" xml:space="preserve">
     <value>VINNERE</value>
   </data>
   <data name="FotballtippingSonPremierValuesHalfTimeTittel.Text" xml:space="preserve">
-    <value>HALVTID</value>
+    <value>PAUSE</value>
   </data>
 </root>
