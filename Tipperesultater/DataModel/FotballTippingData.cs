@@ -120,7 +120,8 @@ namespace Tipperesultater.Data
 
                         Boolean alleKamperErFerdig = false;
                         
-                        if ((statusMap.Contains("Slutt") && statusMap.Count == 1) || statusMap.Contains("Trukket") && statusMap.Count < 3)
+                        if ((statusMap.Contains("Slutt") || (statusMap.Contains("Trukket")) && statusMap.Count == 1) 
+                            || (statusMap.Contains("Trukket") && statusMap.Contains("Slutt")) && statusMap.Count < 3)
                         {
                             alleKamperErFerdig = true;
                         }
