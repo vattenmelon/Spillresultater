@@ -14,8 +14,7 @@ namespace Tipperesultater.Data
        public SuperLottoData(JsonObject jsonObjectLotto, string spillnavn, LottoData lottoData) : base(spillnavn)
       {
           JsonArray arr = jsonObjectLotto["superlottoDraws"].GetArray();
-          JsonObject sisteTrekning = arr[0].GetObject(); 
-
+          JsonObject sisteTrekning = arr[0].GetObject();
            var a = sisteTrekning["drawDate"].GetString();
            DateTime trekningspunkt = DateTime.ParseExact(a, "yyyy,MM,dd,HH,mm,ss", CultureInfo.CurrentCulture);
            string trekningspunktAsString = trekningspunkt.ToString("dddd d. MMMM", CultureInfo.CurrentCulture);
@@ -28,10 +27,10 @@ namespace Tipperesultater.Data
            this.Premie = prizeAsString;
            this.Trekningsdato = trekningspunktAsString;
            this.Vinnere = String.Join("\r\n", jObject["winnerList"].GetArray().Select(x =>
-                           int.Parse(x.GetArray()[0].GetString()).ToString("### ### ###") + ": " + decodeGender(x.GetArray()[1].GetString()) + ", " + UpperFirst(x.GetArray()[4].GetString()) + ", " + x.GetArray()[6].GetString()
+                           (x.GetArray()[0].ValueType == JsonValueType.Number ? int.Parse(x.GetArray()[0].GetString()).ToString("### ### ###") : "N/A") + ": " + decodeGender(x.GetArray()[1].GetString()) + ", " + UpperFirst(x.GetArray()[4].GetString()) + ", " + x.GetArray()[6].GetString()
                         ).ToList());
            if (Utils.isEnglish())
-           {
+           { 
                this.NesteTrekning = String.Format("{0} (in {1} draws)", lottoData.NesteSuperLottoTrekning, lottoData.AntallTrekningerTilNesteSuperLotto);
            }
            else
