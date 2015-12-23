@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -27,7 +28,7 @@ namespace Tipperesultater.Data
            this.Premie = prizeAsString;
            this.Trekningsdato = trekningspunktAsString;
            this.Vinnere = String.Join("\r\n", jObject["winnerList"].GetArray().Select(x =>
-                           (x.GetArray()[0].ValueType == JsonValueType.Number ? int.Parse(x.GetArray()[0].GetString()).ToString("### ### ###") : "N/A") + ": " + decodeGender(x.GetArray()[1].GetString()) + ", " + UpperFirst(x.GetArray()[4].GetString()) + ", " + x.GetArray()[6].GetString()
+                           (x.GetArray()[0].ValueType == JsonValueType.String && !x.GetArray()[0].GetString().Equals("Andelsbank") ? int.Parse(x.GetArray()[0].GetString()).ToString("### ### ###") : x.GetArray()[0].GetString().Equals("Andelsbank") ? "Andelsbank" : "N/A") + ": " + decodeGender(x.GetArray()[1].GetString()) + ", " + UpperFirst(x.GetArray()[4].GetString()) + ", " + x.GetArray()[6].GetString()
                         ).ToList());
            if (Utils.isEnglish())
            { 
@@ -41,6 +42,8 @@ namespace Tipperesultater.Data
 
        private string UpperFirst(string text)
        {
+           if (text.Count() == 0)
+               return "";
            return char.ToUpper(text[0]) +
                ((text.Length > 1) ? text.Substring(1).ToLower() : string.Empty);
        }
@@ -51,7 +54,11 @@ namespace Tipperesultater.Data
            {
                return Utils.isEnglish() ? "Female" : "Kvinne";
            }
-           return Utils.isEnglish() ? "Male" : "Mann";
+           else if (p.Equals("M"))
+           {
+               return Utils.isEnglish() ? "Male" : "Mann";
+           }
+           return "";
        }
 
 
